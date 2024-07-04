@@ -1,7 +1,7 @@
 # Planet-Earth-Stranded
 This is my submission for the Hack Club: Arcade program that occured the summer of 2024
 
-For the Animation previews, these are located [here](Samples (View Animations and pictures))
+For the Animation previews, these are located [here](Samples_(View Animations and pictures))
 
 Planet Earth: Stranded is an open-world game where you explore and collect scraps to re-establish contact with the space colony. 
 
