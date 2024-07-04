@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://b51sxefeu6042"]
+
+[ext_resource type="Texture2D" uid="uid://dxxlswkgbkwak" path="res://Assets/Environment/Textures/Grid.png" id="1_p52ew"]
+[ext_resource type="PackedScene" uid="uid://bhdvfievnjoad" path="res://Scenes/Models/Player/Player.tscn" id="2_5hsnt"]
+[ext_resource type="Script" path="res://Scenes/Models/Player/camera_controller.gd" id="3_phmic"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ebm06"]
+albedo_texture = ExtResource("1_p52ew")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ny02q"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Floor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -1.33028, 0.5)
+material_override = SubResource("StandardMaterial3D_ebm06")
+use_collision = true
+size = Vector3(48, 0.5, 48)
+
+[node name="Wall" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.22449, 1.86972, 1)
+material_override = SubResource("StandardMaterial3D_ebm06")
+use_collision = true
+size = Vector3(8, 6, 12)
+
+[node name="Player" type="CharacterBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+shape = SubResource("CapsuleShape3D_ny02q")
+
+[node name="MeshRoot" type="Node3D" parent="Player"]
+
+[node name="Robot" parent="Player/MeshRoot" instance=ExtResource("2_5hsnt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.02912, 0)
+
+[node name="CameraRoot" type="Node3D" parent="Player"]
+
+[node name="PhysicalBone3D" type="PhysicalBone3D" parent="Player/CameraRoot"]
+
+[node name="CamYaw" type="Node3D" parent="Player/CameraRoot/PhysicalBone3D"]
+
+[node name="CamPitch" type="Node3D" parent="Player/CameraRoot/PhysicalBone3D/CamYaw"]
+
+[node name="Camera3D" type="Camera3D" parent="Player/CameraRoot/PhysicalBone3D/CamYaw/CamPitch"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+current = true
+script = ExtResource("3_phmic")
