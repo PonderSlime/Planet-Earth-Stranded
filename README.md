@@ -1,7 +1,7 @@
 # Planet-Earth-Stranded
 This is my submission for the Hack Club: Arcade program that occured the summer of 2024
 
-For example animations, click [here](repo/Planet-Earth-Stranded/main/Assets)
+For example animations, click [here](main/Assets)
 
 Planet Earth: Stranded is an open-world game where you explore and collect scraps to re-establish contact with the space colony. 
 
