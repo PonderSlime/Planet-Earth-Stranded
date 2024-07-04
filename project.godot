@@ -17,3 +17,7 @@ config/icon="res://icon.svg"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/terrain_3d/plugin.cfg")
+
+[physics]
+
+3d/physics_engine="JoltPhysics3D"

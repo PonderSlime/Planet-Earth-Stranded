@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b51sxefeu6042"]
+[gd_scene load_steps=8 format=3 uid="uid://b51sxefeu6042"]
 
 [ext_resource type="Texture2D" uid="uid://dxxlswkgbkwak" path="res://Assets/Environment/Textures/Grid.png" id="1_p52ew"]
 [ext_resource type="PackedScene" uid="uid://bhdvfievnjoad" path="res://Scenes/Models/Player/Player.tscn" id="2_5hsnt"]
 [ext_resource type="Script" path="res://Scenes/Models/Player/camera_controller.gd" id="3_phmic"]
+[ext_resource type="Script" path="res://Scenes/Tests/SpringArm3D.gd" id="4_xx1et"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ebm06"]
 albedo_texture = ExtResource("1_p52ew")
@@ -10,6 +11,9 @@ uv1_triplanar = true
 uv1_world_triplanar = true
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ny02q"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fbxo0"]
+radius = 0.07
 
 [node name="Node3D" type="Node3D"]
 
@@ -26,6 +30,7 @@ use_collision = true
 size = Vector3(8, 6, 12)
 
 [node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 shape = SubResource("CapsuleShape3D_ny02q")
@@ -36,14 +41,18 @@ shape = SubResource("CapsuleShape3D_ny02q")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.02912, 0)
 
 [node name="CameraRoot" type="Node3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.869557, 0)
+script = ExtResource("3_phmic")
 
-[node name="PhysicalBone3D" type="PhysicalBone3D" parent="Player/CameraRoot"]
+[node name="CamYaw" type="Node3D" parent="Player/CameraRoot"]
 
-[node name="CamYaw" type="Node3D" parent="Player/CameraRoot/PhysicalBone3D"]
+[node name="CamPitch" type="Node3D" parent="Player/CameraRoot/CamYaw"]
 
-[node name="CamPitch" type="Node3D" parent="Player/CameraRoot/PhysicalBone3D/CamYaw"]
+[node name="SpringArm3D" type="SpringArm3D" parent="Player/CameraRoot/CamYaw/CamPitch"]
+shape = SubResource("SphereShape3D_fbxo0")
+spring_length = -2.5
+script = ExtResource("4_xx1et")
 
-[node name="Camera3D" type="Camera3D" parent="Player/CameraRoot/PhysicalBone3D/CamYaw/CamPitch"]
+[node name="Camera3D" type="Camera3D" parent="Player/CameraRoot/CamYaw/CamPitch/SpringArm3D"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 current = true
-script = ExtResource("3_phmic")
