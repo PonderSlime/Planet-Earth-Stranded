@@ -1,9 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://b51sxefeu6042"]
+[gd_scene load_steps=14 format=3 uid="uid://b51sxefeu6042"]
 
 [ext_resource type="Texture2D" uid="uid://dxxlswkgbkwak" path="res://Assets/Environment/Textures/Grid.png" id="1_p52ew"]
 [ext_resource type="PackedScene" uid="uid://bhdvfievnjoad" path="res://Scenes/Models/Player/Player.tscn" id="2_5hsnt"]
+[ext_resource type="Script" path="res://Scenes/Models/Player/Player.gd" id="2_rcws8"]
+[ext_resource type="Resource" uid="uid://difpuuckqhvsv" path="res://Scenes/Models/Player/MovementStates/stand.tres" id="3_45hct"]
 [ext_resource type="Script" path="res://Scenes/Models/Player/camera_controller.gd" id="3_phmic"]
+[ext_resource type="Resource" uid="uid://brvevs4yorhgf" path="res://Scenes/Models/Player/MovementStates/walk.tres" id="4_1dvcw"]
 [ext_resource type="Script" path="res://Scenes/Tests/SpringArm3D.gd" id="4_xx1et"]
+[ext_resource type="Resource" uid="uid://c08l7gnjmjaqu" path="res://Scenes/Models/Player/MovementStates/run.tres" id="5_7f4mf"]
+[ext_resource type="Script" path="res://Scenes/Tests/movement_controller.gd" id="5_w2wrx"]
+
+[sub_resource type="Environment" id="Environment_pde42"]
+background_mode = 2
+fog_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ebm06"]
 albedo_texture = ExtResource("1_p52ew")
@@ -17,11 +26,16 @@ radius = 0.07
 
 [node name="Node3D" type="Node3D"]
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_pde42")
+
 [node name="Floor" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -1.33028, 0.5)
 material_override = SubResource("StandardMaterial3D_ebm06")
 use_collision = true
-size = Vector3(48, 0.5, 48)
+size = Vector3(400, 0.5, 400)
 
 [node name="Wall" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.22449, 1.86972, 1)
@@ -31,6 +45,17 @@ size = Vector3(8, 6, 12)
 
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+script = ExtResource("2_rcws8")
+movement_states = {
+"run": ExtResource("5_7f4mf"),
+"stand": ExtResource("3_45hct"),
+"walk": ExtResource("4_1dvcw")
+}
+
+[node name="MovementController" type="Node" parent="Player" node_paths=PackedStringArray("player", "mesh_root")]
+script = ExtResource("5_w2wrx")
+player = NodePath("..")
+mesh_root = NodePath("../MeshRoot")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 shape = SubResource("CapsuleShape3D_ny02q")
@@ -40,19 +65,23 @@ shape = SubResource("CapsuleShape3D_ny02q")
 [node name="Robot" parent="Player/MeshRoot" instance=ExtResource("2_5hsnt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.02912, 0)
 
-[node name="CameraRoot" type="Node3D" parent="Player"]
+[node name="CamRoot" type="Node3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.869557, 0)
 script = ExtResource("3_phmic")
 
-[node name="CamYaw" type="Node3D" parent="Player/CameraRoot"]
+[node name="CamYaw" type="Node3D" parent="Player/CamRoot"]
 
-[node name="CamPitch" type="Node3D" parent="Player/CameraRoot/CamYaw"]
+[node name="CamPitch" type="Node3D" parent="Player/CamRoot/CamYaw"]
 
-[node name="SpringArm3D" type="SpringArm3D" parent="Player/CameraRoot/CamYaw/CamPitch"]
+[node name="SpringArm3D" type="SpringArm3D" parent="Player/CamRoot/CamYaw/CamPitch"]
 shape = SubResource("SphereShape3D_fbxo0")
 spring_length = -2.5
 script = ExtResource("4_xx1et")
 
-[node name="Camera3D" type="Camera3D" parent="Player/CameraRoot/CamYaw/CamPitch/SpringArm3D"]
+[node name="Camera3D" type="Camera3D" parent="Player/CamRoot/CamYaw/CamPitch/SpringArm3D"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 current = true
+
+[connection signal="set_movement_direction" from="Player" to="Player/MovementController" method="_on_set_movement_direction"]
+[connection signal="set_movement_state" from="Player" to="Player/MovementController" method="_on_set_movement_state"]
+[connection signal="set_cam_rotation" from="Player/CamRoot" to="Player/MovementController" method="_on_set_cam_rotation"]
