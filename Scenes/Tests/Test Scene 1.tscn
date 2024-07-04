@@ -6,9 +6,9 @@
 [ext_resource type="Resource" uid="uid://difpuuckqhvsv" path="res://Scenes/Models/Player/MovementStates/stand.tres" id="3_45hct"]
 [ext_resource type="Script" path="res://Scenes/Models/Player/camera_controller.gd" id="3_phmic"]
 [ext_resource type="Resource" uid="uid://brvevs4yorhgf" path="res://Scenes/Models/Player/MovementStates/walk.tres" id="4_1dvcw"]
-[ext_resource type="Script" path="res://Scenes/Tests/SpringArm3D.gd" id="4_xx1et"]
+[ext_resource type="Script" path="res://Scenes/Models/Player/SpringArm3D.gd" id="4_xx1et"]
 [ext_resource type="Resource" uid="uid://c08l7gnjmjaqu" path="res://Scenes/Models/Player/MovementStates/run.tres" id="5_7f4mf"]
-[ext_resource type="Script" path="res://Scenes/Tests/movement_controller.gd" id="5_w2wrx"]
+[ext_resource type="Script" path="res://Scenes/Models/Player/movement_controller.gd" id="5_w2wrx"]
 
 [sub_resource type="Environment" id="Environment_pde42"]
 background_mode = 2
@@ -84,4 +84,5 @@ current = true
 
 [connection signal="set_movement_direction" from="Player" to="Player/MovementController" method="_on_set_movement_direction"]
 [connection signal="set_movement_state" from="Player" to="Player/MovementController" method="_on_set_movement_state"]
+[connection signal="set_movement_state" from="Player" to="Player/CamRoot" method="_on_set_movement_state"]
 [connection signal="set_cam_rotation" from="Player/CamRoot" to="Player/MovementController" method="_on_set_cam_rotation"]

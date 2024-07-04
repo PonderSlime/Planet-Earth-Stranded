@@ -15,8 +15,10 @@ func _input(event):
 		if is_movement_ongoing():
 			if Input.is_action_pressed("run"):
 				set_movement_state.emit(movement_states["run"])
+			else:
+				set_movement_state.emit(movement_states["walk"])
 		else:
-			set_movement_state.emit(movement_states["walk"])
+			set_movement_state.emit(movement_states["stand"])
 
 func _ready():
 	set_movement_state.emit(movement_states["stand"])
