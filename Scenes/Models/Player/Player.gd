@@ -1,14 +1,13 @@
 extends CharacterBody3D
 
 signal pressed_jump(jump_state : JumpState)
+signal pressed_glide(glide_state : GlideState)
 signal set_movement_state(_movement_state: MovementState)
 signal set_movement_direction(_movement_direction: Vector3)
-signal set_climbing_state(_climbing_state: ClimbState)
 
 @export var movement_states: Dictionary
 @export var jump_states: Dictionary
-@export var climb_states: Dictionary
-
+@export var glide_states: Dictionary
 var movement_direction : Vector3
 
 func _input(event):
@@ -24,10 +23,10 @@ func _input(event):
 				
 		else:
 			set_movement_state.emit(movement_states["stand"])
-	if Input.is_action_pressed("climb"):
-		set_climbing_state.emit(climb_states["climb"])
+
 func _ready():
 	set_movement_state.emit(movement_states["stand"])
+
 
 func _physics_process(delta):
 	if is_movement_ongoing():
@@ -38,9 +37,12 @@ func _physics_process(delta):
 			var jump_name = "jump"
 		
 			pressed_jump.emit(jump_states[jump_name])
-	if Input.is_action_pressed("climb"):
-		set_climbing_state.emit(climb_states["climb"])
-		
+	
+
+		if Input.is_action_just_pressed("glide"):
+			
+			pressed_glide.emit(glide_states["glide"])
+			#print("gliding")
 func is_movement_ongoing() -> bool:
 	return abs(movement_direction.x) > 0 or abs(movement_direction.z) > 0
 
