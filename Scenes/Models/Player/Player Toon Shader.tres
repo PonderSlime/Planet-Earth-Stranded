@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://t44bjlwkvkj6"]
+
+[ext_resource type="Shader" path="res://Assets/Environment/Textures/ToonShader.gdshader" id="1_mbmml"]
+[ext_resource type="Texture2D" uid="uid://cmfbyrptl8kni" path="res://Assets/Character/Textures/Character Texture.png" id="2_pn5kl"]
+
+[sub_resource type="Gradient" id="Gradient_i3ner"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.171642)
+colors = PackedColorArray(0.099986, 0.099986, 0.099986, 1, 0.259294, 0.259294, 0.259294, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_iquyq"]
+gradient = SubResource("Gradient_i3ner")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_mbmml")
+shader_parameter/albedo_texture = ExtResource("2_pn5kl")
+shader_parameter/color_gradient = SubResource("GradientTexture1D_iquyq")

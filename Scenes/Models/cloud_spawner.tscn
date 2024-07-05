@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://up254ltyir2b"]
+
+[ext_resource type="Script" path="res://Scenes/Models/cloud_spawner.gd" id="1_pj77v"]
+[ext_resource type="PackedScene" uid="uid://wc47jghsqy78" path="res://Scenes/Models/cloud.tscn" id="2_ivrfh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lday0"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0)
+
+[node name="Cloud Spawner" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30072, 0.090332, -0.0990601)
+size = Vector3(1.60144, 1.18066, 0.80188)
+material = SubResource("StandardMaterial3D_lday0")
+script = ExtResource("1_pj77v")
+_cloud = ExtResource("2_ivrfh")

@@ -1,7 +1,27 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c8ryhdqngecwg"]
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://c8ryhdqngecwg"]
 
+[ext_resource type="Shader" path="res://Assets/Environment/Textures/ToonShader.gdshader" id="1_ortal"]
 [ext_resource type="Texture2D" uid="uid://cmfbyrptl8kni" path="res://Assets/Character/Textures/Character Texture.png" id="1_yq7kb"]
 
 [resource]
-albedo_texture = ExtResource("1_yq7kb")
-emission_enabled = true
+render_priority = 0
+shader = ExtResource("1_ortal")
+shader_parameter/tint = Color(0.991164, 0.991164, 0.991164, 1)
+shader_parameter/metallic = 0.0
+shader_parameter/shadow_size = 0.045
+shader_parameter/shadow_blend = 0.001
+shader_parameter/shadow_extra_intensity = 0.0
+shader_parameter/shadow_color = Color(0.336608, 0.336608, 0.336608, 1)
+shader_parameter/light_tint = null
+shader_parameter/rimlight_size = 0.921
+shader_parameter/rimlight_blend = 0.01
+shader_parameter/rimlight_color = null
+shader_parameter/use_normalmap = true
+shader_parameter/animated = true
+shader_parameter/time_scale = 0.02
+shader_parameter/normal_bias = Vector3(0, 0, 0)
+shader_parameter/light_bias = Vector3(0, 0, 0)
+shader_parameter/use_view = true
+shader_parameter/view_bias = Color(1, 0, 1, 1)
+shader_parameter/view_multiplier = -1.0
+shader_parameter/albedo_texture = ExtResource("1_yq7kb")

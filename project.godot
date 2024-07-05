@@ -12,7 +12,12 @@ config_version=5
 
 config/name="Planet Earth: Stranded"
 config/features=PackedStringArray("4.2", "Forward Plus")
+run/max_fps=24
 config/icon="res://icon.svg"
+
+[debug]
+
+settings/stdout/print_fps=true
 
 [editor_plugins]
 
@@ -58,3 +63,7 @@ movement={
 [physics]
 
 3d/physics_engine="JoltPhysics3D"
+
+[rendering]
+
+global_illumination/sdfgi/frames_to_converge=0

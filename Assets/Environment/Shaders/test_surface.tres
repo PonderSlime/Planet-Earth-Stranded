@@ -1,0 +1,69 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://bdhj6so3chp0e"]
+
+[ext_resource type="Texture2D" uid="uid://bcedkkbrsj431" path="res://Assets/Environment/Shaders/color_gradient.tres" id="1_mfkm0"]
+[ext_resource type="Texture2D" uid="uid://dxxlswkgbkwak" path="res://Assets/Environment/Textures/Grid.png" id="1_wx3fp"]
+[ext_resource type="Texture2D" uid="uid://did3p25l52we" path="res://Assets/Environment/Shaders/fresnel_gradient.tres" id="2_7dbkv"]
+
+[sub_resource type="Shader" id="Shader_wh0a7"]
+code = "shader_type spatial;
+render_mode blend_mix,depth_draw_opaque,cull_disabled,diffuse_toon,specular_toon;
+
+uniform vec4 tint : source_color;
+uniform sampler2D albedo_texture : source_color;
+uniform sampler2D color_gradient;
+uniform sampler2D fresnel_gradient;
+
+const float color_mult = 1.0f;
+
+uniform sampler2D grid_texture: hint_default_white;
+uniform float brightness: hint_range(0.0f, 1.0f) = 1.0f;
+
+vec3 random(vec3 coord)
+{
+	vec3 res;
+	res.x = fract(sin(dot(coord.yz, vec2(12.9898,78.233))) * 43758.5453123);
+	res.y = fract(sin(dot(coord.xz, vec2(16.6539,68.698))) * 69845.5962848);
+	res.z = fract(sin(dot(coord.xy, vec2(25.5263,41.256))) * 42538.6985436);
+	return res;
+}
+
+float fresnel(float amount, vec3 normal, vec3 view)
+{
+	return pow((1.0 - clamp(dot(normalize(normal), normalize(view)), 0.0, 1.0 )), amount);
+}
+
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+
+void fragment() {
+	float basic_fresnel = fresnel(4.0, NORMAL, VIEW);
+	ALBEDO = texture(albedo_texture, UV).rgb + (basic_fresnel * texture(fresnel_gradient, vec2(basic_fresnel, 0.0)).rgb * 1.0);
+	vec4 projected_coords = INV_VIEW_MATRIX * vec4(VERTEX, 1.0);
+	vec3 albedoX = texture(grid_texture, projected_coords.zy).rgb;
+	vec3 albedoY = texture(grid_texture, projected_coords.xz).rgb;
+	vec3 albedoZ = texture(grid_texture, projected_coords.xy).rgb;
+	vec3 world_normal = abs(INV_VIEW_MATRIX * vec4(NORMAL, 0.0)).xyz;
+	vec3 normal_weights = world_normal / (world_normal.x + world_normal.y + world_normal.z);
+	
+	vec3 color_offset = random(floor(projected_coords.xyz));
+	
+	ALBEDO = mix(vec3(0.0f), mix((albedoX * normal_weights.x + albedoY * normal_weights.y + albedoZ * normal_weights.z), color_offset.rgb, 0.05f), brightness);
+}
+
+void light() {
+	float dotproduct = clamp(dot(NORMAL, LIGHT), -0.9, 0.9);
+	float sample = clamp((dotproduct + 1.0) * ATTENUATION / 2.1, 0.05, 0.95);
+	vec4 shaded = texture(color_gradient, vec2(sample, 0.0));
+	DIFFUSE_LIGHT += clamp((shaded.rgb * LIGHT_COLOR), 0.0, 1.0);
+	//DIFFUSE_LIGHT += (shaded.rgb * LIGHT_COLOR);
+}"
+
+[resource]
+render_priority = 0
+shader = SubResource("Shader_wh0a7")
+shader_parameter/tint = Color(0, 0, 0, 1)
+shader_parameter/brightness = 1.0
+shader_parameter/color_gradient = ExtResource("1_mfkm0")
+shader_parameter/fresnel_gradient = ExtResource("2_7dbkv")
+shader_parameter/grid_texture = ExtResource("1_wx3fp")
