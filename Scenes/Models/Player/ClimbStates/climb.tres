@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ClimbState" load_steps=2 format=3 uid="uid://b8gs43mvslb5m"]
+
+[ext_resource type="Script" path="res://Scenes/Models/Player/climb_state.gd" id="1_geeu8"]
+
+[resource]
+script = ExtResource("1_geeu8")
+animation_name = ""
+climb_speed = 4.0
