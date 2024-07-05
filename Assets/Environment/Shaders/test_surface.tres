@@ -38,7 +38,7 @@ void vertex() {
 
 void fragment() {
 	float basic_fresnel = fresnel(4.0, NORMAL, VIEW);
-	ALBEDO = texture(albedo_texture, UV).rgb + (basic_fresnel * texture(fresnel_gradient, vec2(basic_fresnel, 0.0)).rgb * 1.0);
+	ALBEDO = texture(albedo_texture, UV).rgb + (basic_fresnel * texture(fresnel_gradient, vec2(basic_fresnel, 0.0)).rgb * 1.0) * tint.rgb;
 	vec4 projected_coords = INV_VIEW_MATRIX * vec4(VERTEX, 1.0);
 	vec3 albedoX = texture(grid_texture, projected_coords.zy).rgb;
 	vec3 albedoY = texture(grid_texture, projected_coords.xz).rgb;
@@ -48,7 +48,7 @@ void fragment() {
 	
 	vec3 color_offset = random(floor(projected_coords.xyz));
 	
-	ALBEDO = mix(vec3(0.0f), mix((albedoX * normal_weights.x + albedoY * normal_weights.y + albedoZ * normal_weights.z), color_offset.rgb, 0.05f), brightness);
+	ALBEDO = mix(vec3(0.0f), mix((albedoX * normal_weights.x + albedoY * normal_weights.y + albedoZ * normal_weights.z), color_offset.rgb, 0.05f), brightness) * tint.rgb;
 }
 
 void light() {
@@ -62,7 +62,7 @@ void light() {
 [resource]
 render_priority = 0
 shader = SubResource("Shader_wh0a7")
-shader_parameter/tint = Color(0, 0, 0, 1)
+shader_parameter/tint = Color(0.860369, 0.860369, 0.860369, 1)
 shader_parameter/brightness = 1.0
 shader_parameter/color_gradient = ExtResource("1_mfkm0")
 shader_parameter/fresnel_gradient = ExtResource("2_7dbkv")

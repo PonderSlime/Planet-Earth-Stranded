@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="JumpState" load_steps=2 format=3 uid="uid://bl52gdpkd3csn"]
+
+[ext_resource type="Script" path="res://Scenes/Models/Player/jump_state.gd" id="1_bpnyf"]
+
+[resource]
+script = ExtResource("1_bpnyf")
+animation_name = ""
+jump_height = 3.0
+apex_duration = 0.5
