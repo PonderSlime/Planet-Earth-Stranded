@@ -3,6 +3,7 @@
 [sub_resource type="Gradient" id="Gradient_viw3b"]
 interpolation_mode = 1
 offsets = PackedFloat32Array(0, 0.302239)
+colors = PackedColorArray(0, 0, 0, 1, 0.310617, 0.310617, 0.310617, 1)
 
 [resource]
 gradient = SubResource("Gradient_viw3b")

@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_plmwp")
 id = 1
-movement_speed = 3.0
+movement_speed = 2.0
 acceleration = 7.0
 camera_fov = 72.5
 animation_speed = 1.15
