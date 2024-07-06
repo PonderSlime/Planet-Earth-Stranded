@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="GlideState" load_steps=2 format=3 uid="uid://dnvfiisdtrht"]
-
-[ext_resource type="Script" path="res://Scenes/Models/Player/glide_state.gd" id="1_x4721"]
-
-[resource]
-script = ExtResource("1_x4721")
-animation_name = ""
-glide_height = 5.0
-glide_duration = 100.0
