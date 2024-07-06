@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_bpnyf")
-animation_name = ""
+animation_name = "jump"
 jump_height = 1.5
 apex_duration = 0.2

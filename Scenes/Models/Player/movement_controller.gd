@@ -13,7 +13,7 @@ var cam_rotation : float = 0
 var jump_gravity : float = fall_gravity
 @export var glide_speed = 1
 var is_gliding : bool = false
-var glide_gravity : float = 1/100 #glide_speed/50
+var glide_gravity : float = glide_speed #glide_speed/50
 
 func _physics_process(delta):
 	velocity.x = speed * direction.normalized().x
@@ -25,7 +25,7 @@ func _physics_process(delta):
 		if velocity.y >= 0 and !is_gliding:
 			velocity.y -= jump_gravity * delta
 		elif velocity.y < 0 and is_gliding:
-			print("gliding bool initial velocity")
+			#print("gliding bool initial velocity")
 			velocity.y -= glide_gravity * delta
 			velocity.x = 8 * direction.normalized().x
 			velocity.z = 8 * direction.normalized().z
@@ -71,6 +71,6 @@ func _jump(jump_state : JumpState):
 	#jump_gravity = velocity.y 
 	
 func _glide(glide_state : GlideState):
-	print("gliding math")
-	velocity.y = 2 * 1.5 / 0.2 #movement_state
-	glide_gravity = velocity.y / 0.2
+	#print("gliding math")	
+	velocity.y = 2 * glide_state.glide_height / glide_state.glide_duration #movement_state
+	glide_gravity = velocity.y / glide_state.glide_duration

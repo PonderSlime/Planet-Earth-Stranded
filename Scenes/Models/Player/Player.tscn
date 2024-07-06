@@ -15,828 +15,788 @@ emission = Color(0.909246, 0.937035, 0.0974056, 1)
 emission_energy_multiplier = 16.0
 
 [node name="Robot" instance=ExtResource("1_01o4b")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="Armature" parent="." index="0"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 1.026, 0.015)
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/1/position = Vector3(2.455, 5.39731, 5.92986e-09)
 bones/1/rotation = Quaternion(-5.04041e-07, -2.94083e-07, 0.896632, -0.442776)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/rotation = Quaternion(0.31309, 0.634014, 0.634015, 0.31309)
 bones/2/scale = Vector3(1, 1, 1)
-bones/3/position = Vector3(-2.46437, 5.39731, 5.92984e-09)
 bones/3/rotation = Quaternion(5.04041e-07, -2.94083e-07, 0.896632, 0.442776)
 bones/3/scale = Vector3(1, 1, 1)
 bones/4/rotation = Quaternion(-0.31309, 0.634014, 0.634015, -0.31309)
 bones/4/scale = Vector3(1, 1, 1)
-bones/5/position = Vector3(0, 5.40769, 0)
 bones/6/rotation = Quaternion(0.663755, 0.325731, 0.604437, -0.296621)
 bones/6/scale = Vector3(1, 1, 1)
-bones/7/rotation = Quaternion(-0.443794, 0.072079, 0.0165654, 0.893072)
 bones/7/scale = Vector3(1, 1, 1)
-bones/8/rotation = Quaternion(4.40377e-08, 1.16621e-07, -0.0226065, 0.999744)
-bones/9/rotation = Quaternion(8.69266e-09, -2.37396e-07, -0.0165595, 0.999863)
-bones/10/rotation = Quaternion(5.66991e-09, 2.37956e-07, -0.00991176, 0.999951)
-bones/11/rotation = Quaternion(-3.42217e-06, -0.00191783, -0.00178495, 0.999997)
-bones/12/rotation = Quaternion(1.37734e-05, 0.00191767, 0.00718398, 0.999972)
-bones/13/rotation = Quaternion(-9.37275e-09, 1.18333e-07, 0.0166405, 0.999862)
-bones/14/rotation = Quaternion(-2.80599e-08, 3.59702e-07, 0.0259031, 0.999664)
-bones/15/rotation = Quaternion(0.000307241, -0.00912267, 0.0336636, 0.999392)
+bones/11/rotation = Quaternion(2.50173e-11, -0.00191784, 1.30485e-08, 0.999998)
+bones/12/rotation = Quaternion(-2.7032e-11, 0.00191772, -1.40999e-08, 0.999998)
+bones/15/rotation = Quaternion(2.41318e-11, -0.00912785, 2.64392e-09, 0.999958)
 bones/15/scale = Vector3(1, 1, 1)
-bones/16/rotation = Quaternion(0.001048, 0.00906699, 0.114821, 0.993344)
+bones/16/rotation = Quaternion(0.000685566, 0.00910158, 0.0751118, 0.997133)
 bones/16/scale = Vector3(1, 1, 1)
-bones/17/rotation = Quaternion(0.707107, -3.69608e-08, 0.707107, 8.17007e-08)
 bones/17/scale = Vector3(1, 1, 1)
-bones/22/rotation = Quaternion(9.70403e-05, -0.707107, -9.74521e-05, 0.707106)
+bones/21/rotation = Quaternion(-0.00627424, -0.700595, 0.0063896, 0.713503)
+bones/21/scale = Vector3(1, 1, 1)
+bones/22/rotation = Quaternion(9.7054e-05, -0.707107, -9.7443e-05, 0.707106)
 bones/22/scale = Vector3(1, 1, 1)
 bones/23/rotation = Quaternion(-0.011588, -0.707012, 0.0115876, 0.707011)
-bones/24/rotation = Quaternion(-0.00103319, -0.707106, 0.00103281, 0.707106)
+bones/24/rotation = Quaternion(-0.0010332, -0.707106, 0.00103281, 0.707106)
 bones/24/scale = Vector3(1, 1, 1)
+bones/25/rotation = Quaternion(-0.00325703, -0.705742, 0.00326934, 0.708454)
 bones/25/scale = Vector3(1, 1, 1)
-bones/26/rotation = Quaternion(-0.00545056, -0.707086, 0.00545018, 0.707085)
 bones/26/scale = Vector3(1, 1, 1)
-bones/27/rotation = Quaternion(0.0053347, -0.700996, -0.00542726, 0.713125)
-bones/28/rotation = Quaternion(-0.00554276, -0.713264, 0.00544593, 0.700853)
-bones/29/rotation = Quaternion(0.00206213, -0.699771, -0.00210536, 0.714361)
-bones/30/position = Vector3(-0.528137, 3.34321, -2.72404)
+bones/27/rotation = Quaternion(0.00533471, -0.700996, -0.00542725, 0.713125)
+bones/28/rotation = Quaternion(-0.00554276, -0.713264, 0.00544594, 0.700853)
+bones/29/rotation = Quaternion(0.00206214, -0.699771, -0.00210536, 0.714361)
 bones/30/rotation = Quaternion(-0.316564, -0.309465, -0.671411, 0.594328)
 bones/30/scale = Vector3(1, 1, 1)
-bones/31/position = Vector3(0.0409912, -0.261398, -5.76888e-05)
-bones/31/rotation = Quaternion(5.92254e-05, 0.000705645, 0.0836584, 0.996494)
+bones/31/rotation = Quaternion(5.92255e-05, 0.000705645, 0.0836584, 0.996494)
 bones/33/rotation = Quaternion(-0.498484, -0.498483, -0.501512, 0.501512)
 bones/33/scale = Vector3(1, 1, 1)
 bones/38/rotation = Quaternion(0.000705413, -5.92449e-05, 0.996494, -0.0836587)
 bones/39/rotation = Quaternion(0.496456, 0.496455, -0.50352, 0.503519)
 bones/39/scale = Vector3(1, 1, 1)
 bones/40/rotation = Quaternion(0.663115, -0.325983, -0.604689, -0.297261)
-bones/41/position = Vector3(0.524658, 3.34156, -2.72768)
 bones/41/rotation = Quaternion(-0.316489, 0.310354, 0.671379, 0.593941)
 bones/41/scale = Vector3(1, 1, 1)
-bones/42/position = Vector3(-0.0409936, -0.261397, -5.70595e-05)
+bones/42/rotation = Quaternion(5.92629e-05, -0.000705604, -0.0836585, 0.996494)
+bones/44/rotation = Quaternion(-0.497815, 0.497815, 0.502176, 0.502175)
 bones/49/rotation = Quaternion(-0.000705376, -5.9282e-05, 0.996494, 0.0836592)
 bones/49/scale = Vector3(0.999986, 1, 1)
 bones/50/rotation = Quaternion(0.496456, -0.496455, 0.50352, 0.503519)
-bones/51/rotation = Quaternion(-0.437087, -0.0269433, -0.0379319, 0.898215)
-bones/52/rotation = Quaternion(-1.45261e-08, -1.04753e-07, 0.0226067, 0.999744)
-bones/53/rotation = Quaternion(8.66358e-09, 2.3673e-07, 0.0165596, 0.999863)
-bones/54/rotation = Quaternion(5.08779e-09, -2.42649e-07, 0.00991182, 0.999951)
-bones/55/rotation = Quaternion(-3.42187e-06, 0.00191784, 0.00178496, 0.999997)
-bones/56/rotation = Quaternion(1.3773e-05, -0.00191767, -0.00718402, 0.999972)
-bones/57/rotation = Quaternion(-1.12609e-08, -1.18911e-07, -0.0166406, 0.999862)
-bones/58/rotation = Quaternion(-2.99377e-08, -3.59089e-07, -0.0259033, 0.999664)
-bones/59/rotation = Quaternion(0.00030724, 0.00912268, -0.0336638, 0.999392)
+bones/51/rotation = Quaternion(-0.4407, -0.0413133, -0.0203091, 0.896473)
+bones/55/rotation = Quaternion(2.50116e-11, 0.00191784, -1.30485e-08, 0.999998)
+bones/56/rotation = Quaternion(-2.70358e-11, -0.00191772, 1.40999e-08, 0.999998)
+bones/59/rotation = Quaternion(2.41293e-11, 0.00912785, -2.64392e-09, 0.999958)
 bones/59/scale = Vector3(1, 1, 1)
-bones/60/rotation = Quaternion(0.001048, -0.00906698, -0.114821, 0.993344)
+bones/60/rotation = Quaternion(0.000685563, -0.00910156, -0.0751118, 0.997133)
 bones/60/scale = Vector3(1, 1, 1)
+bones/61/rotation = Quaternion(-0.707107, 2.60125e-08, 0.707107, 3.37504e-08)
 bones/61/scale = Vector3(1, 1, 1)
-bones/65/rotation = Quaternion(-0.00638967, -0.713503, 0.00627398, 0.700595)
+bones/65/rotation = Quaternion(-0.00638966, -0.713503, 0.00627399, 0.700595)
 bones/65/scale = Vector3(1, 1, 1)
-bones/66/rotation = Quaternion(9.71941e-05, -0.707106, -9.73538e-05, 0.707107)
+bones/66/rotation = Quaternion(9.72005e-05, -0.707106, -9.73612e-05, 0.707107)
 bones/66/scale = Vector3(1, 1, 1)
 bones/67/rotation = Quaternion(-0.0115878, -0.707012, 0.0115877, 0.707012)
+bones/68/rotation = Quaternion(-0.00103306, -0.707106, 0.0010329, 0.707106)
 bones/68/scale = Vector3(1, 1, 1)
-bones/69/rotation = Quaternion(-0.00326939, -0.708454, 0.00325681, 0.705742)
+bones/69/rotation = Quaternion(-0.0032694, -0.708454, 0.00325679, 0.705742)
 bones/69/scale = Vector3(1, 1, 1)
-bones/70/rotation = Quaternion(-0.0054504, -0.707086, 0.00545025, 0.707086)
+bones/70/rotation = Quaternion(-0.00545041, -0.707086, 0.00545025, 0.707086)
 bones/70/scale = Vector3(1, 1, 1)
-bones/71/rotation = Quaternion(-0.00068366, -0.707106, 0.000683486, 0.707107)
 bones/71/scale = Vector3(1, 1, 1)
-bones/72/rotation = Quaternion(0.000710733, -0.707106, -0.000710927, 0.707107)
+bones/72/rotation = Quaternion(0.000710751, -0.707106, -0.000710913, 0.707107)
 bones/72/scale = Vector3(1, 1, 1)
-bones/73/rotation = Quaternion(-0.00521119, -0.707087, 0.00521102, 0.707088)
-bones/74/rotation = Quaternion(0.0355186, -6.36604e-05, 0.00724761, 0.999343)
+bones/74/rotation = Quaternion(9.51347e-08, 3.91638e-08, 0.00725219, 0.999974)
 bones/74/scale = Vector3(1, 1, 1)
 bones/75/rotation = Quaternion(-9.42702e-08, 8.00424e-08, -0.00725219, 0.999974)
 bones/75/scale = Vector3(1, 1, 1)
-bones/77/rotation = Quaternion(-0.0131405, 1.09433e-11, -1.70559e-13, 0.999914)
 bones/79/rotation = Quaternion(0.707107, 0, 0, 0.707107)
 bones/80/rotation = Quaternion(0.707107, 0, 0, 0.707107)
-bones/82/rotation = Quaternion(-0.000422101, -0.0145584, -5.57534e-09, 0.999894)
+bones/82/rotation = Quaternion(-0.000422103, -0.0145583, -5.57488e-09, 0.999894)
 bones/82/scale = Vector3(1, 1, 1)
 bones/85/rotation = Quaternion(-0.000896317, 0.00168269, -0.717235, 0.696829)
 bones/85/scale = Vector3(1, 1, 1)
-bones/86/rotation = Quaternion(-0.0700031, -0.0244668, 0.325936, 0.942479)
+bones/86/rotation = Quaternion(-0.00494084, 7.14922e-05, 0.297733, 0.954636)
 bones/86/scale = Vector3(1, 1, 1)
-bones/87/rotation = Quaternion(-0.592671, -0.363503, -0.582274, 0.421384)
+bones/87/rotation = Quaternion(0.0178554, -0.0067216, -0.740963, 0.671275)
 bones/87/scale = Vector3(1, 1, 1)
-bones/88/rotation = Quaternion(-0.0127674, -0.00333736, -0.0483942, 0.998741)
+bones/88/rotation = Quaternion(-0.0143899, -0.00333229, -0.0540613, 0.998428)
 bones/88/scale = Vector3(1, 1, 1)
-bones/89/rotation = Quaternion(0.00121387, 2.67019e-06, 0.00395674, 0.999991)
-bones/90/rotation = Quaternion(0.000905249, 3.42821e-06, 0.00261655, 0.999996)
-bones/91/rotation = Quaternion(0.000694654, 3.01477e-06, 0.00155328, 0.999999)
-bones/92/rotation = Quaternion(0.000564445, 2.1836e-06, 0.000688288, 1)
-bones/93/rotation = Quaternion(0.000501562, 2.68247e-06, -4.4301e-05, 1)
-bones/94/rotation = Quaternion(-0.012157, 0.000648422, 0.0474446, 0.9988)
-bones/95/rotation = Quaternion(0.0280958, 0.0396281, -0.0910364, 0.994662)
-bones/96/rotation = Quaternion(-0.0158936, -0.0404129, 0.0523248, 0.997686)
+bones/94/rotation = Quaternion(-0.0126537, 0.000662055, 0.0481497, 0.99876)
+bones/96/rotation = Quaternion(-0.0163116, -0.0404168, 0.0533323, 0.997625)
 bones/96/scale = Vector3(1, 1, 1)
-bones/97/rotation = Quaternion(0.000232983, 5.01797e-08, -0.000669029, 1)
-bones/98/rotation = Quaternion(0.000111007, 2.63817e-08, -0.000330023, 1)
 bones/100/rotation = Quaternion(-6.28291e-09, -7.81915e-08, 0.00604859, 0.999982)
 bones/100/scale = Vector3(1, 1, 1)
-bones/101/rotation = Quaternion(-0.1435, -0.01927, 0.131691, 0.98066)
-bones/102/rotation = Quaternion(-0.144783, -0.00119554, 0.00817048, 0.989429)
-bones/103/rotation = Quaternion(-0.144788, -0.000127197, 0.000870526, 0.989462)
-bones/104/rotation = Quaternion(0.000760361, 3.47925e-05, 0.94212, 0.335276)
-bones/105/rotation = Quaternion(0.000760467, 3.55203e-05, 0.942414, 0.334447)
+bones/103/rotation = Quaternion(-6.62427e-10, 1.44506e-07, 0.00087978, 1)
+bones/104/rotation = Quaternion(0.00076039, 3.47588e-05, 0.94212, 0.335276)
+bones/105/rotation = Quaternion(0.000760477, 3.55228e-05, 0.942414, 0.334447)
 bones/105/scale = Vector3(1, 1, 1)
-bones/106/rotation = Quaternion(0.000760168, 4.18156e-05, 0.945144, 0.326653)
-bones/106/scale = Vector3(1, 1, 1)
-bones/107/rotation = Quaternion(-0.14449, -0.00927485, 0.0633858, 0.98743)
-bones/108/rotation = Quaternion(-0.144782, 0.00122556, -0.00837579, 0.989427)
-bones/109/rotation = Quaternion(-0.144788, -5.52647e-06, 3.88453e-05, 0.989463)
-bones/110/rotation = Quaternion(0.000754385, 0.000100805, 0.967676, 0.252197)
+bones/106/rotation = Quaternion(0.00076017, 4.18124e-05, 0.945144, 0.326653)
+bones/107/rotation = Quaternion(-8.77514e-08, 3.3197e-07, 0.0640607, 0.997946)
+bones/108/rotation = Quaternion(1.39102e-08, -8.02659e-08, -0.00846498, 0.999964)
+bones/109/rotation = Quaternion(-1.23116e-10, 1.42563e-07, 3.92348e-05, 1)
+bones/110/rotation = Quaternion(0.000754381, 0.000100825, 0.967676, 0.252197)
 bones/110/scale = Vector3(1, 1, 1)
-bones/111/rotation = Quaternion(0.000754519, 0.000100882, 0.967685, 0.252159)
+bones/111/rotation = Quaternion(0.000754515, 0.000100881, 0.967685, 0.252159)
 bones/111/scale = Vector3(1, 1, 1)
-bones/112/rotation = Quaternion(0.000755274, 9.44659e-05, 0.965516, 0.260342)
+bones/112/rotation = Quaternion(0.000755281, 9.44696e-05, 0.965516, 0.260342)
 bones/112/scale = Vector3(1, 1, 1)
-bones/113/rotation = Quaternion(-0.144698, 0.00509228, -0.0347971, 0.988851)
-bones/114/rotation = Quaternion(-0.144786, 0.000719279, -0.00491477, 0.989451)
-bones/115/rotation = Quaternion(-0.144784, 0.00103155, -0.00704928, 0.989438)
-bones/116/rotation = Quaternion(0.000147682, 0.000533438, 0.988183, 0.15328)
-bones/117/rotation = Quaternion(0.000151512, 0.000532355, 0.987065, 0.160317)
-bones/117/scale = Vector3(1, 1, 1)
-bones/118/rotation = Quaternion(0.000154233, 0.000531606, 0.986257, 0.165218)
+bones/113/rotation = Quaternion(5.14655e-08, 4.24464e-07, -0.0351677, 0.999381)
+bones/116/rotation = Quaternion(0.000147673, 0.000533476, 0.988183, 0.15328)
 bones/118/scale = Vector3(1, 1, 1)
-bones/119/rotation = Quaternion(-0.132907, 0.0574387, -0.392524, 0.908274)
-bones/120/rotation = Quaternion(-0.144788, 0.000169743, -0.00116048, 0.989462)
-bones/121/rotation = Quaternion(-5.11208e-05, 0.000551986, 0.978457, -0.206448)
-bones/122/rotation = Quaternion(-5.05271e-05, 0.000552031, 0.978699, -0.2053)
+bones/119/rotation = Quaternion(7.624e-07, 8.13779e-07, -0.396704, 0.917946)
+bones/120/rotation = Quaternion(2.39691e-09, -5.35418e-08, -0.0011728, 0.999999)
+bones/121/rotation = Quaternion(-5.11027e-05, 0.000551959, 0.978457, -0.206448)
+bones/122/rotation = Quaternion(-5.05254e-05, 0.000552039, 0.978699, -0.2053)
 bones/122/scale = Vector3(1, 1, 1)
-bones/123/rotation = Quaternion(-5.11024e-07, -1.8736e-07, 0.980485, 0.196593)
+bones/123/rotation = Quaternion(-5.11024e-07, -1.83085e-07, 0.980485, 0.196593)
 bones/123/scale = Vector3(1, 1, 1)
-bones/124/rotation = Quaternion(-5.11024e-07, -1.8736e-07, 0.980485, 0.196593)
+bones/124/rotation = Quaternion(-5.11024e-07, -1.83085e-07, 0.980485, 0.196593)
 bones/124/scale = Vector3(1, 1, 1)
-bones/125/rotation = Quaternion(-5.85364e-07, -1.89982e-07, 0.981656, 0.190659)
+bones/125/rotation = Quaternion(-5.96085e-07, -1.8263e-07, 0.981656, 0.190659)
 bones/125/scale = Vector3(1, 1, 1)
-bones/126/rotation = Quaternion(-5.35081e-07, -1.93303e-07, 0.981656, 0.190659)
+bones/126/rotation = Quaternion(-5.3998e-07, -1.8174e-07, 0.981656, 0.190659)
 bones/126/scale = Vector3(1, 1, 1)
-bones/127/rotation = Quaternion(-5.2844e-07, -1.86899e-07, 0.981656, 0.190659)
-bones/128/rotation = Quaternion(-6.30902e-07, -1.94489e-07, 0.981656, 0.190659)
+bones/127/rotation = Quaternion(-5.35408e-07, -1.82867e-07, 0.981656, 0.190659)
+bones/127/scale = Vector3(1, 1, 1)
+bones/128/rotation = Quaternion(-6.36143e-07, -2.08482e-07, 0.981656, 0.190659)
 bones/128/scale = Vector3(1, 1, 1)
-bones/129/rotation = Quaternion(-5.35333e-07, -1.81681e-07, 0.981656, 0.190659)
-bones/130/rotation = Quaternion(5.27729e-09, -7.97671e-08, 0.981656, 0.190658)
+bones/129/rotation = Quaternion(-5.32146e-07, -1.86543e-07, 0.981656, 0.190659)
+bones/130/rotation = Quaternion(1.45274e-08, -7.13027e-08, 0.981656, 0.190658)
 bones/130/scale = Vector3(1, 1, 1)
-bones/131/rotation = Quaternion(-5.31879e-07, -1.78279e-07, 0.981656, 0.190659)
-bones/132/rotation = Quaternion(1.10289e-08, -8.44959e-08, 0.981656, 0.190658)
+bones/131/rotation = Quaternion(-5.36801e-07, -1.73839e-07, 0.981656, 0.190659)
+bones/132/rotation = Quaternion(1.47052e-08, -8.17535e-08, 0.981656, 0.190658)
 bones/132/scale = Vector3(1, 1, 1)
-bones/133/rotation = Quaternion(-5.30338e-07, -1.81918e-07, 0.981656, 0.190659)
-bones/133/scale = Vector3(1, 1, 1)
-bones/134/rotation = Quaternion(-6.37781e-07, -2.09431e-07, 0.981656, 0.190659)
+bones/133/rotation = Quaternion(-5.33006e-07, -1.92324e-07, 0.981656, 0.190659)
+bones/134/rotation = Quaternion(-6.32266e-07, -2.10647e-07, 0.981656, 0.190659)
 bones/134/scale = Vector3(1, 1, 1)
-bones/135/rotation = Quaternion(-3.96567e-07, -1.59149e-07, 0.981656, 0.190658)
+bones/135/rotation = Quaternion(-4.08367e-07, -1.5147e-07, 0.981656, 0.190658)
 bones/135/scale = Vector3(1, 1, 1)
-bones/136/rotation = Quaternion(-5.31286e-07, -1.97572e-07, 0.981656, 0.190659)
+bones/136/rotation = Quaternion(-5.37809e-07, -1.85935e-07, 0.981656, 0.190659)
 bones/136/scale = Vector3(1, 1, 1)
 bones/137/rotation = Quaternion(0.00378579, -0.00543954, 0.470836, 0.882196)
 bones/137/scale = Vector3(1, 1, 1)
 bones/138/rotation = Quaternion(-0.00108472, -0.00157224, 0.707184, 0.707027)
 bones/138/scale = Vector3(1, 1, 1)
-bones/139/rotation = Quaternion(-0.0698941, 0.0243212, -0.326122, 0.942427)
-bones/140/rotation = Quaternion(-0.589643, 0.369186, 0.588238, 0.412309)
+bones/139/rotation = Quaternion(-0.00484098, -0.000232663, -0.297911, 0.954581)
+bones/140/rotation = Quaternion(0.0154957, 0.00889632, 0.74314, 0.668897)
 bones/140/scale = Vector3(1, 1, 1)
-bones/141/rotation = Quaternion(-0.0103545, 0.000123791, 0.0360405, 0.999297)
-bones/142/rotation = Quaternion(0.00239171, -2.75662e-06, -0.00804255, 0.999965)
-bones/143/rotation = Quaternion(0.00132462, -4.99589e-06, -0.00380353, 0.999992)
-bones/144/rotation = Quaternion(0.00079547, -4.48753e-06, -0.00102431, 0.999999)
-bones/145/rotation = Quaternion(0.000648166, -2.10401e-06, 0.00108495, 0.999999)
-bones/146/rotation = Quaternion(0.000809791, -1.65047e-08, 0.00315096, 0.999995)
-bones/147/rotation = Quaternion(-0.0115841, -0.00641063, -0.048163, 0.998752)
+bones/141/rotation = Quaternion(-0.0146107, 0.000122842, 0.0508492, 0.998599)
+bones/147/rotation = Quaternion(-0.0128944, -0.00640975, -0.0538938, 0.998443)
 bones/147/scale = Vector3(1, 1, 1)
-bones/148/rotation = Quaternion(0.0244477, -0.0266923, 0.0893815, 0.99534)
-bones/149/rotation = Quaternion(-0.014722, 0.0331808, -0.0546082, 0.997848)
+bones/148/rotation = Quaternion(0.0312352, -0.0266255, 0.113712, 0.992666)
+bones/149/rotation = Quaternion(-0.0162229, 0.0331638, -0.0605798, 0.99748)
 bones/149/scale = Vector3(1, 1, 1)
-bones/150/rotation = Quaternion(0.000716036, -2.43495e-07, 0.00338513, 0.999994)
-bones/151/rotation = Quaternion(0.000314973, -4.74393e-08, 0.00151197, 0.999999)
 bones/153/rotation = Quaternion(-6.09949e-09, 7.80795e-08, -0.0060486, 0.999982)
 bones/153/scale = Vector3(1, 1, 1)
-bones/154/rotation = Quaternion(-0.0863805, 0.0115996, -0.132587, 0.987332)
+bones/154/rotation = Quaternion(-1.56508e-07, -1.89241e-07, -0.133093, 0.991104)
 bones/154/scale = Vector3(1, 1, 1)
-bones/155/rotation = Quaternion(-0.0871528, 0.000719656, -0.00822615, 0.996161)
-bones/156/rotation = Quaternion(-0.0871557, 7.65096e-05, -0.000876422, 0.996194)
-bones/157/rotation = Quaternion(0.00068973, -3.25084e-05, 0.941954, -0.33574)
-bones/157/scale = Vector3(1, 1, 1)
-bones/158/rotation = Quaternion(0.000689568, -3.30799e-05, 0.942249, -0.334911)
+bones/155/rotation = Quaternion(-1.45058e-08, -2.28915e-08, -0.00825755, 0.999966)
+bones/156/rotation = Quaternion(-6.41562e-10, -1.4453e-07, -0.00087978, 1)
+bones/157/rotation = Quaternion(0.00068973, -3.25237e-05, 0.941954, -0.33574)
+bones/157/scale = Vector3(0.999999, 1, 1)
+bones/158/rotation = Quaternion(0.000689571, -3.30757e-05, 0.942249, -0.334911)
 bones/158/scale = Vector3(0.999999, 1, 1)
-bones/159/rotation = Quaternion(0.000689253, -3.87485e-05, 0.944983, -0.327119)
+bones/159/rotation = Quaternion(0.000689251, -3.87447e-05, 0.944983, -0.327119)
 bones/159/scale = Vector3(0.999999, 1, 1)
-bones/160/rotation = Quaternion(-0.0869768, 0.0055829, -0.063817, 0.994149)
-bones/161/rotation = Quaternion(-0.0871526, -0.000737707, 0.00843278, 0.996159)
-bones/162/rotation = Quaternion(-0.0871557, 3.26331e-06, -3.91538e-05, 0.996195)
-bones/163/rotation = Quaternion(0.000684394, -9.21667e-05, 0.967551, -0.252674)
+bones/160/rotation = Quaternion(-8.27382e-08, -3.3349e-07, -0.0640607, 0.997946)
+bones/163/rotation = Quaternion(0.000684392, -9.21667e-05, 0.967551, -0.252674)
 bones/163/scale = Vector3(0.999999, 1, 1)
-bones/164/rotation = Quaternion(0.000684251, -9.21571e-05, 0.967561, -0.252636)
+bones/164/rotation = Quaternion(0.000684254, -9.21541e-05, 0.967561, -0.252636)
 bones/164/scale = Vector3(0.999999, 1, 1)
-bones/165/rotation = Quaternion(0.000685081, -8.63907e-05, 0.965388, -0.260817)
+bones/165/rotation = Quaternion(0.00068508, -8.63939e-05, 0.965388, -0.260817)
 bones/165/scale = Vector3(0.999999, 1, 1)
-bones/166/rotation = Quaternion(-0.0871018, -0.0030655, 0.0350338, 0.995578)
-bones/167/rotation = Quaternion(-0.0871547, -0.000433018, 0.00494825, 0.996182)
-bones/168/rotation = Quaternion(-0.0871535, -0.000620957, 0.00709724, 0.996169)
-bones/169/rotation = Quaternion(0.000671498, -0.000161846, 0.988394, -0.151907)
+bones/166/rotation = Quaternion(4.92962e-08, -4.23882e-07, 0.0351676, 0.999381)
+bones/167/rotation = Quaternion(1.06161e-08, -8.55839e-08, 0.00496715, 0.999988)
+bones/168/rotation = Quaternion(1.42861e-08, -3.03825e-08, 0.00712437, 0.999975)
+bones/169/rotation = Quaternion(0.000671494, -0.000161867, 0.988394, -0.151907)
 bones/169/scale = Vector3(0.999999, 1, 1)
-bones/170/rotation = Quaternion(0.000672597, -0.000157073, 0.987287, -0.158945)
+bones/170/rotation = Quaternion(0.000672592, -0.000157072, 0.987287, -0.158945)
 bones/170/scale = Vector3(0.999999, 1, 1)
-bones/171/rotation = Quaternion(0.000673281, -0.000153729, 0.986485, -0.163847)
+bones/171/rotation = Quaternion(0.00067328, -0.000153727, 0.986485, -0.163847)
 bones/171/scale = Vector3(0.999999, 1, 1)
-bones/172/rotation = Quaternion(-0.0800036, -0.0345759, 0.395195, 0.914453)
-bones/173/rotation = Quaternion(-0.0871557, -0.000102145, 0.00116833, 0.996194)
-bones/174/rotation = Quaternion(0.000571138, -0.000388286, 0.97817, 0.207807)
+bones/172/rotation = Quaternion(7.5165e-07, -8.11006e-07, 0.396704, 0.917946)
+bones/173/rotation = Quaternion(1.22299e-10, 5.35334e-08, 0.00117277, 0.999999)
+bones/174/rotation = Quaternion(0.000571137, -0.000388268, 0.97817, 0.207807)
 bones/174/scale = Vector3(0.999999, 1, 1)
-bones/175/rotation = Quaternion(0.000571643, -0.00038759, 0.978413, 0.20666)
+bones/175/rotation = Quaternion(0.000571649, -0.000387595, 0.978413, 0.20666)
 bones/175/scale = Vector3(0.999999, 1, 1)
-bones/176/rotation = Quaternion(5.10074e-07, -1.76674e-07, 0.980485, -0.196593)
+bones/176/rotation = Quaternion(5.11736e-07, -1.80117e-07, 0.980485, -0.196593)
 bones/176/scale = Vector3(1, 1, 1)
-bones/177/rotation = Quaternion(5.10074e-07, -1.76674e-07, 0.980485, -0.196593)
+bones/177/rotation = Quaternion(5.11736e-07, -1.80117e-07, 0.980485, -0.196593)
 bones/177/scale = Vector3(1, 1, 1)
-bones/178/rotation = Quaternion(-7.91632e-08, 5.42035e-07, 0.00430811, 0.999991)
-bones/179/rotation = Quaternion(-8.10258e-08, 5.97915e-07, 0.00430815, 0.999991)
-bones/180/rotation = Quaternion(-6.70559e-08, 6.01174e-07, 0.00430815, 0.999991)
-bones/181/rotation = Quaternion(-8.61481e-08, 5.44654e-07, 0.0043081, 0.999991)
-bones/182/rotation = Quaternion(-8.61481e-08, 5.44654e-07, 0.0043081, 0.999991)
-bones/183/rotation = Quaternion(-7.74824e-08, -1.28786e-08, 0.00430755, 0.999991)
+bones/178/rotation = Quaternion(-7.16543e-08, 5.42937e-07, 0.00430814, 0.999991)
+bones/179/rotation = Quaternion(-6.92969e-08, 6.02091e-07, 0.00430815, 0.999991)
+bones/180/rotation = Quaternion(-7.11304e-08, 5.98919e-07, 0.00430814, 0.999991)
+bones/181/rotation = Quaternion(-5.79754e-08, 5.42559e-07, 0.00430811, 0.999991)
+bones/182/rotation = Quaternion(-5.79754e-08, 5.42559e-07, 0.00430811, 0.999991)
+bones/183/rotation = Quaternion(-8.08294e-08, -1.06521e-08, 0.00430755, 0.999991)
 bones/183/scale = Vector3(1, 1, 1)
-bones/184/rotation = Quaternion(-6.71723e-08, 5.41802e-07, 0.00430814, 0.999991)
-bones/185/rotation = Quaternion(-6.42619e-08, -1.30386e-08, 0.00430755, 0.999991)
+bones/184/rotation = Quaternion(-7.41322e-08, 5.42908e-07, 0.00430814, 0.999991)
+bones/185/rotation = Quaternion(-6.70995e-08, -1.45812e-08, 0.00430754, 0.999991)
 bones/185/scale = Vector3(1, 1, 1)
-bones/186/rotation = Quaternion(-6.28648e-08, 5.3831e-07, 0.00430814, 0.999991)
-bones/187/rotation = Quaternion(-5.77426e-08, 6.55657e-07, 0.00430823, 0.999991)
-bones/188/rotation = Quaternion(-6.89185e-08, 5.43897e-07, 0.00430811, 0.999991)
-bones/189/rotation = Quaternion(-6.23992e-08, 5.40172e-07, 0.00430815, 0.999991)
-bones/190/rotation = Quaternion(0.00378579, 0.00543954, -0.470836, 0.882196)
+bones/186/rotation = Quaternion(-6.96897e-08, 5.42064e-07, 0.00430811, 0.999991)
+bones/187/rotation = Quaternion(-6.205e-08, 6.48206e-07, 0.00430821, 0.999991)
+bones/188/rotation = Quaternion(-7.83846e-08, 5.4122e-07, 0.00430813, 0.999991)
+bones/189/rotation = Quaternion(-6.98062e-08, 5.43781e-07, 0.00430813, 0.999991)
+bones/190/rotation = Quaternion(0.0037858, 0.00543954, -0.470836, 0.882196)
 bones/190/scale = Vector3(1, 1, 1)
 bones/192/scale = Vector3(1, 1, 1)
 
 [node name="Lower Left Leg" parent="Armature/Skeleton3D" index="0"]
-transform = Transform3D(0.998281, -0.00946293, -0.0578463, -0.0088896, 0.951025, -0.308986, 0.0579371, 0.308969, 0.949306, 0.93203, -3.62854, -0.24887)
+transform = Transform3D(1, 8.28878e-08, -8.94069e-08, -2.14449e-07, 0.988715, -0.149805, -3.86096e-08, 0.149805, 0.988716, 0.943304, -3.57423, -0.112719)
 
 [node name="Lower Left Leg" parent="Armature/Skeleton3D/Lower Left Leg" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Left Leg Joint Cutouts" parent="Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.998281, -0.00946293, -0.0578463, -0.0088896, 0.951025, -0.308986, 0.0579371, 0.308969, 0.949306, 0.925703, -2.84531, -0.0647097)
+transform = Transform3D(1, 8.28878e-08, -8.94069e-08, -2.14449e-07, 0.988715, -0.149805, -3.86096e-08, 0.149805, 0.988716, 0.940695, -2.77144, -0.0586621)
 
 [node name="Left Leg Joint Cutouts" parent="Armature/Skeleton3D/Left Leg Joint Cutouts" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Lower Left Leg Joint" parent="Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.998281, -0.00946293, -0.0578463, -0.0088896, 0.951025, -0.308986, 0.0579371, 0.308969, 0.949306, 0.936036, -2.70002, -0.0217491)
+transform = Transform3D(1, 8.28878e-08, -8.94069e-08, -2.14449e-07, 0.988715, -0.149805, -3.86096e-08, 0.149805, 0.988716, 0.952208, -2.6211, -0.0406436)
 
 [node name="Lower Left Leg Joint" parent="Armature/Skeleton3D/Lower Left Leg Joint" index="0"]
 surface_material_override/0 = ExtResource("3_wigwt")
 surface_material_override/1 = SubResource("StandardMaterial3D_yg4ii")
 
 [node name="Lower Left Leg Light" parent="Armature/Skeleton3D" index="3"]
-transform = Transform3D(0.998281, -0.00946293, -0.0578463, -0.0088896, 0.951025, -0.308986, 0.0579371, 0.308969, 0.949306, 1.22767, -3.41993, -0.370719)
+transform = Transform3D(1, 8.28878e-08, -8.94069e-08, -2.14449e-07, 0.988715, -0.149805, -3.86096e-08, 0.149805, 0.988716, 1.22953, -3.38852, -0.284062)
 
 [node name="Lower Left Leg Light" parent="Armature/Skeleton3D/Lower Left Leg Light" index="0"]
 surface_material_override/0 = ExtResource("3_wigwt")
 surface_material_override/1 = SubResource("StandardMaterial3D_i6yo6")
 
 [node name="Limb Segment_018" parent="Armature/Skeleton3D" index="4"]
-transform = Transform3D(0.998049, -0.0218611, 0.0584794, -0.0267337, -0.996118, 0.0838778, 0.0564186, -0.0852776, -0.994759, 0.949376, -1.63581, 0.105271)
+transform = Transform3D(0.99984, -0.0179094, -1.95578e-07, -0.0179095, -0.999839, -2.50224e-07, -3.07336e-07, 2.6208e-07, -1, 0.963423, -1.54742, -0.0164472)
 
 [node name="Limb Segment_018" parent="Armature/Skeleton3D/Limb Segment_018" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Limb Segment_017" parent="Armature/Skeleton3D" index="5"]
-transform = Transform3D(0.998283, -0.00763475, 0.0580789, -0.0086145, -0.999824, 0.0166354, 0.0579416, -0.0171071, -0.998174, 0.939271, -1.63393, 0.0568066)
+transform = Transform3D(1, 0.00027503, -1.31145e-07, 0.000274911, -1, -4.88212e-07, -2.46614e-07, 4.95628e-07, -1, 0.950512, -1.548, -0.0164472)
 
 [node name="Limb Segment_017" parent="Armature/Skeleton3D/Limb Segment_017" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Limb Segment_016" parent="Armature/Skeleton3D" index="6"]
-transform = Transform3D(0.997387, -0.0436152, 0.0575912, -0.041634, -0.998514, -0.0351666, 0.0590393, 0.032677, -0.997721, 0.956951, -1.63495, 0.0323331)
+transform = Transform3D(0.999463, -0.0327709, -2.50354e-07, -0.032771, -0.999463, -4.84616e-07, -3.68218e-07, 5.06365e-07, -1, 0.966752, -1.5486, -0.0164472)
 
 [node name="Limb Segment_016" parent="Armature/Skeleton3D/Limb Segment_016" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Limb Segment_015" parent="Armature/Skeleton3D" index="7"]
-transform = Transform3D(0.998239, -0.0157337, 0.0571967, -0.0118043, -0.997588, -0.0684017, 0.0581349, 0.0676061, -0.996017, 0.949716, -1.63609, 0.0233107)
+transform = Transform3D(0.999996, -0.00292181, 1.078e-07, -0.00292193, -0.999995, -5.05897e-07, -7.7909e-09, 5.13606e-07, -1, 0.959017, -1.54932, -0.0164473)
 
 [node name="Limb Segment_015" parent="Armature/Skeleton3D/Limb Segment_015" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Limb Segment_014" parent="Armature/Skeleton3D" index="8"]
-transform = Transform3D(0.998113, -0.0228506, 0.0570065, -0.0180867, -0.996408, -0.0827278, 0.058692, 0.0815406, -0.994941, 0.949981, -1.63663, 0.0228138)
+transform = Transform3D(0.999958, -0.00922963, -6.26314e-08, -0.00922975, -0.999957, -2.25658e-07, -1.94414e-07, 2.34464e-07, -1, 0.959258, -1.54981, -0.0164473)
 
 [node name="Limb Segment_014" parent="Armature/Skeleton3D/Limb Segment_014" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Limb Segment_013" parent="Armature/Skeleton3D" index="9"]
-transform = Transform3D(0.997955, -0.0288212, 0.0570548, -0.024255, -0.996566, -0.07917, 0.0591405, 0.0776242, -0.995227, 0.948983, -1.6372, 0.0222086)
+transform = Transform3D(0.999881, -0.0154155, -1.31377e-07, -0.0154157, -0.999881, -4.86914e-07, -2.47522e-07, 4.9835e-07, -1, 0.958231, -1.55034, -0.0164472)
 
 [node name="Limb Segment_013" parent="Armature/Skeleton3D/Limb Segment_013" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Limb Segment_012" parent="Armature/Skeleton3D" index="10"]
-transform = Transform3D(0.997223, 0.00287768, 0.074425, 0.00732385, -0.998199, -0.0595384, 0.0741195, 0.0599182, -0.995448, 0.960149, -1.63796, 0.0161757)
+transform = Transform3D(0.999737, 0.0152176, 0.0171529, 0.0152197, -0.999884, -2.80749e-07, 0.0171508, 0.000261349, -0.999853, 0.969035, -1.55056, -0.0161713)
 
 [node name="Limb Segment_012" parent="Armature/Skeleton3D/Limb Segment_012" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Limb Segment_011" parent="Armature/Skeleton3D" index="11"]
-transform = Transform3D(0.998858, -0.0259215, 0.0401561, -0.0248832, -0.999348, -0.0261476, 0.0408075, 0.0251185, -0.998852, 0.945427, -1.63895, -0.0018583)
+transform = Transform3D(0.999726, -0.0155381, -0.0175511, -0.0155406, -0.999879, -4.64383e-07, -0.0175492, 0.000273229, -0.999846, 0.953302, -1.55098, -0.0164537)
 
 [node name="Limb Segment_011" parent="Armature/Skeleton3D/Limb Segment_011" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Limb Segment_003" parent="Armature/Skeleton3D" index="12"]
-transform = Transform3D(0.996898, -0.00190192, 0.0786807, -0.00338481, -0.999819, 0.0187162, 0.0786308, -0.0189244, -0.996725, 0.961415, -1.63944, -0.0307339)
+transform = Transform3D(0.99977, 0.00589268, 0.0206317, 0.00589381, -0.999983, -2.96746e-07, 0.0206313, 0.000121903, -0.999788, 0.967595, -1.55127, -0.016145)
 
 [node name="Limb Segment_003" parent="Armature/Skeleton3D/Limb Segment_003" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Left Foot" parent="Armature/Skeleton3D" index="13"]
-transform = Transform3D(0.999982, -6.08387e-07, 0.00605682, 3.74145e-07, 1, -1.36257e-07, -0.00605698, 8.77146e-08, 0.999982, 0.925026, -4.65285, 0.0871391)
+transform = Transform3D(0.999982, -5.48782e-07, 0.00605682, 3.14721e-07, 1, -2.25664e-07, -0.00605698, 1.77122e-07, 0.999982, 0.925025, -4.63847, 0.342217)
 
 [node name="Left Foot" parent="Armature/Skeleton3D/Left Foot" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Foot_005" parent="Armature/Skeleton3D" index="14"]
-transform = Transform3D(0.999982, -6.08387e-07, 0.00605682, 3.74145e-07, 1, -1.36257e-07, -0.00605698, 8.77146e-08, 0.999982, 0.940107, -4.07175, -0.199643)
+transform = Transform3D(0.999982, -5.48782e-07, 0.00605682, 3.14721e-07, 1, -2.25664e-07, -0.00605698, 1.77122e-07, 0.999982, 0.940106, -4.05737, 0.0554356)
 
 [node name="Foot_005" parent="Armature/Skeleton3D/Foot_005" index="0"]
 transform = Transform3D(1, 5.65206e-14, -4.65661e-10, 4.4964e-15, 1, -1.42109e-14, 0, -9.69006e-19, 1, 0.00855339, 0.00256896, -0.0261476)
 material_override = ExtResource("3_wigwt")
 
 [node name="Foot_006" parent="Armature/Skeleton3D" index="15"]
-transform = Transform3D(0.999982, -6.08387e-07, 0.00605682, 3.74145e-07, 1, -1.36257e-07, -0.00605698, 8.77146e-08, 0.999982, 0.943907, -5.00669, 0.427717)
+transform = Transform3D(0.999982, -5.48782e-07, 0.00605682, 3.14721e-07, 1, -2.25664e-07, -0.00605698, 1.77122e-07, 0.999982, 0.943907, -4.99231, 0.682795)
 
 [node name="Foot_007" parent="Armature/Skeleton3D" index="16"]
-transform = Transform3D(0.999982, -6.08387e-07, 0.00605682, 3.74145e-07, 1, -1.36257e-07, -0.00605698, 8.77146e-08, 0.999982, 0.936813, -5.00669, -0.743629)
+transform = Transform3D(0.999982, -5.48782e-07, 0.00605682, 3.14721e-07, 1, -2.25664e-07, -0.00605698, 1.77122e-07, 0.999982, 0.936812, -4.99231, -0.488551)
 
 [node name="Left Foot Joint" parent="Armature/Skeleton3D" index="17"]
-transform = Transform3D(0.999982, -6.08387e-07, 0.00605682, 3.74145e-07, 1, -1.36257e-07, -0.00605698, 8.77146e-08, 0.999982, 1.36246, -4.35373, -0.18814)
+transform = Transform3D(0.999982, -5.48782e-07, 0.00605682, 3.14721e-07, 1, -2.25664e-07, -0.00605698, 1.77122e-07, 0.999982, 1.36246, -4.33935, 0.0669379)
 
 [node name="Left Foot Joint" parent="Armature/Skeleton3D/Left Foot Joint" index="0"]
 surface_material_override/0 = ExtResource("3_wigwt")
 surface_material_override/1 = SubResource("StandardMaterial3D_yg4ii")
 
 [node name="Right Foot" parent="Armature/Skeleton3D" index="18"]
-transform = Transform3D(0.999962, -1.85566e-07, -0.00872105, 3.13036e-07, 1, 3.72053e-07, 0.00872107, -2.70059e-07, 0.999962, -0.916611, -4.65284, 0.0872743)
+transform = Transform3D(0.999962, -1.85566e-07, -0.00872106, 3.12906e-07, 1, 3.57152e-07, 0.00872107, -2.55158e-07, 0.999962, -0.916609, -4.63847, 0.342353)
 
 [node name="Right Foot" parent="Armature/Skeleton3D/Right Foot" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Foot" parent="Armature/Skeleton3D" index="19"]
-transform = Transform3D(0.999962, -1.85566e-07, -0.00872105, 3.13036e-07, 1, 3.72053e-07, 0.00872107, -2.70059e-07, 0.999962, -0.930928, -4.07175, -0.199547)
+transform = Transform3D(0.999962, -1.85566e-07, -0.00872106, 3.12906e-07, 1, 3.57152e-07, 0.00872107, -2.55158e-07, 0.999962, -0.930928, -4.05737, 0.0555314)
 
 [node name="Foot" parent="Armature/Skeleton3D/Foot" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Foot_001" parent="Armature/Skeleton3D" index="20"]
-transform = Transform3D(0.999962, -1.85566e-07, -0.00872105, 3.13036e-07, 1, 3.72053e-07, 0.00872107, -2.70059e-07, 0.999962, -0.936399, -5.00668, 0.427801)
+transform = Transform3D(0.999962, -1.85566e-07, -0.00872106, 3.12906e-07, 1, 3.57152e-07, 0.00872107, -2.55158e-07, 0.999962, -0.936398, -4.99231, 0.682879)
 
 [node name="Foot_002" parent="Armature/Skeleton3D" index="21"]
-transform = Transform3D(0.999962, -1.85566e-07, -0.00872105, 3.13036e-07, 1, 3.72053e-07, 0.00872107, -2.70059e-07, 0.999962, -0.926184, -5.00668, -0.743522)
+transform = Transform3D(0.999962, -1.85566e-07, -0.00872106, 3.12906e-07, 1, 3.57152e-07, 0.00872107, -2.55158e-07, 0.999962, -0.926183, -4.99231, -0.488444)
 
 [node name="Right Foot Joint" parent="Armature/Skeleton3D" index="22"]
-transform = Transform3D(0.999962, -1.85566e-07, -0.00872105, 3.13036e-07, 1, 3.72053e-07, 0.00872107, -2.70059e-07, 0.999962, -1.35331, -4.35373, -0.18917)
+transform = Transform3D(0.999962, -1.85566e-07, -0.00872106, 3.12906e-07, 1, 3.57152e-07, 0.00872107, -2.55158e-07, 0.999962, -1.35331, -4.33935, 0.0659086)
 
 [node name="Right Foot Joint" parent="Armature/Skeleton3D/Right Foot Joint" index="0"]
 surface_material_override/0 = ExtResource("3_wigwt")
 surface_material_override/1 = SubResource("StandardMaterial3D_yg4ii")
 
 [node name="Lower Right Leg" parent="Armature/Skeleton3D" index="23"]
-transform = Transform3D(0.999117, -0.0067818, -0.0414548, -0.00637015, 0.951004, -0.309112, 0.04152, 0.309103, 0.950121, -0.942042, -3.62876, -0.247361)
+transform = Transform3D(1, -1.234e-08, -1.99303e-07, -8.79436e-09, 0.988715, -0.149806, 1.64343e-07, 0.149806, 0.988715, -0.933935, -3.57422, -0.112719)
 
 [node name="Lower Right Leg" parent="Armature/Skeleton3D/Lower Right Leg" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Lower Right Leg Joint" parent="Armature/Skeleton3D" index="24"]
-transform = Transform3D(0.999117, -0.0067818, -0.0414548, -0.00637015, 0.951004, -0.309112, 0.04152, 0.309103, 0.950121, -0.954436, -2.70013, -0.0210577)
+transform = Transform3D(1, -1.234e-08, -1.99303e-07, -8.79436e-09, 0.988715, -0.149806, 1.64343e-07, 0.149806, 0.988715, -0.942838, -2.6211, -0.0406433)
 
 [node name="Lower Right Leg Joint" parent="Armature/Skeleton3D/Lower Right Leg Joint" index="0"]
 surface_material_override/0 = ExtResource("3_wigwt")
 surface_material_override/1 = SubResource("StandardMaterial3D_yg4ii")
 
 [node name="Lower Right Leg Light" parent="Armature/Skeleton3D" index="25"]
-transform = Transform3D(0.999117, -0.0067818, -0.0414548, -0.00637015, 0.951004, -0.309112, 0.04152, 0.309103, 0.950121, -1.2209, -3.41577, -0.397817)
+transform = Transform3D(1, -1.234e-08, -1.99303e-07, -8.79436e-09, 0.988715, -0.149806, 1.64343e-07, 0.149806, 0.988715, -1.22015, -3.38852, -0.284062)
 
 [node name="Lower Right Leg Light" parent="Armature/Skeleton3D/Lower Right Leg Light" index="0"]
 surface_material_override/0 = ExtResource("3_wigwt")
 surface_material_override/1 = SubResource("StandardMaterial3D_i6yo6")
 
 [node name="Right Leg Joint Cutouts" parent="Armature/Skeleton3D" index="26"]
-transform = Transform3D(0.999117, -0.0067818, -0.0414548, -0.00637015, 0.951004, -0.309112, 0.04152, 0.309103, 0.950121, -0.942103, -2.84559, -0.0628901)
+transform = Transform3D(1, -1.234e-08, -1.99303e-07, -8.79436e-09, 0.988715, -0.149806, 1.64343e-07, 0.149806, 0.988715, -0.931325, -2.77144, -0.0586621)
 
 [node name="Right Leg Joint Cutouts" parent="Armature/Skeleton3D/Right Leg Joint Cutouts" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Limb Segment_010" parent="Armature/Skeleton3D" index="27"]
-transform = Transform3D(-0.999008, 0.0150396, -0.0419085, -0.0114763, -0.996399, -0.0840049, -0.0430211, -0.0834407, 0.995583, -0.964216, -1.63517, 0.106826)
+transform = Transform3D(-0.99984, 0.0179091, 8.3819e-08, -0.0179091, -0.999839, -2.15437e-07, 1.86265e-09, -2.02097e-07, 1, -0.954083, -1.54669, -0.0144895)
 
 [node name="Limb Segment_010" parent="Armature/Skeleton3D/Limb Segment_010" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Limb Segment_009" parent="Armature/Skeleton3D" index="28"]
-transform = Transform3D(-0.999116, -0.00594279, -0.0416217, 0.00664525, -0.999837, -0.0167616, -0.0415153, -0.0170233, 0.998993, -0.949306, -1.63352, 0.0595613)
+transform = Transform3D(-1, -0.000275152, -1.49771e-07, 0.000275152, -1, -3.11445e-07, -1.75829e-07, -2.96604e-07, 1, -0.941159, -1.54744, -0.0144895)
 
 [node name="Limb Segment_009" parent="Armature/Skeleton3D/Limb Segment_009" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Limb Segment_008" parent="Armature/Skeleton3D" index="29"]
-transform = Transform3D(-0.998837, 0.0249302, -0.0412722, -0.0263832, -0.999037, 0.0350418, -0.0403589, 0.0360899, 0.998533, -0.9645, -1.63388, 0.0334098)
+transform = Transform3D(-0.999463, 0.0327708, -3.05618e-08, -0.0327707, -0.999463, -3.16321e-07, -5.95133e-08, -2.98656e-07, 1, -0.957424, -1.54772, -0.0144895)
 
 [node name="Limb Segment_008" parent="Armature/Skeleton3D/Limb Segment_008" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Limb Segment_007" parent="Armature/Skeleton3D" index="30"]
-transform = Transform3D(-0.99914, -0.00626573, -0.0409892, 0.00345529, -0.99766, 0.0682779, -0.0413212, 0.0680776, 0.996824, -0.956402, -1.63534, 0.025137)
+transform = Transform3D(-0.999996, 0.0029217, -3.05009e-08, -0.0029217, -0.999995, -2.95622e-07, -5.67288e-08, -2.8061e-07, 1, -0.949667, -1.54872, -0.0144895)
 
 [node name="Limb Segment_007" parent="Armature/Skeleton3D/Limb Segment_007" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Limb Segment_006" parent="Armature/Skeleton3D" index="31"]
-transform = Transform3D(-0.999165, -0.000551273, -0.0408529, -0.0028277, -0.996578, 0.0826049, -0.0407586, 0.0826514, 0.995745, -0.956627, -1.6358, 0.0246001)
+transform = Transform3D(-0.999958, 0.00922935, 1.56695e-07, -0.00922935, -0.999957, -2.26033e-07, 1.73924e-07, -2.11749e-07, 1, -0.949911, -1.54915, -0.0144895)
 
 [node name="Limb Segment_006" parent="Armature/Skeleton3D/Limb Segment_006" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Limb Segment_005" parent="Armature/Skeleton3D" index="32"]
-transform = Transform3D(-0.999147, 0.00577592, -0.0408876, -0.0089974, -0.99683, 0.0790466, -0.0403015, 0.079347, 0.996032, -0.955586, -1.63634, 0.0240948)
+transform = Transform3D(-0.999881, 0.0154154, 2.88101e-08, -0.0154154, -0.999881, -3.01916e-07, 1.8411e-09, -2.85994e-07, 1, -0.948889, -1.54963, -0.0144895)
 
 [node name="Limb Segment_005" parent="Armature/Skeleton3D/Limb Segment_005" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Limb Segment_004" parent="Armature/Skeleton3D" index="33"]
-transform = Transform3D(-0.999133, -0.00688285, -0.0410707, 0.00444015, -0.998232, 0.0592708, -0.0414061, 0.059037, 0.997397, -0.960043, -1.63737, 0.0169959)
+transform = Transform3D(-0.999998, 0.00193344, -2.69213e-07, -0.00193343, -0.999998, -3.10645e-07, -2.95434e-07, -2.95165e-07, 1, -0.95363, -1.5502, -0.0144895)
 
 [node name="Limb Segment_004" parent="Armature/Skeleton3D/Limb Segment_004" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Limb Segment_001" parent="Armature/Skeleton3D" index="34"]
-transform = Transform3D(-0.999101, -0.00945847, -0.0413398, 0.00837996, -0.999622, 0.0261825, -0.0415719, 0.0258125, 0.998802, -0.96136, -1.63842, 6.96834e-05)
+transform = Transform3D(-0.999998, -0.00201054, 2.88101e-08, 0.00201054, -0.999998, -3.1998e-07, 2.8885e-09, -3.05272e-07, 1, -0.955641, -1.5505, -0.0144895)
 
 [node name="Limb Segment_001" parent="Armature/Skeleton3D/Limb Segment_001" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Limb Segment_002" parent="Armature/Skeleton3D" index="35"]
-transform = Transform3D(-0.999091, 0.00915289, -0.0416344, -0.00836632, -0.999784, -0.0190296, -0.0417996, -0.018664, 0.998951, -0.948994, -1.63886, -0.0294814)
+transform = Transform3D(-0.999892, 0.0147387, -1.2666e-07, -0.0147387, -0.999891, -3.0268e-07, -1.53547e-07, -2.85978e-07, 1, -0.94451, -1.55072, -0.0144895)
 
 [node name="Limb Segment_002" parent="Armature/Skeleton3D/Limb Segment_002" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Head_2" parent="Armature/Skeleton3D" index="36"]
-transform = Transform3D(1, 3.58528e-06, 0.000387762, 1.37651e-05, 0.998998, -0.0447543, -0.000387534, 0.0447543, 0.998998, 0.00482483, 4.25921, 0.474102)
+transform = Transform3D(1, -1.39699e-09, 2.84089e-10, -6.05358e-09, 1, 3.16649e-08, -2.84032e-10, -3.16649e-08, 1, 0.00468184, 4.36677, 0.258839)
 
 [node name="Head_2" parent="Armature/Skeleton3D/Head_2" index="0"]
 transform = Transform3D(1, 1.81899e-12, -8.73115e-11, 3.63843e-12, 1, -1.49012e-08, -5.82077e-11, 0, 1, -0.0443553, -0.0147696, 0.000644565)
 material_override = ExtResource("3_wigwt")
 
 [node name="Inner Eye Lights" parent="Armature/Skeleton3D" index="37"]
-transform = Transform3D(1, 0.000387762, -3.58528e-06, 1.37651e-05, -0.0447543, -0.998998, -0.000387534, 0.998998, -0.0447543, 0.00501833, 4.29593, 0.967214)
+transform = Transform3D(1, 2.84089e-10, 1.39699e-09, -6.05358e-09, 3.16649e-08, -1, -2.84032e-10, 1, 3.16649e-08, 0.00468476, 4.42552, 0.749813)
 
 [node name="Inner Eye Lights" parent="Armature/Skeleton3D/Inner Eye Lights" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_i6yo6")
 
 [node name="Lights 2" parent="Armature/Skeleton3D" index="38"]
-transform = Transform3D(1, 0.000387762, -3.58528e-06, 1.37651e-05, -0.0447543, -0.998998, -0.000387534, 0.998998, -0.0447543, 0.00500975, 4.28332, 0.945124)
+transform = Transform3D(1, 2.84089e-10, 1.39699e-09, -6.05358e-09, 3.16649e-08, -1, -2.84032e-10, 1, 3.16649e-08, 0.00468456, 4.41193, 0.72831)
 
 [node name="Lights 2" parent="Armature/Skeleton3D/Lights 2" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_yg4ii")
 
 [node name="Right Arm_012" parent="Armature/Skeleton3D" index="39"]
-transform = Transform3D(1, 1.37802e-05, 0.000387512, 1.37572e-05, 0.997477, -0.0709913, -0.000387512, 0.0709913, 0.997477, -0.0203262, 3.24774, 0.155231)
+transform = Transform3D(1, -1.39744e-09, 2.62091e-10, -6.05312e-09, 1, 2.98011e-08, -2.6202e-10, -2.9801e-08, 1, -0.0203595, 3.34207, -0.0144376)
 
 [node name="Right Arm_012" parent="Armature/Skeleton3D/Right Arm_012" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Main Body_2" parent="Armature/Skeleton3D" index="40"]
-transform = Transform3D(0.999587, 2.57556e-05, -0.028726, -0.0020408, 0.997536, -0.0701196, 0.0286534, 0.0701493, 0.997125, 0.00471406, 2.27358, 0.112009)
+transform = Transform3D(0.999576, 1.23012e-05, -0.0291134, 1.22716e-05, 0.999999, 0.000844116, 0.0291134, -0.000844116, 0.999576, 0.00468407, 2.3673, 0.0116158)
 
 [node name="Main Body_2" parent="Armature/Skeleton3D/Main Body_2" index="0"]
 transform = Transform3D(1, 0, -1.86265e-09, 2.32831e-10, 1, 7.45058e-09, 1.86265e-09, 7.45058e-09, 1, 0, 0, 0)
 material_override = ExtResource("3_wigwt")
 
 [node name="Reactor Casing" parent="Armature/Skeleton3D" index="41"]
-transform = Transform3D(0.999587, 2.57556e-05, -0.028726, -0.0020408, 0.997536, -0.0701196, 0.0286534, 0.0701493, 0.997125, -0.0403911, 2.23737, 1.68294)
+transform = Transform3D(0.999576, 1.23012e-05, -0.0291134, 1.22716e-05, 0.999999, 0.000844116, 0.0291134, -0.000844116, 0.999576, -0.0410304, 2.4427, 1.58114)
 
 [node name="Reactor Casing" parent="Armature/Skeleton3D/Reactor Casing" index="0"]
 surface_material_override/0 = ExtResource("3_wigwt")
 surface_material_override/1 = SubResource("StandardMaterial3D_yg4ii")
 
 [node name="Reactor" parent="Armature/Skeleton3D" index="42"]
-transform = Transform3D(0.999587, 2.57556e-05, -0.028726, -0.0020408, 0.997536, -0.0701196, 0.0286534, 0.0701493, 0.997125, -0.0421836, 2.25978, 1.74707)
+transform = Transform3D(0.999576, 1.23012e-05, -0.0291134, 1.22716e-05, 0.999999, 0.000844116, 0.0291134, -0.000844116, 0.999576, -0.0428475, 2.46961, 1.64352)
 
 [node name="Finger End 1_001" parent="Armature/Skeleton3D" index="43"]
-transform = Transform3D(-0.509111, 0.374977, 0.774724, -0.272877, 0.783355, -0.558474, -0.8163, -0.49573, -0.296492, 2.66216, -1.93859, -0.427384)
+transform = Transform3D(0.999995, 0.00277907, -0.00141241, -0.00277978, 0.999997, -0.000572689, 0.0014108, 0.000576616, 0.999998, 4.1359, -1.52574, -0.0326642)
 
 [node name="Finger End 1_001" parent="Armature/Skeleton3D/Finger End 1_001" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Finger Middle 1_001" parent="Armature/Skeleton3D" index="44"]
-transform = Transform3D(-0.352541, 0.183187, 0.917691, -0.352962, 0.882193, -0.311695, -0.866679, -0.433796, -0.246351, 2.79742, -1.72378, -0.388508)
+transform = Transform3D(0.999995, 0.00277904, -0.00141234, -0.00277972, 0.999996, -0.000572763, 0.00141073, 0.00057669, 0.999998, 3.96934, -1.31577, -0.0327796)
 
 [node name="Finger Middle 1_001" parent="Armature/Skeleton3D/Finger Middle 1_001" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Finger Base 1_001" parent="Armature/Skeleton3D" index="45"]
-transform = Transform3D(-0.177125, -0.0326807, 0.983645, -0.384896, 0.92215, -0.0386705, -0.905805, -0.385451, -0.175915, 2.84579, -1.47001, -0.323098)
+transform = Transform3D(0.999995, 0.00277877, -0.00141234, -0.00277943, 0.999996, -0.000572745, 0.00141073, 0.000576672, 0.999998, 3.79648, -1.09831, -0.0331712)
 
 [node name="Finger Base 1_001" parent="Armature/Skeleton3D/Finger Base 1_001" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Finger End 2_001" parent="Armature/Skeleton3D" index="46"]
-transform = Transform3D(-0.40515, 0.455237, 0.792851, -0.289719, 0.758591, -0.583612, -0.867132, -0.466155, -0.175452, 2.70697, -1.99183, -0.135652)
+transform = Transform3D(0.999995, 0.00277916, -0.00141234, -0.00278005, 0.999997, -0.000572741, 0.00141073, 0.000576668, 0.999998, 3.86806, -1.69888, -0.0331419)
 
 [node name="Finger End 2_001" parent="Armature/Skeleton3D/Finger End 2_001" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Finger Middle 2_001" parent="Armature/Skeleton3D" index="47"]
-transform = Transform3D(-0.281939, 0.235339, 0.930121, -0.354533, 0.875279, -0.328928, -0.891525, -0.422497, -0.16334, 2.8376, -1.77102, -0.127902)
+transform = Transform3D(0.999995, 0.00277913, -0.00141234, -0.00277999, 0.999997, -0.000572721, 0.00141073, 0.000576649, 0.999998, 3.73892, -1.46404, -0.03319)
 
 [node name="Finger Middle 2_001" parent="Armature/Skeleton3D/Finger Middle 2_001" index="0"]
 transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 2.23517e-08, -4.47035e-08, -1.49012e-08, 1, 0, 0, 0)
 material_override = ExtResource("3_wigwt")
 
 [node name="Finger Base 2_001" parent="Armature/Skeleton3D" index="48"]
-transform = Transform3D(-0.144812, -0.00973143, 0.989411, -0.380958, 0.923414, -0.046675, -0.913181, -0.383684, -0.137428, 2.881, -1.51901, -0.104273)
+transform = Transform3D(0.999995, 0.00277963, -0.00141236, -0.00278038, 0.999997, -0.000572753, 0.00141075, 0.000576681, 0.999998, 3.6093, -1.22908, -0.0341986)
 
 [node name="Finger Base 2_001" parent="Armature/Skeleton3D/Finger Base 2_001" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Finger End 3_001" parent="Armature/Skeleton3D" index="49"]
-transform = Transform3D(-0.262095, 0.527477, 0.80813, -0.320829, 0.742148, -0.58846, -0.910152, -0.413504, -0.0252831, 2.72278, -1.98662, 0.154662)
+transform = Transform3D(0.99998, 0.00654354, -0.000137536, -0.00654355, 0.999979, -0.00109952, 0.000130324, 0.0011004, 0.999999, 3.57433, -1.81343, -0.033324)
 
 [node name="Finger End 3_001" parent="Armature/Skeleton3D/Finger End 3_001" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Finger Middle 3_001" parent="Armature/Skeleton3D" index="50"]
-transform = Transform3D(-0.184502, 0.28358, 0.941031, -0.361581, 0.870735, -0.333288, -0.913904, -0.401752, -0.0581153, 2.85252, -1.7667, 0.127425)
+transform = Transform3D(0.999979, 0.00654366, -0.000137576, -0.00654358, 0.999978, -0.00109941, 0.000130364, 0.00110029, 0.999999, 3.4925, -1.55821, -0.0333211)
 
 [node name="Finger Middle 3_001" parent="Armature/Skeleton3D/Finger Middle 3_001" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Finger Base 3_001" parent="Armature/Skeleton3D" index="51"]
-transform = Transform3D(-0.0948039, 0.0148088, 0.995385, -0.379202, 0.92397, -0.0498625, -0.920446, -0.382179, -0.0819801, 2.8923, -1.48568, 0.104622)
+transform = Transform3D(0.99998, 0.00654363, -0.000137574, -0.00654364, 0.999979, -0.00109943, 0.000130363, 0.00110031, 0.999999, 3.40087, -1.27631, -0.0340924)
 
 [node name="Finger Base 3_001" parent="Armature/Skeleton3D/Finger Base 3_001" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Finger End 4_001" parent="Armature/Skeleton3D" index="52"]
-transform = Transform3D(0.228119, 0.264419, 0.93704, -0.361899, 0.91649, -0.170517, -0.903877, -0.300216, 0.304761, 2.80995, -1.57343, 0.501139)
+transform = Transform3D(0.999979, 0.00654342, -0.000137574, -0.0065434, 0.999979, -0.0010994, 0.000130363, 0.00110029, 0.999999, 3.03929, -1.51168, -0.033379)
 
 [node name="Finger End 4_001" parent="Armature/Skeleton3D/Finger End 4_001" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Finger Base 4_001" parent="Armature/Skeleton3D" index="53"]
-transform = Transform3D(0.113979, 0.00602548, 0.993464, -0.353973, 0.934603, 0.0349426, -0.928285, -0.355642, 0.108658, 2.86833, -1.32775, 0.265981)
+transform = Transform3D(0.99998, 0.00654357, -0.000137546, -0.00654355, 0.999979, -0.00109944, 0.000130335, 0.00110032, 0.999999, 3.18568, -1.18489, -0.0373407)
 
 [node name="Finger Base 4_001" parent="Armature/Skeleton3D/Finger Base 4_001" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Left Hand_001" parent="Armature/Skeleton3D" index="54"]
-transform = Transform3D(-0.00307367, -0.257645, 0.966234, -0.364254, 0.900146, 0.238864, -0.931294, -0.351221, -0.0966148, 2.95217, -1.59203, -0.0193152)
+transform = Transform3D(0.999999, 2.98029e-08, -3.3945e-08, 1.1921e-07, 1, 2.49203e-08, 1.97324e-08, -2.11987e-08, 0.999999, 3.55168, -1.33455, 0.00463617)
 
 [node name="Left Hand_001" parent="Armature/Skeleton3D/Left Hand_001" index="0"]
 material_override = ExtResource("2_4rq6j")
 
 [node name="Left Wrist Guard" parent="Armature/Skeleton3D" index="55"]
-transform = Transform3D(-0.00307367, -0.257645, 0.966234, -0.364254, 0.900146, 0.238864, -0.931294, -0.351221, -0.0966148, 2.74775, -0.640981, -0.0666983)
+transform = Transform3D(0.999999, 2.98029e-08, -3.3945e-08, 1.1921e-07, 1, 2.49203e-08, 1.97324e-08, -2.11987e-08, 0.999999, 3.25001, -0.409153, 0.0388635)
 
 [node name="Left Wrist Guard" parent="Armature/Skeleton3D/Left Wrist Guard" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Left Arm_011" parent="Armature/Skeleton3D" index="56"]
-transform = Transform3D(-0.00307368, -0.257645, 0.966234, -0.364254, 0.900146, 0.238864, -0.931294, -0.351221, -0.0966148, 2.48374, 0.217722, -0.0110686)
+transform = Transform3D(0.999999, -5.9604e-08, -1.28315e-08, 3.57629e-07, 1, 3.0347e-09, -1.38095e-09, 6.86953e-10, 0.999999, 2.88623, 0.412286, -0.0164893)
 
 [node name="Left Arm_011" parent="Armature/Skeleton3D/Left Arm_011" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.49012e-08, 7.45058e-09, 1.49012e-08, 1, 0, 0, 0)
 material_override = ExtResource("3_wigwt")
 
 [node name="Left Arm_010" parent="Armature/Skeleton3D" index="57"]
-transform = Transform3D(-0.00307368, -0.257645, 0.966234, -0.364254, 0.900145, 0.238864, -0.931294, -0.351221, -0.0966148, 2.43744, 0.406146, -0.00828525)
+transform = Transform3D(0.999999, -2.98018e-08, -1.90201e-08, 3.27826e-07, 0.999999, 2.17243e-08, 4.8077e-09, -1.80027e-08, 0.999999, 2.81514, 0.592847, -0.0164893)
 
 [node name="Left Arm_010" parent="Armature/Skeleton3D/Left Arm_010" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Left Arm_009" parent="Armature/Skeleton3D" index="58"]
-transform = Transform3D(-0.00332405, -0.257444, 0.966287, -0.363679, 0.900435, 0.238648, -0.931518, -0.350626, -0.09662, 2.39117, 0.594572, -0.00544421)
+transform = Transform3D(0.999999, -5.96041e-08, -2.84264e-08, 3.27826e-07, 1, 2.21928e-08, 1.42139e-08, -1.84711e-08, 1, 2.74406, 0.773407, -0.0164891)
 
 [node name="Left Arm_009" parent="Armature/Skeleton3D/Left Arm_009" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Left Arm_008" parent="Armature/Skeleton3D" index="59"]
-transform = Transform3D(-0.00383699, -0.257021, 0.966398, -0.362516, 0.901024, 0.238196, -0.931969, -0.349421, -0.0966316, 2.34497, 0.783015, -0.0024191)
+transform = Transform3D(0.999999, 5.96054e-08, -7.7431e-09, 2.08617e-07, 1, 3.34904e-08, -6.4698e-09, -2.97689e-08, 0.999999, 2.67298, 0.953968, -0.0164893)
 
 [node name="Left Arm_008" parent="Armature/Skeleton3D/Left Arm_008" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Left Arm_007" parent="Armature/Skeleton3D" index="60"]
-transform = Transform3D(0.106738, -0.250872, 0.962117, -0.432638, 0.85952, 0.272117, -0.895226, -0.445294, -0.0167927, 2.29555, 0.970309, -0.00882313)
+transform = Transform3D(0.990511, 0.106411, -0.0869619, -0.106411, 0.994311, 0.0046423, 0.0869612, 0.00465546, 0.9962, 2.61142, 1.13771, -0.0190922)
 
 [node name="Left Arm_007" parent="Armature/Skeleton3D/Left Arm_007" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Left Arm_006" parent="Armature/Skeleton3D" index="61"]
-transform = Transform3D(-0.029702, -0.236114, 0.971271, -0.291991, 0.931365, 0.217484, -0.955959, -0.277143, -0.0966067, 2.25115, 1.14834, -0.00817972)
+transform = Transform3D(0.995329, -0.0960823, 0.00938783, 0.0962801, 0.995076, -0.0235369, -0.00708013, 0.0243308, 0.999678, 2.54516, 1.30864, -0.0193406)
 
 [node name="Left Arm_006" parent="Armature/Skeleton3D/Left Arm_006" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Left Arm_005" parent="Armature/Skeleton3D" index="62"]
-transform = Transform3D(0.00151208, -0.259786, 0.965665, -0.376901, 0.894303, 0.241178, -0.926252, -0.364325, -0.0965613, 2.20507, 1.34847, 0.00239545)
+transform = Transform3D(0.999999, -1.78813e-07, -9.58948e-10, 3.57628e-07, 0.999999, 3.01168e-09, 3.59262e-09, -1.06348e-09, 1, 2.45973, 1.49565, -0.0164891)
 
 [node name="Left Arm_005" parent="Armature/Skeleton3D/Left Arm_005" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Left Arm_004" parent="Armature/Skeleton3D" index="63"]
-transform = Transform3D(0.00112241, -0.258889, 0.965906, -0.376912, 0.89456, 0.240205, -0.926248, -0.364332, -0.0965744, 2.15814, 1.53676, 0.00245292)
+transform = Transform3D(1, -2.98023e-08, -1.43947e-08, 2.08616e-07, 1, 2.9407e-08, 1.70284e-08, -2.74587e-08, 1, 2.38864, 1.67621, -0.0164898)
 
 [node name="Left Arm_004" parent="Armature/Skeleton3D/Left Arm_004" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Left Arm_003" parent="Armature/Skeleton3D" index="64"]
-transform = Transform3D(0.00106527, -0.257878, 0.966177, -0.378247, 0.89429, 0.239109, -0.925704, -0.365708, -0.096589, 2.11141, 1.72509, 0.00237158)
+transform = Transform3D(0.999999, -1.49011e-07, -1.54585e-08, 3.57628e-07, 0.999999, 3.78571e-08, 1.80921e-08, -3.59088e-08, 1, 2.31756, 1.85677, -0.0164894)
 
 [node name="Left Arm_003" parent="Armature/Skeleton3D/Left Arm_003" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Left Arm_002" parent="Armature/Skeleton3D" index="65"]
-transform = Transform3D(0.00135634, -0.256632, 0.966508, -0.381149, 0.893417, 0.23776, -0.924512, -0.368707, -0.0966033, 2.06487, 1.91345, 0.00183955)
+transform = Transform3D(1, -5.96039e-08, -1.25806e-08, 2.38419e-07, 1, 2.66276e-08, 1.52144e-08, -2.46793e-08, 1, 2.24647, 2.03733, -0.0164891)
 
 [node name="Left Arm_002" parent="Armature/Skeleton3D/Left Arm_002" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Left Arm_001" parent="Armature/Skeleton3D" index="66"]
-transform = Transform3D(0.00203407, -0.255002, 0.966938, -0.385982, 0.891807, 0.236001, -0.922504, -0.373701, -0.0966123, 2.01857, 2.10184, 0.000476689)
+transform = Transform3D(0.999999, -1.49011e-07, -1.10203e-08, 2.98024e-07, 0.999999, 1.47694e-08, 1.3654e-08, -1.28211e-08, 1, 2.17539, 2.21789, -0.0164894)
 
 [node name="Left Arm_001" parent="Armature/Skeleton3D/Left Arm_001" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Left Arm" parent="Armature/Skeleton3D" index="67"]
-transform = Transform3D(0.00315942, -0.252806, 0.967511, -0.393244, 0.889252, 0.233642, -0.919429, -0.381207, -0.0966051, 1.97256, 2.29025, -0.00218782)
+transform = Transform3D(1, -2.08616e-07, -1.86618e-07, 3.87431e-07, 1, -4.45475e-08, 1.89252e-07, 4.64959e-08, 1, 2.10431, 2.39845, -0.0164895)
 
 [node name="Left Arm" parent="Armature/Skeleton3D/Left Arm" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Left Shoulder" parent="Armature/Skeleton3D" index="68"]
-transform = Transform3D(0.991903, -0.0662335, 0.108357, 0.0648595, 0.997763, 0.0161618, -0.109185, -0.009003, 0.993981, 0.0330397, 2.18016, 0.288762)
+transform = Transform3D(1, -2.73594e-07, 1.39698e-08, 4.71357e-07, 1, -1.18744e-08, -1.30385e-08, 1.11759e-08, 1, 0.00468397, 2.3673, 0.0116159)
 
 [node name="Left Shoulder" parent="Armature/Skeleton3D/Left Shoulder" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Finger End 1" parent="Armature/Skeleton3D" index="69"]
-transform = Transform3D(-0.317814, -0.140878, -0.937629, 0.361013, 0.896433, -0.257054, 0.876734, -0.420192, -0.23404, -2.81572, -1.98614, -0.461964)
+transform = Transform3D(0.999991, -0.00376529, -0.00127816, 0.00376543, 0.999992, 0.000518387, 0.00127619, -0.000523194, 0.999999, -4.12237, -1.52784, 0.00180217)
 
 [node name="Finger End 1" parent="Armature/Skeleton3D/Finger End 1" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Finger Middle 1" parent="Armature/Skeleton3D" index="70"]
-transform = Transform3D(-0.211868, -0.0110556, -0.977236, 0.380589, 0.920063, -0.0929217, 0.900145, -0.391613, -0.190725, -2.88106, -1.73398, -0.39939)
+transform = Transform3D(0.999991, -0.00376535, -0.00127817, 0.00376543, 0.999992, 0.00051838, 0.0012762, -0.000523187, 0.999999, -3.95602, -1.31771, 0.00190656)
 
 [node name="Finger Middle 1" parent="Armature/Skeleton3D/Finger Middle 1" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Finger Base 1" parent="Armature/Skeleton3D" index="71"]
-transform = Transform3D(-0.10339, 0.122285, -0.987095, 0.38184, 0.921249, 0.0741332, 0.918426, -0.369249, -0.141941, -2.88827, -1.46716, -0.322594)
+transform = Transform3D(0.999991, -0.00376573, -0.00127816, 0.00376585, 0.999992, 0.00051837, 0.00127619, -0.000523177, 0.999999, -3.78338, -1.10008, 0.00228664)
 
 [node name="Finger Base 1" parent="Armature/Skeleton3D/Finger Base 1" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Finger End 2" parent="Armature/Skeleton3D" index="72"]
-transform = Transform3D(-0.251142, -0.189734, -0.949173, 0.360407, 0.891761, -0.273618, 0.89835, -0.410807, -0.155578, -2.8596, -2.04362, -0.15663)
+transform = Transform3D(0.999991, -0.00376529, -0.00127817, 0.00376534, 0.999992, 0.000518393, 0.00127619, -0.000523199, 0.999999, -3.85436, -1.70072, 0.00223434)
 
 [node name="Finger End 2" parent="Armature/Skeleton3D/Finger End 2" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Finger Middle 2" parent="Armature/Skeleton3D" index="73"]
-transform = Transform3D(-0.168439, -0.042087, -0.984813, 0.376769, 0.920475, -0.103778, 0.910863, -0.388528, -0.139187, -2.91953, -1.78345, -0.133653)
+transform = Transform3D(0.999991, -0.00376538, -0.00127817, 0.0037654, 0.999992, 0.000518388, 0.0012762, -0.000523195, 0.999999, -3.72545, -1.46575, 0.00227814)
 
 [node name="Finger Middle 2" parent="Armature/Skeleton3D/Finger Middle 2" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Finger Base 2" parent="Armature/Skeleton3D" index="74"]
-transform = Transform3D(-0.0839428, 0.108702, -0.990524, 0.378468, 0.923022, 0.0692212, 0.921799, -0.369072, -0.118621, -2.92327, -1.51692, -0.102387)
+transform = Transform3D(0.999991, -0.00376529, -0.00127816, 0.00376531, 0.999992, 0.000518395, 0.00127619, -0.000523202, 0.999999, -3.59606, -1.23067, 0.0032819)
 
 [node name="Finger Base 2" parent="Armature/Skeleton3D/Finger Base 2" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Finger End 3" parent="Armature/Skeleton3D" index="75"]
-transform = Transform3D(-0.158918, -0.233509, -0.95928, 0.362, 0.890177, -0.276658, 0.918531, -0.391226, -0.0569344, -2.88012, -2.03968, 0.158234)
+transform = Transform3D(0.999991, -0.00376514, -0.00127818, 0.00376528, 0.999992, 0.000518422, 0.0012762, -0.000523229, 0.999999, -3.5536, -1.81655, 0.00267875)
 
 [node name="Finger End 3" parent="Armature/Skeleton3D/Finger End 3" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Finger Middle 3" parent="Armature/Skeleton3D" index="76"]
-transform = Transform3D(-0.107699, -0.0706687, -0.991669, 0.372276, 0.922033, -0.106137, 0.921851, -0.380605, -0.0729941, -2.93751, -1.77891, 0.134199)
+transform = Transform3D(0.999991, -0.00376514, -0.00127817, 0.00376528, 0.999992, 0.00051839, 0.0012762, -0.000523196, 0.999999, -3.47298, -1.56096, 0.0026494)
 
 [node name="Finger Middle 3" parent="Armature/Skeleton3D/Finger Middle 3" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Finger Base 3" parent="Armature/Skeleton3D" index="77"]
-transform = Transform3D(-0.0531702, 0.0943067, -0.994122, 0.373551, 0.925129, 0.0677827, 0.926084, -0.367752, -0.0844177, -2.93401, -1.4832, 0.113611)
+transform = Transform3D(0.999992, -0.00376523, -0.00127817, 0.00376534, 0.999992, 0.000518391, 0.0012762, -0.000523198, 0.999999, -3.38269, -1.27862, 0.00339266)
 
 [node name="Finger Base 3" parent="Armature/Skeleton3D/Finger Base 3" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Finger End 4" parent="Armature/Skeleton3D" index="78"]
-transform = Transform3D(0.14204, -0.0583957, -0.988137, 0.348041, 0.937463, -0.00537136, 0.926655, -0.343149, 0.153482, -2.90085, -1.5763, 0.533864)
+transform = Transform3D(0.999991, -0.00376517, -0.00127821, 0.00376529, 0.999992, 0.000518358, 0.00127624, -0.000523164, 0.999999, -3.02, -1.51227, 0.00320313)
 
 [node name="Finger End 4" parent="Armature/Skeleton3D/Finger End 4" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Finger Base 4" parent="Armature/Skeleton3D" index="79"]
-transform = Transform3D(0.0715998, 0.0998971, -0.992418, 0.352233, 0.928334, 0.118859, 0.933169, -0.358073, 0.0312815, -2.91238, -1.32179, 0.282169)
+transform = Transform3D(0.999992, -0.00376454, -0.00127822, 0.00376469, 0.999992, 0.000518372, 0.00127625, -0.000523178, 0.999999, -3.16794, -1.18617, 0.00684308)
 
 [node name="Finger Base 4" parent="Armature/Skeleton3D/Finger Base 4" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Right Hand" parent="Armature/Skeleton3D" index="80"]
-transform = Transform3D(0.00259192, 0.256142, -0.966636, 0.361378, 0.901072, 0.239737, 0.932416, -0.349943, -0.0902285, -2.95661, -1.59856, -0.00692663)
+transform = Transform3D(1, -5.36442e-07, 1.62381e-08, -5.96051e-08, 1, 3.94283e-08, -2.52934e-08, -3.68764e-08, 1, -3.53708, -1.34694, 0.00474954)
 
 [node name="Right Hand" parent="Armature/Skeleton3D/Right Hand" index="0"]
 material_override = ExtResource("2_4rq6j")
 
 [node name="Right Wrist Guard" parent="Armature/Skeleton3D" index="81"]
-transform = Transform3D(0.00259192, 0.256142, -0.966636, 0.361378, 0.901072, 0.239737, 0.932416, -0.349943, -0.0902285, -2.74861, -0.638241, -0.0617701)
+transform = Transform3D(1, -5.36442e-07, 1.62381e-08, -5.96051e-08, 1, 3.94283e-08, -2.52934e-08, -3.68764e-08, 1, -3.24064, -0.409153, 0.0388634)
 
 [node name="Right Wrist Guard" parent="Armature/Skeleton3D/Right Wrist Guard" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Right Arm_011" parent="Armature/Skeleton3D" index="82"]
-transform = Transform3D(0.0914176, -0.239286, -0.966636, -0.00617899, -0.970818, 0.239737, -0.995793, -0.0159433, -0.0902283, -2.48573, 0.220618, -0.00522015)
+transform = Transform3D(-0.93049, -0.366319, 3.62617e-08, 0.366319, -0.930489, -2.94022e-07, 1.50807e-07, -2.59358e-07, 1, -2.87686, 0.412285, -0.0144485)
 
 [node name="Right Arm_011" parent="Armature/Skeleton3D/Right Arm_011" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Right Arm_010" parent="Armature/Skeleton3D" index="83"]
-transform = Transform3D(0.0914178, -0.239286, -0.966636, -0.00617913, -0.970818, 0.239737, -0.995794, -0.0159432, -0.0902286, -2.4393, 0.409004, -0.00212698)
+transform = Transform3D(-0.93049, -0.366319, -1.75512e-07, 0.366319, -0.930489, -2.04e-07, -7.92221e-08, -2.53171e-07, 1, -2.80578, 0.592846, -0.0144485)
 
 [node name="Right Arm_010" parent="Armature/Skeleton3D/Right Arm_010" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Right Arm_009" parent="Armature/Skeleton3D" index="84"]
-transform = Transform3D(0.0921454, -0.2384, -0.966786, -0.00324452, -0.970983, 0.239126, -0.99574, -0.0188975, -0.090245, -2.39296, 0.597375, 0.00124399)
+transform = Transform3D(-0.93049, -0.366318, -1.70977e-07, 0.366319, -0.930489, -2.09756e-07, -7.28933e-08, -2.56865e-07, 1, -2.73469, 0.773407, -0.0144486)
 
 [node name="Right Arm_009" parent="Armature/Skeleton3D/Right Arm_009" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Right Arm_007" parent="Armature/Skeleton3D" index="85"]
-transform = Transform3D(0.00165433, -0.26953, -0.962991, -0.085445, -0.959508, 0.268408, -0.996342, 0.0818388, -0.0246172, -2.29724, 0.973783, 0.000384846)
+transform = Transform3D(-0.965479, -0.250003, 0.0731467, 0.251352, -0.967847, 0.00970704, 0.068368, 0.0277575, 0.997274, -2.60323, 1.13888, -0.0175589)
 
 [node name="Right Arm_007" parent="Armature/Skeleton3D/Right Arm_007" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Right Arm_008" parent="Armature/Skeleton3D" index="86"]
-transform = Transform3D(0.00165433, -0.26953, -0.962991, -0.085445, -0.959508, 0.268408, -0.996342, 0.0818388, -0.0246172, -2.34955, 0.787591, 0.0162657)
+transform = Transform3D(-0.965479, -0.250003, 0.0731467, 0.251352, -0.967847, 0.00970704, 0.068368, 0.0277575, 0.997274, -2.65174, 0.95107, -0.0121724)
 
 [node name="Right Arm_008" parent="Armature/Skeleton3D/Right Arm_008" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Right Arm_006" parent="Armature/Skeleton3D" index="87"]
-transform = Transform3D(0.0973356, -0.21356, -0.972069, 0.0748084, -0.972373, 0.221118, -0.992436, -0.0942416, -0.0786704, -2.25365, 1.15006, 0.00194434)
+transform = Transform3D(-0.885646, -0.46436, 0.000684234, 0.46415, -0.885288, -0.0287889, 0.0139741, -0.0251792, 0.999585, -2.53759, 1.30738, -0.0173206)
 
 [node name="Right Arm_006" parent="Armature/Skeleton3D/Right Arm_006" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Right Arm_005" parent="Armature/Skeleton3D" index="88"]
-transform = Transform3D(0.0874635, -0.245052, -0.965557, -0.0217762, -0.96951, 0.244083, -0.99593, -0.000322128, -0.090133, -2.20632, 1.35185, 0.0126534)
+transform = Transform3D(-0.93049, -0.366319, -6.38432e-08, 0.366319, -0.930489, -2.69111e-07, 3.06596e-08, -2.78181e-07, 1, -2.45036, 1.49565, -0.0144481)
 
 [node name="Right Arm_005" parent="Armature/Skeleton3D/Right Arm_005" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Right Arm_004" parent="Armature/Skeleton3D" index="89"]
-transform = Transform3D(0.0890138, -0.242932, -0.965951, -0.0156668, -0.970022, 0.242512, -0.995907, -0.00645354, -0.0901513, -2.15897, 1.54002, 0.0133027)
+transform = Transform3D(-0.93049, -0.366319, -5.71576e-08, 0.366319, -0.930489, -2.51461e-07, 3.04154e-08, -2.59309e-07, 1, -2.37927, 1.67621, -0.014448)
 
 [node name="Right Arm_004" parent="Armature/Skeleton3D/Right Arm_004" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Right Arm_003" parent="Armature/Skeleton3D" index="90"]
-transform = Transform3D(0.089555, -0.241486, -0.966263, -0.0135667, -0.970367, 0.241254, -0.99589, -0.00849649, -0.0901774, -2.11197, 1.72828, 0.0147508)
+transform = Transform3D(-0.93049, -0.366319, -5.89852e-08, 0.366319, -0.930489, -2.61482e-07, 3.23857e-08, -2.69303e-07, 1, -2.30819, 1.85677, -0.0144481)
 
 [node name="Right Arm_003" parent="Armature/Skeleton3D/Right Arm_003" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Right Arm_002" parent="Armature/Skeleton3D" index="91"]
-transform = Transform3D(0.0890838, -0.240131, -0.966644, -0.0155606, -0.97072, 0.23971, -0.995903, -0.00631263, -0.090212, -2.06524, 1.91661, 0.0161893)
+transform = Transform3D(-0.93049, -0.366319, -6.55043e-08, 0.366319, -0.930489, -2.53726e-07, 2.34789e-08, -2.64474e-07, 1, -2.23711, 2.03733, -0.014448)
 
 [node name="Right Arm_002" parent="Armature/Skeleton3D/Right Arm_002" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Right Arm_001" parent="Armature/Skeleton3D" index="92"]
-transform = Transform3D(0.0872959, -0.238241, -0.967275, -0.0229544, -0.971205, 0.237137, -0.995918, 0.00150219, -0.0902508, -2.01884, 2.105, 0.01666)
+transform = Transform3D(-0.93049, -0.366319, -2.97421e-07, 0.366319, -0.93049, -1.73612e-07, -2.21666e-07, -2.74884e-07, 1, -2.16602, 2.21789, -0.0144481)
 
 [node name="Right Arm_001" parent="Armature/Skeleton3D/Right Arm_001" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Right Arm" parent="Armature/Skeleton3D" index="93"]
-transform = Transform3D(0.083535, -0.234985, -0.968403, -0.038593, -0.971833, 0.232488, -0.995757, 0.0179527, -0.0902508, -1.97294, 2.29344, 0.0147772)
+transform = Transform3D(-0.93049, -0.366319, 1.20838e-07, 0.366319, -0.930489, -3.34158e-07, 2.26332e-07, -2.71054e-07, 1, -2.09494, 2.39845, -0.0144477)
 
 [node name="Right Arm" parent="Armature/Skeleton3D/Right Arm" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Right Shoulder" parent="Armature/Skeleton3D" index="94"]
-transform = Transform3D(0.991989, 0.066199, -0.107587, -0.0648318, 0.997766, 0.0161588, 0.108416, -0.0090543, 0.994064, -0.0235469, 2.17955, 0.289803)
+transform = Transform3D(1, 1.24472e-07, -8.3819e-09, -1.73352e-07, 1, -1.53668e-08, 9.31323e-09, 1.59489e-08, 1, 0.00468409, 2.3673, 0.0116159)
 
 [node name="Right Shoulder" parent="Armature/Skeleton3D/Right Shoulder" index="0"]
 material_override = ExtResource("3_wigwt")
 
 [node name="Hips" parent="Armature/Skeleton3D" index="95"]
-transform = Transform3D(0.998041, 4.42389e-05, 0.0625564, -0.000123269, 0.999999, 0.00125948, -0.0625563, -0.00126472, 0.99804, 0.00464276, -0.626072, -0.014262)
+transform = Transform3D(0.998041, 4.42389e-05, 0.0625564, -0.000123269, 0.999999, 0.00125948, -0.0625563, -0.00126472, 0.99804, 0.00464276, -0.537846, -0.014262)
 
 [node name="Hips" parent="Armature/Skeleton3D/Hips" index="0"]
 material_override = ExtResource("3_wigwt")

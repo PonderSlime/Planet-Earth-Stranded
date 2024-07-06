@@ -7,6 +7,7 @@ signal set_movement_direction(_movement_direction: Vector3)
 
 @export var movement_states: Dictionary
 @export var jump_states: Dictionary
+@export var glide_states: Dictionary
 var movement_direction : Vector3
 
 func _input(event):
@@ -17,8 +18,6 @@ func _input(event):
 		if is_movement_ongoing():
 			if Input.is_action_pressed("run"):
 				set_movement_state.emit(movement_states["run"])
-			elif Input.is_action_just_pressed("glide"):
-				set_movement_state.emit(movement_states["glide"])
 			else:
 				set_movement_state.emit(movement_states["walk"])
 				
@@ -42,7 +41,7 @@ func _physics_process(delta):
 
 		if Input.is_action_just_pressed("glide"):
 			
-			set_movement_state.emit(movement_states["glide"])
+			pressed_glide.emit(glide_states["glide"])
 			print("gliding")
 func is_movement_ongoing() -> bool:
 	return abs(movement_direction.x) > 0 or abs(movement_direction.z) > 0
