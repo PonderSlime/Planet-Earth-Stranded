@@ -1,0 +1,20 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://cd7xy65v1d5f5"]
+
+[ext_resource type="Shader" path="res://Assets/Environment/Textures/ToonShader.gdshader" id="1_5kwoh"]
+[ext_resource type="Texture2D" uid="uid://l35d75i1u4f7" path="res://Assets/Character/Textures/Glider Color.png" id="2_vrdxp"]
+[ext_resource type="Texture2D" uid="uid://did3p25l52we" path="res://Assets/Environment/Shaders/fresnel_gradient.tres" id="3_akk8r"]
+
+[sub_resource type="Gradient" id="Gradient_i3ner"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.171642)
+colors = PackedColorArray(0.099986, 0.099986, 0.099986, 1, 0.259294, 0.259294, 0.259294, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_iquyq"]
+gradient = SubResource("Gradient_i3ner")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_5kwoh")
+shader_parameter/albedo_texture = ExtResource("2_vrdxp")
+shader_parameter/color_gradient = SubResource("GradientTexture1D_iquyq")
+shader_parameter/fresnel_gradient = ExtResource("3_akk8r")

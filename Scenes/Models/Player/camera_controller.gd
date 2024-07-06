@@ -6,6 +6,7 @@ signal set_cam_rotation(_cam_rotation : float)
 @onready var pitch_node = $CamYaw/CamPitch
 @onready var spring_arm = $CamYaw/CamPitch/SpringArm3D
 @onready var camera = $CamYaw/CamPitch/SpringArm3D/Camera3D
+@export var player : CharacterBody3D
 
 var yaw :float = 0
 var pitch : float = 0
@@ -20,6 +21,7 @@ var pitch_max : float = 75
 var pitch_min : float = -55
 
 var tween : Tween
+var is_gliding : bool = false
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -37,10 +39,25 @@ func _physics_process(delta):
 	pitch_node.rotation_degrees.x = lerp(pitch_node.rotation_degrees.x, pitch, pitch_acceleration * delta)
 	
 	set_cam_rotation.emit(yaw_node.rotation.y)
+	if !player.is_on_floor() and Input.is_action_just_pressed("glide"):
+		if is_gliding:
+			is_gliding = false
+			print("glide off")
+		else:
+			if !is_gliding:
+				is_gliding = true
+				print("glide on")
+	else:
+		if player.is_on_floor():
+			is_gliding = false
+	
 
 func _on_set_movement_state(_movement_state : MovementState):
 	if tween:
 		tween.kill()
 	
 	tween = create_tween()
-	tween.tween_property(camera, "fov", _movement_state.camera_fov, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	if !is_gliding:
+		tween.tween_property(camera, "fov", _movement_state.camera_fov, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	#elif is_gliding:
+		#tween.tween_property(camera, "fov", 100, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)

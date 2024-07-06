@@ -37,12 +37,12 @@ func _physics_process(delta):
 			var jump_name = "jump"
 		
 			pressed_jump.emit(jump_states[jump_name])
-	
-
+	if not is_on_floor():	
 		if Input.is_action_just_pressed("glide"):
-			
-			pressed_glide.emit(glide_states["glide"])
+			var glide_name = "glide"
+			pressed_glide.emit(glide_states[glide_name])
 			print("gliding")
+			
 func is_movement_ongoing() -> bool:
 	return abs(movement_direction.x) > 0 or abs(movement_direction.z) > 0
 
