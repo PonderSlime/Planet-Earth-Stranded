@@ -15,7 +15,6 @@ gradient = SubResource("Gradient_i3ner")
 [resource]
 render_priority = 0
 shader = ExtResource("1_5kwoh")
-shader_parameter/brightness = 0.89
 shader_parameter/albedo_texture = ExtResource("2_vrdxp")
 shader_parameter/color_gradient = SubResource("GradientTexture1D_iquyq")
 shader_parameter/fresnel_gradient = ExtResource("3_akk8r")

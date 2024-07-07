@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bd2g0lvgf2pr4"]
+[gd_scene load_steps=15 format=3 uid="uid://bd2g0lvgf2pr4"]
 
-[ext_resource type="PackedScene" uid="uid://ddw6qk1ou3xe7" path="res://Assets/Environment/Trees.blend" id="1_q5h6m"]
+[ext_resource type="PackedScene" uid="uid://dsyscxnrxutri" path="res://Assets/Environment/Ghibli Tree Leaves.blend" id="1_i0mut"]
 [ext_resource type="Texture2D" uid="uid://did3p25l52we" path="res://Assets/Environment/Shaders/fresnel_gradient.tres" id="3_okl3v"]
 
 [sub_resource type="Shader" id="Shader_w4kp4"]
@@ -58,10 +58,41 @@ void light() {
 	//DIFFUSE_LIGHT += (shaded.rgb * LIGHT_COLOR);
 }"
 
+[sub_resource type="Gradient" id="Gradient_vw6ew"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.43474, 0.364819, 0.337006, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1tc7i"]
+gradient = SubResource("Gradient_vw6ew")
+
+[sub_resource type="Gradient" id="Gradient_wqoh1"]
+colors = PackedColorArray(0.47788, 0.47788, 0.47788, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4t5yl"]
+noise_type = 5
+domain_warp_enabled = true
+domain_warp_type = 1
+metadata/_preview_in_3d_space_ = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dn4u7"]
+color_ramp = SubResource("Gradient_wqoh1")
+noise = SubResource("FastNoiseLite_4t5yl")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bpae6"]
+render_priority = 0
+shader = SubResource("Shader_w4kp4")
+shader_parameter/tint = Color(0.542661, 0.506494, 0.475188, 1)
+shader_parameter/brightness = 1.0
+shader_parameter/albedo_texture = SubResource("GradientTexture1D_1tc7i")
+shader_parameter/color_gradient = SubResource("GradientTexture1D_1tc7i")
+shader_parameter/fresnel_gradient = ExtResource("3_okl3v")
+shader_parameter/grid_texture = SubResource("NoiseTexture2D_dn4u7")
+
 [sub_resource type="Gradient" id="Gradient_w68oh"]
 interpolation_mode = 1
-offsets = PackedFloat32Array(0, 0.398148, 0.694444)
-colors = PackedColorArray(0.0610928, 0.138545, 0.0118747, 1, 0.139783, 0.270079, 0.0405811, 1, 0.177648, 0.282106, 0.123392, 1)
+offsets = PackedFloat32Array(0, 0.12037, 0.694444)
+colors = PackedColorArray(0.00860126, 0.0293015, 0.00158602, 1, 0.139783, 0.270079, 0.0405811, 1, 0.177648, 0.282106, 0.123392, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_ep6k3"]
 gradient = SubResource("Gradient_w68oh")
@@ -74,7 +105,28 @@ shader_parameter/brightness = 1.0
 shader_parameter/color_gradient = SubResource("GradientTexture1D_ep6k3")
 shader_parameter/fresnel_gradient = ExtResource("3_okl3v")
 
-[node name="Trees" instance=ExtResource("1_q5h6m")]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h5jlq"]
+radius = 0.143729
+height = 4.15793
 
-[node name="Foliage" parent="." index="0"]
-material_override = SubResource("ShaderMaterial_r8g4i")
+[sub_resource type="SphereShape3D" id="SphereShape3D_s36uv"]
+radius = 1.59584
+
+[node name="Ghibli Tree Leaves" instance=ExtResource("1_i0mut")]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
+
+[node name="tree" parent="." index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_bpae6")
+
+[node name="Foliage" parent="." index="1"]
+surface_material_override/0 = SubResource("ShaderMaterial_r8g4i")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.07041, 0)
+shape = SubResource("CapsuleShape3D_h5jlq")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.282732, 3.22427, 0)
+shape = SubResource("SphereShape3D_s36uv")
