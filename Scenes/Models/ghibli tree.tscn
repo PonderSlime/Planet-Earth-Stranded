@@ -103,7 +103,6 @@ shader = SubResource("Shader_w4kp4")
 shader_parameter/tint = Color(0.45704, 0.752352, 0.497141, 1)
 shader_parameter/brightness = 1.0
 shader_parameter/color_gradient = SubResource("GradientTexture1D_ep6k3")
-shader_parameter/fresnel_gradient = ExtResource("3_okl3v")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h5jlq"]
 radius = 0.143729
