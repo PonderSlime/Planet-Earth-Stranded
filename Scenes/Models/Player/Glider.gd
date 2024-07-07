@@ -27,9 +27,11 @@ func _glide(glide_state : GlideState):
 	if !player.is_on_floor() and Input.is_action_just_pressed("glide"):
 		if is_gliding:
 			is_gliding = false
+			await get_tree().create_timer(0.085).timeout
 			#print("glide on")
 		else:
 			if !is_gliding:
+				await get_tree().create_timer(0.1).timeout
 				is_gliding = true
 				#print("glide off")
 

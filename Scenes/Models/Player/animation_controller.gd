@@ -7,8 +7,9 @@ extends Node
 var tween : Tween
 var on_floor_blend : float = 1
 var on_floor_blend_target : float = 1
+var gliding_blend : float = 1
+var gliding_blend_target : float = 1
 var is_gliding : bool = false
-
 func _physics_process(delta):
 	on_floor_blend_target = 1 if player.is_on_floor() else 0
 	#if player.is_on_floor():
@@ -28,12 +29,16 @@ func _physics_process(delta):
 	else:
 		if player.is_on_floor():
 			is_gliding = false
-	if is_gliding:
-		animation_tree["parameters/is_gliding/blend_amount"] = 1
+	#if is_gliding:
+	gliding_blend_target = 1 if is_gliding else 0
+	gliding_blend = lerp(gliding_blend, gliding_blend_target, 10 * delta)
+	animation_tree["parameters/is_gliding/blend_amount"] = gliding_blend
+		
 		#print("glide hands up")
-	else:
-		if !is_gliding:
-			animation_tree["parameters/is_gliding/blend_amount"] = 0
+	#else:
+		#if !is_gliding:
+			#animation_tree["parameters/is_gliding/blend_amount"] = 0
+			#
 			#print("glide hands down")
 	
 #func _process(delta):

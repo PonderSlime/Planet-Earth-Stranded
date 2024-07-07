@@ -59,5 +59,3 @@ func _on_set_movement_state(_movement_state : MovementState):
 	tween = create_tween()
 	if !is_gliding:
 		tween.tween_property(camera, "fov", _movement_state.camera_fov, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	#elif is_gliding:
-		#tween.tween_property(camera, "fov", 100, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
