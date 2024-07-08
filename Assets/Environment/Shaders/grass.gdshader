@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode cull_disabled;
+render_mode cull_disabled, unshaded;
 
 uniform vec3 color : source_color;
 uniform vec3 color2 : source_color;

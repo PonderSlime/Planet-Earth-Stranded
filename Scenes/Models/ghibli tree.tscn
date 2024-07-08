@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bd2g0lvgf2pr4"]
+[gd_scene load_steps=25 format=3 uid="uid://bd2g0lvgf2pr4"]
 
 [ext_resource type="PackedScene" uid="uid://dsyscxnrxutri" path="res://Assets/Environment/Ghibli Tree Leaves.blend" id="1_i0mut"]
 [ext_resource type="Texture2D" uid="uid://did3p25l52we" path="res://Assets/Environment/Shaders/fresnel_gradient.tres" id="3_okl3v"]
@@ -69,15 +69,12 @@ gradient = SubResource("Gradient_vw6ew")
 [sub_resource type="Gradient" id="Gradient_wqoh1"]
 colors = PackedColorArray(0.47788, 0.47788, 0.47788, 1, 1, 1, 1, 1)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_4t5yl"]
-noise_type = 5
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ahgmg"]
 domain_warp_enabled = true
-domain_warp_type = 1
-metadata/_preview_in_3d_space_ = true
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dn4u7"]
 color_ramp = SubResource("Gradient_wqoh1")
-noise = SubResource("FastNoiseLite_4t5yl")
+noise = SubResource("FastNoiseLite_ahgmg")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bpae6"]
 render_priority = 0
@@ -88,6 +85,92 @@ shader_parameter/albedo_texture = SubResource("GradientTexture1D_1tc7i")
 shader_parameter/color_gradient = SubResource("GradientTexture1D_1tc7i")
 shader_parameter/fresnel_gradient = ExtResource("3_okl3v")
 shader_parameter/grid_texture = SubResource("NoiseTexture2D_dn4u7")
+
+[sub_resource type="Shader" id="Shader_sgmn5"]
+code = "shader_type spatial;
+render_mode blend_mix,depth_draw_opaque,cull_disabled,diffuse_toon,specular_toon;
+
+uniform vec4 tint : source_color;
+uniform sampler2D albedo_texture : source_color;
+uniform sampler2D color_gradient;
+uniform sampler2D fresnel_gradient;
+
+const float color_mult = 1.0f;
+
+uniform sampler2D grid_texture: hint_default_white;
+uniform float brightness: hint_range(0.0f, 1.0f) = 1.0f;
+
+vec3 random(vec3 coord)
+{
+	vec3 res;
+	res.x = fract(sin(dot(coord.yz, vec2(12.9898,78.233))) * 43758.5453123);
+	res.y = fract(sin(dot(coord.xz, vec2(16.6539,68.698))) * 69845.5962848);
+	res.z = fract(sin(dot(coord.xy, vec2(25.5263,41.256))) * 42538.6985436);
+	return res;
+}
+
+float fresnel(float amount, vec3 normal, vec3 view)
+{
+	return pow((1.0 - clamp(dot(normalize(normal), normalize(view)), 0.0, 1.0 )), amount);
+}
+
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+
+void fragment() {
+	float basic_fresnel = fresnel(4.0, NORMAL, VIEW);
+	ALBEDO = texture(albedo_texture, UV).rgb + (basic_fresnel * texture(fresnel_gradient, vec2(basic_fresnel, 0.0)).rgb * 1.0) * tint.rgb;
+	vec4 projected_coords = INV_VIEW_MATRIX * vec4(VERTEX, 1.0);
+	vec3 albedoX = texture(grid_texture, projected_coords.zy).rgb;
+	vec3 albedoY = texture(grid_texture, projected_coords.xz).rgb;
+	vec3 albedoZ = texture(grid_texture, projected_coords.xy).rgb;
+	vec3 world_normal = abs(INV_VIEW_MATRIX * vec4(NORMAL, 0.0)).xyz;
+	vec3 normal_weights = world_normal / (world_normal.x + world_normal.y + world_normal.z);
+	
+	vec3 color_offset = random(floor(projected_coords.xyz));
+	
+	ALBEDO = mix(vec3(0.0f), mix((albedoX * normal_weights.x + albedoY * normal_weights.y + albedoZ * normal_weights.z), color_offset.rgb, 0.05f), brightness) * tint.rgb;
+}
+
+void light() {
+	float dotproduct = clamp(dot(NORMAL, LIGHT), -0.9, 0.9);
+	float sample = clamp((dotproduct + 1.0) * ATTENUATION / 2.1, 0.05, 0.95);
+	vec4 shaded = texture(color_gradient, vec2(sample, 0.0));
+	DIFFUSE_LIGHT += clamp((shaded.rgb * LIGHT_COLOR), 0.0, 1.0);
+	//DIFFUSE_LIGHT += (shaded.rgb * LIGHT_COLOR);
+}"
+
+[sub_resource type="Gradient" id="Gradient_1myuo"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.43474, 0.364819, 0.337006, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xxmqo"]
+gradient = SubResource("Gradient_1myuo")
+
+[sub_resource type="Gradient" id="Gradient_d6jte"]
+colors = PackedColorArray(0.47788, 0.47788, 0.47788, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4t5yl"]
+noise_type = 5
+domain_warp_enabled = true
+domain_warp_type = 1
+metadata/_preview_in_3d_space_ = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_sd7d8"]
+color_ramp = SubResource("Gradient_d6jte")
+noise = SubResource("FastNoiseLite_4t5yl")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7xlgw"]
+render_priority = 0
+shader = SubResource("Shader_sgmn5")
+shader_parameter/tint = Color(0.542661, 0.506494, 0.475188, 1)
+shader_parameter/brightness = 1.0
+shader_parameter/albedo_texture = SubResource("GradientTexture1D_xxmqo")
+shader_parameter/color_gradient = SubResource("GradientTexture1D_xxmqo")
+shader_parameter/fresnel_gradient = ExtResource("3_okl3v")
+shader_parameter/grid_texture = SubResource("NoiseTexture2D_sd7d8")
 
 [sub_resource type="Gradient" id="Gradient_w68oh"]
 interpolation_mode = 1
@@ -104,6 +187,21 @@ shader_parameter/tint = Color(0.45704, 0.752352, 0.497141, 1)
 shader_parameter/brightness = 1.0
 shader_parameter/color_gradient = SubResource("GradientTexture1D_ep6k3")
 
+[sub_resource type="Gradient" id="Gradient_ko2nj"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.12037, 0.694444)
+colors = PackedColorArray(0.00860126, 0.0293015, 0.00158602, 1, 0.139783, 0.270079, 0.0405811, 1, 0.177648, 0.282106, 0.123392, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_c15q3"]
+gradient = SubResource("Gradient_ko2nj")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3p1cn"]
+render_priority = 0
+shader = SubResource("Shader_sgmn5")
+shader_parameter/tint = Color(0.45704, 0.752352, 0.497141, 1)
+shader_parameter/brightness = 1.0
+shader_parameter/color_gradient = SubResource("GradientTexture1D_c15q3")
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h5jlq"]
 radius = 0.143729
 height = 4.15793
@@ -115,10 +213,13 @@ radius = 1.59584
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
 
 [node name="tree" parent="." index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_bpae6")
+material_override = SubResource("ShaderMaterial_bpae6")
+surface_material_override/0 = SubResource("ShaderMaterial_7xlgw")
 
 [node name="Foliage" parent="." index="1"]
-surface_material_override/0 = SubResource("ShaderMaterial_r8g4i")
+material_override = SubResource("ShaderMaterial_r8g4i")
+gi_mode = 0
+surface_material_override/0 = SubResource("ShaderMaterial_3p1cn")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="2"]
 
