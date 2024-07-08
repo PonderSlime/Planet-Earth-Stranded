@@ -2,6 +2,8 @@ extends Node
 
 @export var player : CharacterBody3D
 @export var mesh_root : Node3D
+@export var hurt_overlay : TextureRect
+@export var fall_damage_player : AudioStreamPlayer
 @export var rotation_speed : float = 8
 @export var fall_gravity = 10
 var direction : Vector3
@@ -17,6 +19,11 @@ var glide_gravity = glide_speed #glide_speed/50
 
 signal glide_mode(glide_state : GlideState)
 @export var glide_states : Dictionary
+
+var gravity_vec : Vector3
+var health = 100
+
+var hurt_tween : Tween
 
 func _physics_process(delta):
 	velocity.x = speed * direction.normalized().x
@@ -39,10 +46,20 @@ func _physics_process(delta):
 				velocity.y -= (glide_gravity) * delta
 				velocity.x = 8 * direction.normalized().x
 				velocity.z = 8 * direction.normalized().z
+				gravity_vec = Vector3.ZERO
+				
 				#print("glide gravity =", velocity.y)
 			elif !is_gliding:
 				velocity.y -= fall_gravity * delta
 				#print("fall gravity =", velocity.y)
+				gravity_vec += Vector3.DOWN * fall_gravity * delta
+	elif player.is_on_floor():
+		if gravity_vec.length() >= 20:
+			health -= gravity_vec.length()
+			print(health)
+			hurt()
+			fall_damage_player.play()
+			gravity_vec = Vector3.ZERO
 			
 	if Input.is_action_just_pressed("glide") and !is_gliding and !player.is_on_floor():
 		is_gliding = true
@@ -88,3 +105,9 @@ func _glide(glide_state : GlideState):
 	#velocity.y = 2 * glide_state.glide_height / glide_state.glide_duration #movement_state
 	#glide_gravity = velocity.y / glide_state.glide_duration
 	pass
+func hurt():
+	hurt_overlay.modulate = Color.WHITE
+	if hurt_tween:
+		hurt_tween.kill()
+	hurt_tween = create_tween()
+	hurt_tween.tween_property(hurt_overlay, "modulate", Color.TRANSPARENT, 0.75)

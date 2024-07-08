@@ -42,7 +42,9 @@ func _physics_process(delta):
 			var glide_name = "glide"
 			pressed_glide.emit(glide_states[glide_name])
 			print("gliding")
-			
+	
+	if Input.is_action_pressed("quit"):
+		get_tree().quit()
 func is_movement_ongoing() -> bool:
 	return abs(movement_direction.x) > 0 or abs(movement_direction.z) > 0
 
