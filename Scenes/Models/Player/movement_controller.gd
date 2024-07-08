@@ -1,9 +1,9 @@
 extends Node
 
+signal is_hurt
 @export var player : CharacterBody3D
 @export var mesh_root : Node3D
 @export var hurt_overlay : TextureRect
-@export var fall_damage_player : AudioStreamPlayer
 @export var rotation_speed : float = 8
 @export var fall_gravity = 10
 var direction : Vector3
@@ -21,7 +21,7 @@ signal glide_mode(glide_state : GlideState)
 @export var glide_states : Dictionary
 
 var gravity_vec : Vector3
-var health = 100
+var health : int = 100
 
 var hurt_tween : Tween
 
@@ -34,31 +34,34 @@ func _physics_process(delta):
 	if not player.is_on_floor():
 		if velocity.y >= 0 and !is_gliding:
 			velocity.y -= jump_gravity * delta
+			gravity_vec += Vector3.DOWN * fall_gravity * delta
 		#elif velocity.y <= 0 and is_gliding:
 			##print("gliding bool initial velocity")
 			#velocity.y -= glide_gravity * delta
 			#velocity.x = 8 * direction.normalized().x
 			#velocity.z = 8 * direction.normalized().z
-		else:
-			if is_gliding:
-				glide_mode.emit(glide_states["glide"])
-				velocity.y = 0
-				velocity.y -= (glide_gravity) * delta
-				velocity.x = 8 * direction.normalized().x
-				velocity.z = 8 * direction.normalized().z
-				gravity_vec = Vector3.ZERO
+		elif is_gliding:
+			glide_mode.emit(glide_states["glide"])
+			velocity.y = 0
+			velocity.y -= (glide_gravity) * delta
+			velocity.x = 8 * direction.normalized().x
+			velocity.z = 8 * direction.normalized().z
+			gravity_vec = Vector3.ZERO
 				
-				#print("glide gravity =", velocity.y)
-			elif !is_gliding:
-				velocity.y -= fall_gravity * delta
-				#print("fall gravity =", velocity.y)
-				gravity_vec += Vector3.DOWN * fall_gravity * delta
+			#print("glide gravity =", velocity.y)
+		else:
+			velocity.y -= fall_gravity * delta
+			#print("fall gravity =", velocity.y)
+			gravity_vec += Vector3.DOWN * fall_gravity * delta
+			
 	elif player.is_on_floor():
 		if gravity_vec.length() >= 20:
 			health -= gravity_vec.length()
 			print(health)
 			hurt()
-			fall_damage_player.play()
+			is_hurt.emit()
+			gravity_vec = Vector3.ZERO
+		elif gravity_vec.length() < 20:
 			gravity_vec = Vector3.ZERO
 			
 	if Input.is_action_just_pressed("glide") and !is_gliding and !player.is_on_floor():
