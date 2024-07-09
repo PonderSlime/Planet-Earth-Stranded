@@ -135,10 +135,13 @@ func _calculate_player_movement(t: float, velocity : Vector3):
 	# Relavant bone idx numbers:
 	# Right foot Heel: 37, Toe: 36
 	# Left Foot Heel: 48, Toe: 47
-
-	#velocity.x = 
 	
-	#print("bone pose heel: ", skeleton.get_bone_global_pose(37).origin.x)
+	# The vertical dimension is Y, roughly -4.989 when flat on ground
+	
+	print("right heel: ", skeleton.get_bone_global_pose(37).origin)
+	print("right toe: ", skeleton.get_bone_global_pose(36).origin)
+	print("left heel: ", skeleton.get_bone_global_pose(48).origin)
+	print("left toe: ", skeleton.get_bone_global_pose(47).origin)
 	
 	var position = skeleton.get_bone_global_pose(37).origin
 	print("position", position)
@@ -147,3 +150,8 @@ func _calculate_player_movement(t: float, velocity : Vector3):
 	prev_position = position
 	
 	return velocity * arbitrary_scaling_value
+	
+# Takes an array of vectors, and compares the y values to find the lowest and returns that	
+func _find_lowest_value():
+	
+	
