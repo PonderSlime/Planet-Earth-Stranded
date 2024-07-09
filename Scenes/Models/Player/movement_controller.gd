@@ -41,9 +41,9 @@ var hurt_tween : Tween
 func _physics_process(delta):
 	
 	var adj_velocity = _calculate_player_movement(delta)
-	
-	velocity.x = speed * direction.normalized().x
-	velocity.z = speed * direction.normalized().z
+	# z velocity is the forward/backward movement
+	velocity.x = -adj_velocity.z * direction.normalized().x
+	velocity.z = -adj_velocity.z * direction.normalized().z
 	
 	#glide_gravity * 10
 	# Falling function
@@ -170,7 +170,7 @@ func _calculate_player_movement(dt: float):
 	else:
 		# Calculate velocity from the change in position and time
 		velocity = (position - prev_position) / dt
-		print("velocity calculated", velocity)
+		print("velocity calculated", velocity.z)
 		
 	prev_position = position
 	prev_velocity = velocity # redundant when switching tracker points, but for most of the code it makes sense for it to be here
