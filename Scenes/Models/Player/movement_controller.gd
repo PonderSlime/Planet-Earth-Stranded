@@ -90,38 +90,6 @@ func _physics_process(delta):
 		else:
 			if gravity_vec.length() < 20 and player.is_on_floor():
 				gravity_vec = Vector3.ZERO
-	
-	
-	grapple_raycast_hit = camera_cast.get_collider()
-	if grapple_raycast_hit:
-		$ColorRect.color = "DDDDDD99"
-	else:
-		$ColorRect.color = "22222255"
-	if Input.is_action_just_pressed("grapple"):
-		if grapple_raycast_hit:
-			grapple_hook_position = camera_cast.get_collision_point()
-			is_grappling = true
-			grapple_mesh.visible = true
-			rope_generator.SetPlayerPosition(position)
-			rope_generator.SetGrappleHookPosition(grapple_hook_position)
-			rope_generator.StartDrawing()
-			rope_generator.visible = true
-		else:
-			is_grappling = false
-	elif Input.is_action_just_released("grapple"):
-		grapple_mesh.visible = false
-		rope_generator.StopDrawing()
-		rope_generator.visible = false
-	
-	if is_grappling && Input.is_action_pressed("grapple"):
-		rope_generator.SetPlayerPosition(position)
-		$ColorRect.color = "FF555599"
-		grapple_pivot.look_at(grapple_hook_position)
-		
-		var grapple_direction = (grapple_hook_position - position).normalized()
-		var grapple_target_speed = grapple_direction * GRAPPLE_FORCE_MAX
-		
-		var grapple_dif = (grapple_target_speed - velocity)
 	 
 	if Input.is_action_just_pressed("glide") and !is_gliding and !player.is_on_floor():
 		is_gliding = true

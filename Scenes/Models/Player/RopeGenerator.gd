@@ -106,10 +106,6 @@ func GenerateMesh():
 		var forward = tangent_array[p]
 		var norm = normal_array[p]
 		var bitagent = norm.cross(forward).normalized()
-		
-		#current resolution
-		for c in range(resolution):
-			var angle = (float(c) / resolution) * 2.0 * PI
 	
 	mesh.clear_surfaces()
 	mesh.surface_begin(Mesh.PRIMITIVE_TRIANGLES)

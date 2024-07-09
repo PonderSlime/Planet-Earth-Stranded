@@ -169,7 +169,6 @@ material_override = SubResource("ShaderMaterial_k1spc")
 use_collision = true
 size = Vector3(98, 35, 12)
 
-
 [node name="Player" parent="." instance=ExtResource("6_kvsvt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.46196, 116.525, 0)
 
