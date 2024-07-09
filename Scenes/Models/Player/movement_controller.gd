@@ -29,6 +29,9 @@ var prev_velocity: Vector3
 # This appears to be the animation scaling value they used
 var arbitrary_scaling_value = 0.2
 
+# The current movement state
+var state_id
+
 signal glide_mode(glide_state : GlideState)
 @export var glide_states : Dictionary
 
@@ -40,11 +43,13 @@ var hurt_tween : Tween
 # I think this is the same as _process, except for all the physics. This is where I am going to add my code
 func _physics_process(delta):
 	
-	if _on_set_movement_state()
-	var adj_velocity = _calculate_player_movement(delta)
-	# z velocity is the forward/backward movement
-	velocity.x = -adj_velocity.z * direction.normalized().x
-	velocity.z = -adj_velocity.z * direction.normalized().z
+	# 1 is walking, so apply the velocity based on animation
+	if state_id == 1:
+		# z velocity is the forward/backward movement
+		speed = -_calculate_player_movement(delta).z
+	#Otherwise apply the speed from whatever other movement type
+	velocity.x = speed * direction.normalized().x
+	velocity.z = speed * direction.normalized().z
 	
 	#glide_gravity * 10
 	# Falling function
@@ -100,9 +105,10 @@ func _physics_process(delta):
 	var target_rotation = atan2(direction.x, direction.z) - player.rotation.y
 	mesh_root.rotation.y = lerp_angle(mesh_root.rotation.y, target_rotation, rotation_speed * delta)
 
-func _on_set_movement_state(_movement_state : MovementState, dictionary: Dictionary):
+func _on_set_movement_state(_movement_state : MovementState):
 	speed = _movement_state.movement_speed
 	acceleration = _movement_state.acceleration
+	state_id = _movement_state.id
 	
 func _on_set_movement_direction(_movement_direction : Vector3):
 	direction = _movement_direction.rotated(Vector3.UP, cam_rotation)
@@ -154,33 +160,21 @@ func _calculate_player_movement(dt: float):
 	var value = _find_lowest_value(point_array, "y")
 	var position = value.lowest_vect
 	
-	#match value.idx:
-		#0:
-			#print("Current point: Right Heel")
-		#1:
-			#print("Current point: Right Toe")
-		#2:
-			#print("Current point: Left Heel")
-		#3:
-			#print("Current point: Left Toe")
-		#_:
-			#print("Unknown")
-	
 	# Handoff of points. If the point changed set the velocity to the same it was, reset prev_position, and skip normal velocity code
 	if prev_idx != value.idx:
 		velocity = prev_velocity
-		print("switched points")
+		#print("switched points")
 	# If the lowest position is out of bounds of the floor(calculated on foot distance from player center), basically leaping,
 	# and the controller speed says its still walking or running, set the velocity to last value
 	elif position.y < -5.2 or position.y > -4.8:
 		velocity.z = -speed
-		print("Off the fLoor, speed = ", speed*5)
+		#print("Off the fLoor, speed = ", speed*5)
 	else:
 		# Calculate velocity from the change in position and time
 		velocity = (position - prev_position) / dt
 		#if velocity.z == 0:
 		#	velocity = prev_velocity
-		print("velocity: ", velocity.z)
+		#print("velocity: ", velocity.z)
 		
 	prev_position = position
 	prev_velocity = velocity # redundant when switching tracker points, but for most of the code it makes sense for it to be here
