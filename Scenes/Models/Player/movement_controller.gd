@@ -21,6 +21,9 @@ var glide_gravity = glide_speed #glide_speed/50
 # Should have a signal coming in that specifiecs the player skeleton
 @export var skeleton : Skeleton3D
 
+#for calculating velocity from position frames of the foot
+var prev_position: Vector3
+
 signal glide_mode(glide_state : GlideState)
 @export var glide_states : Dictionary
 
@@ -82,7 +85,8 @@ func _physics_process(delta):
 		
 	_calculate_player_movement(delta, velocity)
 	
-	player.velocity = player.velocity.lerp(velocity, acceleration * delta)
+	# Does this do anything? It is interpolating between the exact same values, which means nothing changes
+	#player.velocity = player.velocity.lerp(velocity, acceleration * delta)
 	player.move_and_slide()
 	
 	var target_rotation = atan2(direction.x, direction.z) - player.rotation.y
@@ -122,13 +126,19 @@ func hurt():
 	hurt_tween.tween_property(hurt_overlay, "modulate", Color.TRANSPARENT, 0.75)
 
 # Calculates player movement based on bone translation for realistic walking
-func _calculate_player_movement(time_delta: float, velocity : Vector3):
+func _calculate_player_movement(t: float, velocity : Vector3):
 	# Relavant bone idx numbers:
 	# Right foot Heel: 37, Toe: 36
 	# Left Foot Heel: 48, Toe: 47
+
+	#velocity.x = 
 	
-	print("velocity: ", velocity)
+	#print("bone pose heel: ", skeleton.get_bone_global_pose(37).origin.x)
 	
-	print("bone pose: ", skeleton.get_bone_pose_position(36))
+	var position = skeleton.get_bone_global_pose(37).origin
+	print("position", position)
+	velocity = (position - prev_position) / t
+	print("velocity calculated", velocity)
+	prev_position = position
 	
 	return velocity
