@@ -23,6 +23,9 @@ var glide_gravity = glide_speed #glide_speed/50
 
 #for calculating velocity from position frames of the foot
 var prev_position: Vector3
+#The modeler for some reason scaled the robot or the animation, so it messes up my code.
+# This appears to be the animation scaling value they used
+var arbitrary_scaling_value = 0.2
 
 signal glide_mode(glide_state : GlideState)
 @export var glide_states : Dictionary
@@ -34,8 +37,11 @@ var hurt_tween : Tween
 
 # I think this is the same as _process, except for all the physics. This is where I am going to add my code
 func _physics_process(delta):
-	velocity.x = speed * direction.normalized().x
-	velocity.z = speed * direction.normalized().z
+	
+	var adj_velocity = _calculate_player_movement(delta, velocity)
+	
+	velocity.x = adj_velocity.z * direction.normalized().x
+	velocity.z = adj_velocity.z * direction.normalized().z
 	
 	#glide_gravity * 10
 	# Falling function
@@ -82,11 +88,10 @@ func _physics_process(delta):
 	elif player.is_on_floor(): 
 		is_gliding = false
 		#print("landed")
-		
-	_calculate_player_movement(delta, velocity)
 	
 	# Does this do anything? It is interpolating between the exact same values, which means nothing changes
 	#player.velocity = player.velocity.lerp(velocity, acceleration * delta)
+	player.velocity = velocity
 	player.move_and_slide()
 	
 	var target_rotation = atan2(direction.x, direction.z) - player.rotation.y
@@ -141,4 +146,4 @@ func _calculate_player_movement(t: float, velocity : Vector3):
 	print("velocity calculated", velocity)
 	prev_position = position
 	
-	return velocity
+	return velocity * arbitrary_scaling_value
