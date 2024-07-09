@@ -17,3 +17,4 @@ func _process(delta: float) -> void:
 	
 func _hurt():
 	fall_damage_player.play()
+

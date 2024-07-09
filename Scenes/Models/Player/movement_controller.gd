@@ -17,7 +17,9 @@ var jump_gravity : float = fall_gravity
 @export var glide_speed = 100
 var is_gliding : bool = false
 var glide_gravity = glide_speed #glide_speed/50
-@export var foot : BoneAttachment3D
+
+# Should have a signal coming in that specifiecs the player skeleton
+@export var skeleton : Skeleton3D
 
 signal glide_mode(glide_state : GlideState)
 @export var glide_states : Dictionary
@@ -77,7 +79,8 @@ func _physics_process(delta):
 	elif player.is_on_floor(): 
 		is_gliding = false
 		#print("landed")
-
+		
+	_calculate_player_movement(delta, velocity)
 	
 	player.velocity = player.velocity.lerp(velocity, acceleration * delta)
 	player.move_and_slide()
@@ -118,10 +121,14 @@ func hurt():
 	hurt_tween = create_tween()
 	hurt_tween.tween_property(hurt_overlay, "modulate", Color.TRANSPARENT, 0.75)
 
-# Calculates player movement based on bone translation for walking
-func _calculate_player_movement():
-	pass
+# Calculates player movement based on bone translation for realistic walking
+func _calculate_player_movement(time_delta: float, velocity : Vector3):
 	# Relavant bone idx numbers:
 	# Right foot Heel: 37, Toe: 36
 	# Left Foot Heel: 48, Toe: 47
 	
+	print("velocity: ", velocity)
+	
+	print("bone pose: ", skeleton.get_bone_pose_position(36))
+	
+	return velocity
