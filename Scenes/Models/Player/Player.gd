@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 signal pressed_jump(jump_state : JumpState)
 signal pressed_glide(glide_state : GlideState)
-signal set_movement_state(_movement_state: MovementState)
+signal set_movement_state(_movement_state: MovementState,)
 signal set_movement_direction(_movement_direction: Vector3)
 
 @export var movement_states: Dictionary

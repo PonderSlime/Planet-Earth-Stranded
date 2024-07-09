@@ -40,6 +40,7 @@ var hurt_tween : Tween
 # I think this is the same as _process, except for all the physics. This is where I am going to add my code
 func _physics_process(delta):
 	
+	if _on_set_movement_state()
 	var adj_velocity = _calculate_player_movement(delta)
 	# z velocity is the forward/backward movement
 	velocity.x = -adj_velocity.z * direction.normalized().x
@@ -99,7 +100,7 @@ func _physics_process(delta):
 	var target_rotation = atan2(direction.x, direction.z) - player.rotation.y
 	mesh_root.rotation.y = lerp_angle(mesh_root.rotation.y, target_rotation, rotation_speed * delta)
 
-func _on_set_movement_state(_movement_state : MovementState):
+func _on_set_movement_state(_movement_state : MovementState, dictionary: Dictionary):
 	speed = _movement_state.movement_speed
 	acceleration = _movement_state.acceleration
 	
@@ -169,15 +170,17 @@ func _calculate_player_movement(dt: float):
 	if prev_idx != value.idx:
 		velocity = prev_velocity
 		print("switched points")
-	# If the lowest position is out of bounds of the floor, basically leaping,
+	# If the lowest position is out of bounds of the floor(calculated on foot distance from player center), basically leaping,
 	# and the controller speed says its still walking or running, set the velocity to last value
 	elif position.y < -5.2 or position.y > -4.8:
 		velocity.z = -speed
-		print("Off the fLoor, speed = ", speed)
+		print("Off the fLoor, speed = ", speed*5)
 	else:
 		# Calculate velocity from the change in position and time
 		velocity = (position - prev_position) / dt
-		print("velocity calculated: ", velocity.z)
+		#if velocity.z == 0:
+		#	velocity = prev_velocity
+		print("velocity: ", velocity.z)
 		
 	prev_position = position
 	prev_velocity = velocity # redundant when switching tracker points, but for most of the code it makes sense for it to be here
