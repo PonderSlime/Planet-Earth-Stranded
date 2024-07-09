@@ -1,4 +1,5 @@
 extends Node
+#class_name Skeleton3D
 
 signal is_hurt
 @export var player : CharacterBody3D
@@ -16,6 +17,7 @@ var jump_gravity : float = fall_gravity
 @export var glide_speed = 100
 var is_gliding : bool = false
 var glide_gravity = glide_speed #glide_speed/50
+@export var foot : BoneAttachment3D
 
 signal glide_mode(glide_state : GlideState)
 @export var glide_states : Dictionary
@@ -25,6 +27,7 @@ var health : int = 100
 
 var hurt_tween : Tween
 
+# I think this is the same as _process, except for all the physics. This is where I am going to add my code
 func _physics_process(delta):
 	velocity.x = speed * direction.normalized().x
 	velocity.z = speed * direction.normalized().z
@@ -114,3 +117,11 @@ func hurt():
 		hurt_tween.kill()
 	hurt_tween = create_tween()
 	hurt_tween.tween_property(hurt_overlay, "modulate", Color.TRANSPARENT, 0.75)
+
+# Calculates player movement based on bone translation for walking
+func _calculate_player_movement():
+	pass
+	# Relavant bone idx numbers:
+	# Right foot Heel: 37, Toe: 36
+	# Left Foot Heel: 48, Toe: 47
+	

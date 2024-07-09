@@ -267,11 +267,12 @@ script = ExtResource("12_1ox3e")
 fall_damage_player = NodePath("../FallDamage")
 main_song = NodePath("../Main Song")
 
-[node name="MovementController" type="Node" parent="Player" node_paths=PackedStringArray("player", "mesh_root", "hurt_overlay")]
+[node name="MovementController" type="Node" parent="Player" node_paths=PackedStringArray("player", "mesh_root", "hurt_overlay", "foot")]
 script = ExtResource("5_w2wrx")
 player = NodePath("..")
 mesh_root = NodePath("../MeshRoot")
 hurt_overlay = NodePath("../HurtOverlay")
+foot = NodePath("../MeshRoot/Robot/Armature/Skeleton3D/Foot_006")
 glide_states = {
 "glide": ExtResource("11_xfc0j")
 }
@@ -290,41 +291,41 @@ shape = SubResource("CapsuleShape3D_ny02q")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.02912, 0)
 
 [node name="Skeleton3D" parent="Player/MeshRoot/Robot/Armature" index="0"]
-bones/1/position = Vector3(2.455, 8.49941, 3.16529)
-bones/3/position = Vector3(-2.46437, 8.49941, 3.16529)
+bones/1/position = Vector3(2.455, 8.71933, 3.16529)
+bones/3/position = Vector3(-2.46437, 8.71933, 3.16529)
 bones/5/position = Vector3(0, 5.70156, 0)
 bones/5/rotation = Quaternion(0.0703003, 0, 0, 0.997526)
-bones/7/rotation = Quaternion(-0.446163, 0.0910804, 0.0589682, 0.88835)
-bones/8/rotation = Quaternion(8.34924e-08, 1.19972e-07, -0.0871467, 0.996196)
-bones/9/rotation = Quaternion(3.2617e-08, -2.36071e-07, -0.0650635, 0.997881)
-bones/10/rotation = Quaternion(1.96754e-08, 2.38536e-07, -0.0391287, 0.999234)
+bones/7/rotation = Quaternion(-0.446642, 0.0895761, 0.0561618, 0.888444)
+bones/8/rotation = Quaternion(8.72608e-08, 1.1999e-07, -0.0944725, 0.995528)
+bones/9/rotation = Quaternion(3.50002e-08, -2.36209e-07, -0.0699321, 0.997552)
+bones/10/rotation = Quaternion(2.12799e-08, 2.37112e-07, -0.0416839, 0.999131)
 bones/11/rotation = Quaternion(-1.17175e-05, -0.0019178, -0.0061122, 0.999979)
-bones/12/rotation = Quaternion(5.74774e-05, 0.00191686, 0.029978, 0.999549)
-bones/13/rotation = Quaternion(-4.0387e-08, 1.18996e-07, 0.0672572, 0.997736)
-bones/14/rotation = Quaternion(-1.07492e-07, 3.57376e-07, 0.101342, 0.994852)
-bones/15/rotation = Quaternion(0.00115046, -0.00905503, 0.126053, 0.991982)
-bones/16/rotation = Quaternion(0.00195727, 0.00891502, 0.214442, 0.976694)
-bones/31/position = Vector3(-1.1945, 3.02901, -2.25358)
+bones/12/rotation = Quaternion(6.06851e-05, 0.00191676, 0.0316521, 0.999497)
+bones/13/rotation = Quaternion(-4.30238e-08, 1.17887e-07, 0.0722943, 0.997383)
+bones/14/rotation = Quaternion(-1.1835e-07, 3.54612e-07, 0.110236, 0.993906)
+bones/15/rotation = Quaternion(0.00125296, -0.00904141, 0.137283, 0.99049)
+bones/16/rotation = Quaternion(0.00205909, 0.00889205, 0.225598, 0.974178)
+bones/31/position = Vector3(-1.19884, 2.98943, -2.20178)
 bones/32/position = Vector3(0.0409813, -0.261409, -5.76169e-05)
 bones/32/rotation = Quaternion(0.000113419, 0.000698987, 0.160203, 0.987084)
-bones/42/position = Vector3(-2.74533, 2.25849, -1.61953)
+bones/42/position = Vector3(-2.74092, 2.21898, -1.56768)
 bones/43/position = Vector3(-0.0409653, -0.261383, -5.77883e-05)
 bones/43/rotation = Quaternion(-0.000157933, -0.000690231, 0.223101, 0.974795)
-bones/52/rotation = Quaternion(-0.38104, 0.252542, 0.518891, 0.722346)
-bones/53/rotation = Quaternion(3.91498e-08, -1.03427e-07, 0.101078, 0.994879)
-bones/54/rotation = Quaternion(4.14599e-08, 2.38461e-07, 0.0755946, 0.997139)
-bones/55/rotation = Quaternion(2.32735e-08, -2.39437e-07, 0.0454684, 0.998966)
+bones/52/rotation = Quaternion(-0.377875, 0.257554, 0.528579, 0.715179)
+bones/53/rotation = Quaternion(4.37486e-08, -1.02894e-07, 0.105994, 0.994367)
+bones/54/rotation = Quaternion(4.2699e-08, 2.38043e-07, 0.0788108, 0.99689)
+bones/55/rotation = Quaternion(2.48174e-08, -2.38967e-07, 0.0470906, 0.998891)
 bones/56/rotation = Quaternion(-1.3819e-05, 0.00191779, 0.00720692, 0.999972)
-bones/57/rotation = Quaternion(6.70339e-05, -0.00191655, -0.034966, 0.999387)
-bones/58/rotation = Quaternion(-5.47644e-08, -1.19061e-07, -0.0781213, 0.996944)
-bones/59/rotation = Quaternion(-1.35442e-07, -3.54708e-07, -0.1174, 0.993085)
-bones/60/rotation = Quaternion(0.00132855, 0.00903061, -0.145567, 0.989306)
-bones/61/rotation = Quaternion(0.00214354, -0.00887205, -0.234851, 0.971989)
+bones/57/rotation = Quaternion(6.84669e-05, -0.0019165, -0.0357134, 0.99936)
+bones/58/rotation = Quaternion(-5.70261e-08, -1.19981e-07, -0.0814138, 0.99668)
+bones/59/rotation = Quaternion(-1.42588e-07, -3.56164e-07, -0.122958, 0.992412)
+bones/60/rotation = Quaternion(0.00138919, 0.00902148, -0.152211, 0.988306)
+bones/61/rotation = Quaternion(0.00221475, -0.00885454, -0.242653, 0.97007)
 bones/76/rotation = Quaternion(0.0592395, -0.000235748, 0.00724406, 0.998218)
-bones/79/rotation = Quaternion(0.188575, 1.74937e-06, 7.81517e-05, 0.982059)
+bones/79/rotation = Quaternion(0.207524, 1.91347e-06, 8.54823e-05, 0.97823)
 bones/87/rotation = Quaternion(-0.000896317, 0.00168269, -0.717235, 0.696829)
 bones/88/rotation = Quaternion(-0.00494084, 7.14921e-05, 0.297733, 0.954636)
-bones/89/rotation = Quaternion(0.527831, -0.424649, -0.151558, 0.71979)
+bones/89/rotation = Quaternion(0.521497, -0.428481, -0.107439, 0.730001)
 bones/90/rotation = Quaternion(-0.00207246, -0.00334011, -0.00783028, 0.999962)
 bones/91/rotation = Quaternion(0.00182163, 2.00848e-07, 0.00680353, 0.999975)
 bones/92/rotation = Quaternion(-0.000194959, 4.84237e-06, -0.000390787, 1)
@@ -346,7 +347,7 @@ bones/121/rotation = Quaternion(7.624e-07, 8.13779e-07, -0.396704, 0.917946)
 bones/122/rotation = Quaternion(2.39691e-09, -5.35418e-08, -0.0011728, 0.999999)
 bones/140/rotation = Quaternion(-0.00108472, -0.00157224, 0.707184, 0.707027)
 bones/141/rotation = Quaternion(-0.00484098, -0.000232663, -0.297911, 0.954581)
-bones/142/rotation = Quaternion(0.527661, 0.424289, 0.152124, 0.720007)
+bones/142/rotation = Quaternion(0.521335, 0.428112, 0.10799, 0.730252)
 bones/143/rotation = Quaternion(-0.00161217, 0.000125805, 0.00566776, 0.999983)
 bones/144/rotation = Quaternion(0.00152979, -1.66975e-07, -0.0053136, 0.999985)
 bones/145/rotation = Quaternion(-0.000259948, -4.92711e-06, 0.000656254, 1)
@@ -370,124 +371,124 @@ bones/174/rotation = Quaternion(7.5165e-07, -8.11006e-07, 0.396704, 0.917946)
 bones/175/rotation = Quaternion(1.22299e-10, 5.35334e-08, 0.00117277, 0.999999)
 
 [node name="Lower Left Leg" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="0"]
-transform = Transform3D(0.998281, -0.0230494, -0.0538929, -0.029936, 0.589995, -0.806852, 0.0503938, 0.807078, 0.588291, 0.921912, -2.91677, -1.16951)
+transform = Transform3D(0.998281, -0.0248238, -0.0530989, -0.0303233, 0.556533, -0.830272, 0.0501616, 0.830455, 0.554824, 0.921733, -2.87709, -1.16492)
 
 [node name="Left Leg Joint Cutouts" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.998281, -0.0230494, -0.0538929, -0.029936, 0.589995, -0.806852, 0.0503938, 0.807078, 0.588291, 0.904426, -2.38971, -0.56181)
+transform = Transform3D(0.998281, -0.0248238, -0.0530989, -0.0303233, 0.556533, -0.830272, 0.0501616, 0.830455, 0.554824, 0.902772, -2.3753, -0.536247)
 
 [node name="Lower Left Leg Joint" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.998281, -0.0230494, -0.0538929, -0.029936, 0.589995, -0.806852, 0.0503938, 0.807078, 0.588291, 0.912685, -2.29696, -0.441848)
+transform = Transform3D(0.998281, -0.0248238, -0.0530989, -0.0303233, 0.556533, -0.830272, 0.0501616, 0.830455, 0.554824, 0.910758, -2.28751, -0.412592)
 
 [node name="Lower Left Leg Joint" parent="Player/MeshRoot/Robot/Armature/Skeleton3D/Lower Left Leg Joint" index="0"]
 transform = Transform3D(1, -3.72529e-09, -3.72529e-09, -1.86265e-09, 1, -2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0)
 
 [node name="Lower Left Leg Light" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="3"]
-transform = Transform3D(0.998281, -0.0230494, -0.0538929, -0.029936, 0.589995, -0.806852, 0.0503938, 0.807078, 0.588291, 1.21463, -2.67301, -1.14364)
+transform = Transform3D(0.998281, -0.0248238, -0.0530989, -0.0303233, 0.556533, -0.830272, 0.0501616, 0.830455, 0.554824, 1.21401, -2.63412, -1.12883)
 
 [node name="Limb Segment_018" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="4"]
-transform = Transform3D(0.998091, -0.0195258, 0.0585928, -0.0455796, -0.873061, 0.485476, 0.0416756, -0.48722, -0.872284, 0.921775, -1.4025, 0.131965)
+transform = Transform3D(0.998102, -0.0189227, 0.0586066, -0.0458078, -0.86417, 0.50111, 0.0411636, -0.502844, -0.863397, 0.91902, -1.40646, 0.179176)
 
 [node name="Limb Segment_017" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="5"]
-transform = Transform3D(0.998285, -0.0159747, 0.0563176, -0.0296698, -0.967397, 0.251521, 0.0504633, -0.25276, -0.966212, 0.91925, -1.33636, -0.0349374)
+transform = Transform3D(0.998285, -0.0166699, 0.0561123, -0.0300568, -0.968549, 0.246999, 0.0502299, -0.248262, -0.96739, 0.917417, -1.3332, -0.00203431)
 
 [node name="Limb Segment_016" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="6"]
-transform = Transform3D(0.996851, -0.0599713, 0.0518836, -0.0626328, -0.996718, 0.0512905, 0.0486371, -0.0543785, -0.997335, 0.940863, -1.32246, -0.132552)
+transform = Transform3D(0.9968, -0.0615274, 0.0510348, -0.0630491, -0.997596, 0.0287613, 0.0491423, -0.0318869, -0.998283, 0.939452, -1.31945, -0.108491)
 
 [node name="Limb Segment_015" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="7"]
-transform = Transform3D(0.998177, -0.0369047, 0.0477553, -0.0328461, -0.995996, -0.0831465, 0.0506324, 0.0814265, -0.995393, 0.934859, -1.32364, -0.167797)
+transform = Transform3D(0.998171, -0.0388036, 0.0463452, -0.0332239, -0.992737, -0.115624, 0.050495, 0.113873, -0.992212, 0.933535, -1.32171, -0.146293)
 
 [node name="Limb Segment_014" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="8"]
-transform = Transform3D(0.997899, -0.046001, 0.045632, -0.0390656, -0.988996, -0.142691, 0.0516937, 0.140609, -0.988715, 0.935187, -1.32445, -0.170007)
+transform = Transform3D(0.997881, -0.0479594, 0.0439812, -0.0393994, -0.983203, -0.178211, 0.0517891, 0.1761, -0.983009, 0.933864, -1.32262, -0.1486)
 
 [node name="Limb Segment_013" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="9"]
-transform = Transform3D(0.997604, -0.051613, 0.0460783, -0.0452088, -0.990405, -0.130587, 0.052376, 0.128191, -0.990366, 0.934236, -1.32521, -0.171992)
+transform = Transform3D(0.997573, -0.0535913, 0.0444514, -0.0455135, -0.985045, -0.166175, 0.052692, 0.163748, -0.985094, 0.932908, -1.32345, -0.150555)
 
 [node name="Limb Segment_012" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="10"]
-transform = Transform3D(0.997677, -0.0173317, 0.0658867, -0.0138324, -0.998488, -0.0532005, 0.066709, 0.0521657, -0.996408, 0.94631, -1.32819, -0.19855)
+transform = Transform3D(0.997727, -0.0191884, 0.0645962, -0.0137235, -0.996371, -0.0840064, 0.0659735, 0.0829291, -0.99437, 0.945026, -1.32756, -0.178797)
 
 [node name="Limb Segment_011" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="11"]
-transform = Transform3D(0.998527, -0.0414286, 0.0350505, -0.0440569, -0.995989, 0.0778772, 0.0316833, -0.0793065, -0.996347, 0.933981, -1.3272, -0.265942)
+transform = Transform3D(0.99849, -0.042933, 0.034282, -0.0448357, -0.997378, 0.0568115, 0.0317527, -0.0582626, -0.997797, 0.932876, -1.32836, -0.251142)
 
 [node name="Limb Segment_003" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="12"]
-transform = Transform3D(0.996986, -0.0105071, 0.0768642, -0.0293658, -0.968174, 0.24855, 0.0718062, -0.250058, -0.965565, 0.954561, -1.30882, -0.379091)
+transform = Transform3D(0.996996, -0.0112999, 0.0766274, -0.0296154, -0.969744, 0.242321, 0.0715705, -0.243863, -0.967166, 0.95393, -1.31008, -0.374161)
 
 [node name="Left Foot" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="13"]
-transform = Transform3D(0.999982, -1.57114e-06, 0.00605715, 0.00176242, 0.956804, -0.290729, -0.00579531, 0.290735, 0.956786, 0.925029, -3.80209, -1.30953)
+transform = Transform3D(0.999982, -1.57114e-06, 0.00605715, 0.00176242, 0.956804, -0.290729, -0.00579531, 0.290735, 0.956786, 0.925029, -3.73676, -1.30953)
 
 [node name="Foot_005" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="14"]
-transform = Transform3D(0.999982, -1.57114e-06, 0.00605715, 0.00176242, 0.956804, -0.290729, -0.00579531, 0.290735, 0.956786, 0.940109, -3.16272, -1.41498)
+transform = Transform3D(0.999982, -1.57114e-06, 0.00605715, 0.00176242, 0.956804, -0.290729, -0.00579531, 0.290735, 0.956786, 0.940109, -3.09739, -1.41498)
 
 [node name="Foot_006" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="15"]
-transform = Transform3D(0.999982, -1.57114e-06, 0.00605715, 0.00176242, 0.956804, -0.290729, -0.00579531, 0.290735, 0.956786, 0.943911, -4.23966, -1.08654)
+transform = Transform3D(0.999982, -1.57114e-06, 0.00605715, 0.00176242, 0.956804, -0.290729, -0.00579531, 0.290735, 0.956786, 0.943911, -4.17433, -1.08654)
 
 [node name="Foot_007" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="16"]
-transform = Transform3D(0.999982, -1.57114e-06, 0.00605715, 0.00176242, 0.956804, -0.290729, -0.00579531, 0.290735, 0.956786, 0.936816, -3.89911, -2.20729)
+transform = Transform3D(0.999982, -1.57114e-06, 0.00605715, 0.00176242, 0.956804, -0.290729, -0.00579531, 0.290735, 0.956786, 0.936816, -3.83378, -2.20729)
 
 [node name="Left Foot Joint" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="17"]
-transform = Transform3D(0.999982, -1.57114e-06, 0.00605715, 0.00176242, 0.956804, -0.290729, -0.00579531, 0.290735, 0.956786, 1.36246, -3.43586, -1.48596)
+transform = Transform3D(0.999982, -1.57114e-06, 0.00605715, 0.00176242, 0.956804, -0.290729, -0.00579531, 0.290735, 0.956786, 1.36246, -3.37053, -1.48596)
 
 [node name="Right Foot" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="18"]
-transform = Transform3D(0.999962, 3.62052e-07, -0.00872141, 0.00400236, 0.888474, 0.45891, 0.00774903, -0.458927, 0.88844, -0.916612, -2.59586, 2.8835)
+transform = Transform3D(0.999962, 3.62052e-07, -0.00872141, 0.00400236, 0.888474, 0.45891, 0.00774903, -0.458927, 0.88844, -0.916612, -2.53053, 2.8835)
 
 [node name="Foot" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="19"]
-transform = Transform3D(0.999962, 3.62052e-07, -0.00872141, 0.00400236, 0.888474, 0.45891, 0.00774903, -0.458927, 0.88844, -0.93093, -2.2112, 2.36199)
+transform = Transform3D(0.999962, 3.62052e-07, -0.00872141, 0.00400236, 0.888474, 0.45891, 0.00774903, -0.458927, 0.88844, -0.93093, -2.14587, 2.36199)
 
 [node name="Foot_001" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="20"]
-transform = Transform3D(0.999962, 3.62052e-07, -0.00872141, 0.00400236, 0.888474, 0.45891, 0.00774903, -0.458927, 0.88844, -0.936401, -2.75396, 3.34844)
+transform = Transform3D(0.999962, 3.62052e-07, -0.00872141, 0.00400236, 0.888474, 0.45891, 0.00774903, -0.458927, 0.88844, -0.936401, -2.68863, 3.34844)
 
 [node name="Foot_002" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="21"]
-transform = Transform3D(0.999962, 3.62052e-07, -0.00872141, 0.00400236, 0.888474, 0.45891, 0.00774903, -0.458927, 0.88844, -0.926185, -3.29151, 2.30775)
+transform = Transform3D(0.999962, 3.62052e-07, -0.00872141, 0.00400236, 0.888474, 0.45891, 0.00774903, -0.458927, 0.88844, -0.926185, -3.22618, 2.30775)
 
 [node name="Right Foot Joint" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="22"]
-transform = Transform3D(0.999962, 3.62052e-07, -0.00872141, 0.00400236, 0.888474, 0.45891, 0.00774903, -0.458927, 0.88844, -1.35331, -2.45697, 2.50061)
+transform = Transform3D(0.999962, 3.62052e-07, -0.00872141, 0.00400236, 0.888474, 0.45891, 0.00774903, -0.458927, 0.88844, -1.35331, -2.39164, 2.50062)
 
 [node name="Lower Right Leg" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="23"]
-transform = Transform3D(0.999118, -0.0184033, -0.0377588, 0.0315183, 0.922679, 0.384278, 0.0277673, -0.385129, 0.922445, -0.950645, -1.87383, 1.93872)
+transform = Transform3D(0.999118, -0.0190403, -0.0374415, 0.0319198, 0.923571, 0.382097, 0.0273048, -0.382954, 0.923364, -0.951131, -1.81493, 1.94318)
 
 [node name="Lower Right Leg Joint" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="24"]
-transform = Transform3D(0.999118, -0.0184033, -0.0377588, 0.0315183, 0.922679, 0.384278, 0.0277673, -0.385129, 0.922445, -0.974382, -1.02212, 1.5054)
+transform = Transform3D(0.999118, -0.0190403, -0.0374415, 0.0319198, 0.923571, 0.382097, 0.0273048, -0.382954, 0.923364, -0.975497, -0.962223, 1.51188)
 
 [node name="Lower Right Leg Light" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="25"]
-transform = Transform3D(0.999118, -0.0184033, -0.0377588, 0.0315183, 0.922679, 0.384278, 0.0277673, -0.385129, 0.922445, -1.23207, -1.81291, 1.68801)
+transform = Transform3D(0.999118, -0.0190403, -0.0374415, 0.0319198, 0.923571, 0.382097, 0.0273048, -0.382954, 0.923364, -1.23272, -1.75356, 1.69277)
 
 [node name="Right Leg Joint Cutouts" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="26"]
-transform = Transform3D(0.999118, -0.0184033, -0.0377588, 0.0315183, 0.922679, 0.384278, 0.0277673, -0.385129, 0.922445, -0.960272, -1.1596, 1.56836)
+transform = Transform3D(0.999118, -0.0190403, -0.0374415, 0.0319198, 0.923571, 0.382097, 0.0273048, -0.382954, 0.923364, -0.961289, -1.09984, 1.5745)
 
 [node name="Limb Segment_010" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="27"]
-transform = Transform3D(-0.998973, 0.0170263, -0.0419952, -0.0430717, -0.644768, 0.763164, -0.0140834, 0.764189, 0.644839, -0.987786, -0.283206, 0.74404)
+transform = Transform3D(-0.998972, 0.0170629, -0.0419958, -0.0432845, -0.634229, 0.771933, -0.0134637, 0.772957, 0.634315, -0.989034, -0.232876, 0.742757)
 
 [node name="Limb Segment_009" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="28"]
-transform = Transform3D(-0.999114, -0.0132022, -0.0399665, -0.0314087, -0.398264, 0.916733, -0.0280202, 0.917176, 0.397496, -0.966303, -0.458778, 0.635747)
+transform = Transform3D(-0.999114, -0.0137034, -0.0398008, -0.0318171, -0.373225, 0.927195, -0.0275605, 0.92764, 0.372458, -0.967168, -0.418741, 0.633253)
 
 [node name="Limb Segment_008" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="29"]
-transform = Transform3D(-0.999298, 0.0108635, -0.0358498, -0.037187, -0.172392, 0.984326, 0.00451298, 0.984969, 0.172675, -0.978142, -0.569929, 0.602164)
+transform = Transform3D(-0.999326, 0.0100183, -0.0353194, -0.0363473, -0.13453, 0.990243, 0.00516891, 0.990859, 0.134803, -0.978837, -0.53621, 0.601909)
 
 [node name="Limb Segment_007" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="30"]
-transform = Transform3D(-0.999193, -0.024288, -0.0320032, -0.031571, -0.0179839, 0.99934, -0.0248476, 0.999543, 0.0172025, -0.969029, -0.610228, 0.599347)
+transform = Transform3D(-0.999196, -0.0252472, -0.0311621, -0.0318412, 0.0269464, 0.99913, -0.0243857, 0.999318, -0.0277287, -0.969695, -0.578308, 0.600681)
 
 [node name="Limb Segment_006" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="31"]
-transform = Transform3D(-0.999346, -0.020155, -0.030023, -0.0310383, 0.0521001, 0.99816, -0.0185537, 0.998438, -0.0526917, -0.969199, -0.612954, 0.59975)
+transform = Transform3D(-0.999355, -0.0210965, -0.0290717, -0.0310126, 0.0983945, 0.994664, -0.0181236, 0.994924, -0.0989854, -0.969866, -0.581071, 0.60121)
 
 [node name="Limb Segment_005" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="32"]
-transform = Transform3D(-0.999445, -0.0135364, -0.0304431, -0.0309371, 0.0379004, 0.998803, -0.0123664, 0.99919, -0.0382982, -0.96812, -0.615275, 0.600381)
+transform = Transform3D(-0.99946, -0.0144915, -0.0295054, -0.0306242, 0.0842394, 0.995975, -0.0119478, 0.99634, -0.0846377, -0.96879, -0.583361, 0.601948)
 
 [node name="Limb Segment_004" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="33"]
-transform = Transform3D(-0.999166, -0.0241246, -0.0329482, -0.0316228, -0.0534086, 0.998072, -0.0258378, 0.998281, 0.0526011, -0.97186, -0.647363, 0.600674)
+transform = Transform3D(-0.999168, -0.0250566, -0.032189, -0.0319409, -0.0102505, 0.999437, -0.0253726, 0.999634, 0.00944163, -0.972523, -0.616539, 0.603721)
 
 [node name="Limb Segment_001" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="34"]
-transform = Transform3D(-0.999074, -0.0228003, -0.0364994, -0.0311103, -0.203387, 0.978604, -0.029736, 0.978833, 0.20249, -0.971196, -0.723893, 0.591207)
+transform = Transform3D(-0.999072, -0.0236041, -0.0360295, -0.0315844, -0.167291, 0.985401, -0.0292871, 0.985625, 0.16639, -0.971794, -0.696652, 0.597036)
 
 [node name="Limb Segment_002" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="35"]
-transform = Transform3D(-0.999201, 0.00170105, -0.0399345, -0.0373513, -0.39548, 0.917715, -0.0142323, 0.918473, 0.395227, -0.954923, -0.851675, 0.551566)
+transform = Transform3D(-0.999208, 0.0012116, -0.0397714, -0.0373873, -0.370674, 0.92801, -0.013618, 0.928762, 0.370426, -0.955312, -0.831925, 0.559732)
 
 [node name="Head_2" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="36"]
-transform = Transform3D(1, 3.57819e-06, 0.000387767, 0.000228291, 0.80288, -0.596141, -0.000313463, 0.596141, 0.802879, 0.00482485, 4.12184, 1.50328)
+transform = Transform3D(1, 3.5784e-06, 0.000387767, 0.000240238, 0.779235, -0.626731, -0.000304405, 0.626731, 0.779235, 0.00482485, 4.08923, 1.52812)
 
 [node name="Inner Eye Lights" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="37"]
-transform = Transform3D(1, 0.000387767, -3.57819e-06, 0.000228291, -0.596141, -0.80288, -0.000313463, 0.802879, -0.596141, 0.00501836, 3.87632, 1.93251)
+transform = Transform3D(1, 0.000387767, -3.5784e-06, 0.000240238, -0.626731, -0.779235, -0.000304405, 0.779235, -0.626731, 0.00501836, 3.82731, 1.94753)
 
 [node name="Lights 2" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="38"]
-transform = Transform3D(1, 0.000387767, -3.57819e-06, 0.000228291, -0.596141, -0.80288, -0.000313463, 0.802879, -0.596141, 0.00500979, 3.87823, 1.90714)
+transform = Transform3D(1, 0.000387767, -3.5784e-06, 0.000240238, -0.626731, -0.779235, -0.000304405, 0.779235, -0.626731, 0.00500979, 3.8302, 1.92226)
 
 [node name="Right Arm_012" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="39"]
 transform = Transform3D(1, 1.3768e-05, 0.000387533, 8.60442e-05, 0.966578, -0.25637, -0.000378111, 0.25637, 0.966579, -0.0203262, 3.46228, 0.673417)
@@ -502,157 +503,157 @@ transform = Transform3D(0.999587, 2.57424e-05, -0.0287259, -0.0073659, 0.966795,
 transform = Transform3D(0.999587, 2.57424e-05, -0.0287259, -0.0073659, 0.966795, -0.255448, 0.0277655, 0.255554, 0.966396, -0.0421835, 2.19392, 2.0523)
 
 [node name="Finger End 1_001" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="43"]
-transform = Transform3D(0.28733, -0.113219, -0.951116, 0.943595, 0.204029, 0.26077, 0.164531, -0.972397, 0.165456, 3.0313, 4.17963, 5.1305)
+transform = Transform3D(0.228649, -0.133408, -0.964324, 0.968508, 0.131451, 0.211456, 0.0985519, -0.982306, 0.159262, 2.98819, 4.55262, 5.02613)
 
 [node name="Finger Middle 1_001" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="44"]
-transform = Transform3D(0.28733, -0.113219, -0.951117, 0.943594, 0.204029, 0.26077, 0.164531, -0.972396, 0.165456, 2.95955, 4.06466, 4.89928)
+transform = Transform3D(0.228649, -0.133407, -0.964325, 0.968507, 0.131452, 0.211456, 0.0985522, -0.982305, 0.159262, 2.92202, 4.41828, 4.80386)
 
 [node name="Finger Base 1_001" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="45"]
-transform = Transform3D(0.28733, -0.113219, -0.951117, 0.943595, 0.204028, 0.26077, 0.16453, -0.972396, 0.165456, 2.88541, 3.94518, 4.65971)
+transform = Transform3D(0.228649, -0.133408, -0.964325, 0.968507, 0.13145, 0.211456, 0.0985508, -0.982305, 0.159262, 2.85368, 4.27875, 4.57358)
 
 [node name="Finger End 2_001" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="46"]
-transform = Transform3D(0.28733, -0.113219, -0.951117, 0.943594, 0.204028, 0.26077, 0.16453, -0.972396, 0.165456, 2.97417, 3.89188, 5.2556)
+transform = Transform3D(0.228649, -0.133408, -0.964325, 0.968507, 0.13145, 0.211456, 0.0985513, -0.982305, 0.159263, 2.95026, 4.27083, 5.17059)
 
 [node name="Finger Middle 2_001" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="47"]
-transform = Transform3D(0.28733, -0.113219, -0.951117, 0.943594, 0.204028, 0.26077, 0.164531, -0.972396, 0.165456, 2.91033, 3.81725, 5.00624)
+transform = Transform3D(0.228649, -0.133408, -0.964325, 0.968507, 0.131451, 0.211456, 0.0985516, -0.982305, 0.159263, 2.8893, 4.17594, 4.92747)
 
 [node name="Finger Base 2_001" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="48"]
-transform = Transform3D(0.28733, -0.113219, -0.951117, 0.943594, 0.204029, 0.26077, 0.164532, -0.972395, 0.165456, 2.84725, 3.74193, 4.75653)
+transform = Transform3D(0.228649, -0.133407, -0.964325, 0.968507, 0.131452, 0.211456, 0.0985526, -0.982305, 0.159262, 2.82914, 4.0804, 4.68403)
 
 [node name="Finger End 3_001" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="49"]
-transform = Transform3D(0.288969, -0.112629, -0.95069, 0.942486, 0.207714, 0.261868, 0.167978, -0.971684, 0.166175, 2.90264, 3.59156, 5.31956)
+transform = Transform3D(0.230382, -0.133046, -0.963962, 0.967735, 0.135206, 0.212623, 0.102045, -0.981844, 0.159902, 2.89827, 3.97156, 5.25504)
 
 [node name="Finger Middle 3_001" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="50"]
-transform = Transform3D(0.28897, -0.112629, -0.95069, 0.942487, 0.207716, 0.261868, 0.16798, -0.971684, 0.166175, 2.85008, 3.5657, 5.05803)
+transform = Transform3D(0.230383, -0.133045, -0.963962, 0.967736, 0.135207, 0.212623, 0.102046, -0.981845, 0.159902, 2.84541, 3.92513, 4.99643)
 
 [node name="Finger Base 3_001" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="51"]
-transform = Transform3D(0.28897, -0.112629, -0.95069, 0.942485, 0.207716, 0.261868, 0.16798, -0.971683, 0.166175, 2.79241, 3.53575, 4.76882)
+transform = Transform3D(0.230382, -0.133045, -0.963962, 0.967734, 0.135207, 0.212623, 0.102046, -0.981844, 0.159902, 2.78748, 3.87248, 4.71054)
 
 [node name="Finger End 4_001" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="52"]
-transform = Transform3D(0.28897, -0.112629, -0.95069, 0.942486, 0.207715, 0.261868, 0.167978, -0.971684, 0.166175, 2.71417, 3.1473, 4.9395)
+transform = Transform3D(0.230382, -0.133046, -0.963962, 0.967735, 0.135206, 0.212623, 0.102045, -0.981844, 0.159902, 2.73518, 3.49213, 4.90737)
 
 [node name="Finger Base 4_001" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="53"]
-transform = Transform3D(0.28897, -0.112629, -0.95069, 0.942486, 0.207715, 0.261868, 0.167979, -0.971683, 0.166175, 2.72307, 3.35019, 4.64455)
+transform = Transform3D(0.230382, -0.133045, -0.963962, 0.967734, 0.135207, 0.212623, 0.102045, -0.981844, 0.159902, 2.72899, 3.67511, 4.59961)
 
 [node name="Left Hand_001" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="54"]
-transform = Transform3D(0.288357, -0.113472, -0.950775, 0.943789, 0.201256, 0.262219, 0.161595, -0.972944, 0.165128, 2.80568, 3.67651, 4.85624)
+transform = Transform3D(0.229639, -0.13349, -0.964078, 0.968569, 0.128638, 0.212897, 0.0955968, -0.982666, 0.158835, 2.79255, 4.0193, 4.78833)
 
 [node name="Left Wrist Guard" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="55"]
-transform = Transform3D(0.288357, -0.113472, -0.950775, 0.943789, 0.201256, 0.262219, 0.161595, -0.972944, 0.165128, 2.58114, 3.58702, 3.91279)
+transform = Transform3D(0.229639, -0.13349, -0.964078, 0.968569, 0.128638, 0.212897, 0.0955968, -0.982666, 0.158835, 2.56675, 3.85344, 3.85557)
 
 [node name="Left Arm_011" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="56"]
-transform = Transform3D(0.288357, -0.113472, -0.950775, 0.943788, 0.201256, 0.262219, 0.161595, -0.972944, 0.165128, 2.43566, 3.39449, 3.04565)
+transform = Transform3D(0.229639, -0.13349, -0.964078, 0.968569, 0.128638, 0.212897, 0.0955972, -0.982666, 0.158835, 2.42692, 3.59497, 3.0048)
 
 [node name="Left Arm_010" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="57"]
-transform = Transform3D(0.288357, -0.113472, -0.950775, 0.943788, 0.201256, 0.262219, 0.161595, -0.972944, 0.165128, 2.39467, 3.36374, 2.85849)
+transform = Transform3D(0.229639, -0.13349, -0.964078, 0.968569, 0.128638, 0.212897, 0.0955972, -0.982666, 0.158835, 2.38649, 3.54935, 2.82058)
 
 [node name="Left Arm_009" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="58"]
-transform = Transform3D(0.288326, -0.114191, -0.950699, 0.944033, 0.200025, 0.262279, 0.160214, -0.973114, 0.165473, 2.35363, 3.33288, 2.67136)
+transform = Transform3D(0.229582, -0.134131, -0.964003, 0.968719, 0.127356, 0.212985, 0.0942033, -0.982746, 0.159174, 2.34601, 3.50362, 2.6364)
 
 [node name="Left Arm_008" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="59"]
-transform = Transform3D(0.288003, -0.120987, -0.949956, 0.946243, 0.188471, 0.262873, 0.147235, -0.974598, 0.168764, 2.31195, 3.30083, 2.4846)
+transform = Transform3D(0.229019, -0.140198, -0.963273, 0.970036, 0.115328, 0.213842, 0.081112, -0.983384, 0.16241, 2.30498, 3.45668, 2.45267)
 
 [node name="Left Arm_007" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="60"]
-transform = Transform3D(0.216576, -0.127205, -0.967943, 0.954889, 0.233943, 0.182911, 0.203177, -0.963893, 0.172133, 2.27158, 3.27127, 2.29714)
+transform = Transform3D(0.157628, -0.149182, -0.976165, 0.977919, 0.160936, 0.133316, 0.137211, -0.975625, 0.171256, 2.2651, 3.41227, 2.26806)
 
 [node name="Left Arm_006" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="61"]
-transform = Transform3D(0.28643, -0.128348, -0.949465, 0.948636, 0.17694, 0.262261, 0.134337, -0.975817, 0.172437, 2.23277, 3.24223, 2.11954)
+transform = Transform3D(0.227198, -0.146828, -0.962716, 0.971464, 0.103305, 0.213507, 0.0681045, -0.983752, 0.166109, 2.2268, 3.36911, 2.09324)
 
 [node name="Left Arm_005" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="62"]
-transform = Transform3D(0.288567, -0.108138, -0.951333, 0.941898, 0.210474, 0.26178, 0.171922, -0.9716, 0.162591, 2.18819, 3.20757, 1.92143)
+transform = Transform3D(0.230048, -0.128736, -0.964627, 0.967386, 0.138239, 0.212257, 0.106024, -0.981996, 0.15634, 2.18296, 3.31865, 1.89838)
 
 [node name="Left Arm_004" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="63"]
-transform = Transform3D(0.288373, -0.114225, -0.950681, 0.943981, 0.200277, 0.262277, 0.160441, -0.973058, 0.165581, 2.14762, 3.17766, 1.73399)
+transform = Transform3D(0.229634, -0.134181, -0.963983, 0.968685, 0.127608, 0.212991, 0.0944325, -0.982706, 0.159282, 2.14289, 3.27387, 1.71382)
 
 [node name="Left Arm_003" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="64"]
-transform = Transform3D(0.288273, -0.114678, -0.950656, 0.944215, 0.199143, 0.262297, 0.159237, -0.973237, 0.165688, 2.10646, 3.14661, 1.54691)
+transform = Transform3D(0.22951, -0.134563, -0.96396, 0.968832, 0.126439, 0.21302, 0.0932174, -0.982805, 0.159388, 2.10231, 3.22794, 1.5297)
 
 [node name="Left Arm_002" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="65"]
-transform = Transform3D(0.287975, -0.114426, -0.950777, 0.944446, 0.198162, 0.262209, 0.158405, -0.973467, 0.165135, 2.0653, 3.11536, 1.35987)
+transform = Transform3D(0.229192, -0.134251, -0.964079, 0.968988, 0.125463, 0.212888, 0.0923755, -0.982973, 0.158843, 2.06173, 3.18181, 1.34562)
 
 [node name="Left Arm_001" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="66"]
-transform = Transform3D(0.287755, -0.114304, -0.950858, 0.944637, 0.197327, 0.262151, 0.157665, -0.973651, 0.164758, 2.02418, 3.08392, 1.17284)
+transform = Transform3D(0.228955, -0.134079, -0.964159, 0.969115, 0.124626, 0.2128, 0.0916272, -0.983103, 0.158471, 2.02122, 3.13551, 1.16158)
 
 [node name="Left Arm" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="67"]
-transform = Transform3D(0.290603, -0.11358, -0.950079, 0.9415, 0.211048, 0.262748, 0.170669, -0.970855, 0.168266, 1.98309, 3.05374, 0.985762)
+transform = Transform3D(0.232095, -0.134197, -0.963391, 0.967034, 0.138521, 0.213677, 0.104775, -0.981225, 0.161923, 1.98065, 3.09045, 0.977402)
 
 [node name="Left Shoulder" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="68"]
 transform = Transform3D(1, 1.36216e-05, 0.000387535, 8.62787e-05, 0.966579, -0.25637, -0.000378045, 0.25637, 0.966579, 0.00471389, 2.51341, 0.448688)
 
 [node name="Finger End 1" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="69"]
-transform = Transform3D(0.284554, 0.11433, 0.951818, -0.944243, 0.204961, 0.25767, -0.165625, -0.972069, 0.166278, -2.99374, 4.17938, 5.13716)
+transform = Transform3D(0.22581, 0.134594, 0.964829, -0.969063, 0.132309, 0.208344, -0.0996135, -0.982027, 0.160307, -2.95075, 4.5505, 5.03317)
 
 [node name="Finger Middle 1" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="70"]
-transform = Transform3D(0.284554, 0.11433, 0.951818, -0.944243, 0.20496, 0.25767, -0.165625, -0.972069, 0.166278, -2.92222, 4.0645, 4.90582)
+transform = Transform3D(0.22581, 0.134594, 0.964829, -0.969063, 0.132309, 0.208344, -0.0996131, -0.982027, 0.160307, -2.88481, 4.41625, 4.81078)
 
 [node name="Finger Base 1" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="71"]
-transform = Transform3D(0.284554, 0.11433, 0.951818, -0.944243, 0.20496, 0.25767, -0.165625, -0.972069, 0.166278, -2.8478, 3.94525, 4.66622)
+transform = Transform3D(0.22581, 0.134594, 0.964829, -0.969064, 0.132309, 0.208344, -0.0996128, -0.982027, 0.160307, -2.81618, 4.27692, 4.58047)
 
 [node name="Finger End 2" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="72"]
-transform = Transform3D(0.284554, 0.11433, 0.951818, -0.944243, 0.20496, 0.25767, -0.165625, -0.972069, 0.166278, -2.93754, 3.89129, 5.26191)
+transform = Transform3D(0.22581, 0.134594, 0.964829, -0.969064, 0.132309, 0.208344, -0.0996131, -0.982027, 0.160307, -2.91379, 4.26841, 5.1773)
 
 [node name="Finger Middle 2" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="73"]
-transform = Transform3D(0.284554, 0.11433, 0.951818, -0.944243, 0.20496, 0.25767, -0.165625, -0.972069, 0.166278, -2.8738, 3.8168, 5.01248)
+transform = Transform3D(0.22581, 0.134594, 0.964829, -0.969064, 0.132309, 0.208344, -0.0996131, -0.982027, 0.160307, -2.85292, 4.17366, 4.9341)
 
 [node name="Finger Base 2" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="74"]
-transform = Transform3D(0.284553, 0.114331, 0.951818, -0.944243, 0.20496, 0.25767, -0.165624, -0.972069, 0.166278, -2.80899, 3.74212, 4.76302)
+transform = Transform3D(0.225809, 0.134594, 0.964829, -0.969064, 0.132308, 0.208344, -0.0996123, -0.982027, 0.160307, -2.791, 4.07865, 4.6909)
 
 [node name="Finger End 3" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="75"]
-transform = Transform3D(0.284554, 0.114331, 0.951818, -0.944243, 0.20496, 0.25767, -0.165625, -0.97207, 0.166278, -2.86546, 3.58374, 5.32587)
+transform = Transform3D(0.22581, 0.134594, 0.964829, -0.969064, 0.132308, 0.208344, -0.0996126, -0.982028, 0.160307, -2.86171, 3.9619, 5.26225)
 
 [node name="Finger Middle 3" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="76"]
-transform = Transform3D(0.284554, 0.11433, 0.951818, -0.944243, 0.20496, 0.25767, -0.165625, -0.972069, 0.166278, -2.81306, 3.55904, 5.06419)
+transform = Transform3D(0.22581, 0.134594, 0.964829, -0.969064, 0.132309, 0.208344, -0.0996128, -0.982027, 0.160307, -2.80893, 3.91663, 5.00342)
 
 [node name="Finger Base 3" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="77"]
-transform = Transform3D(0.284554, 0.11433, 0.951818, -0.944243, 0.20496, 0.25767, -0.165625, -0.972069, 0.166278, -2.75408, 3.53077, 4.77508)
+transform = Transform3D(0.22581, 0.134594, 0.964829, -0.969064, 0.132309, 0.208344, -0.0996129, -0.982027, 0.160307, -2.7496, 3.86557, 4.71752)
 
 [node name="Finger End 4" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="78"]
-transform = Transform3D(0.284554, 0.11433, 0.951818, -0.944243, 0.20496, 0.25767, -0.165625, -0.972069, 0.166278, -2.67873, 3.14077, 4.94347)
+transform = Transform3D(0.22581, 0.134594, 0.964829, -0.969063, 0.132309, 0.208344, -0.0996131, -0.982027, 0.160307, -2.70028, 3.48369, 4.91214)
 
 [node name="Finger Base 4" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="79"]
-transform = Transform3D(0.284553, 0.114331, 0.951818, -0.944243, 0.20496, 0.25767, -0.165625, -0.972069, 0.166278, -2.67933, 3.34727, 4.65091)
+transform = Transform3D(0.225809, 0.134594, 0.964829, -0.969063, 0.132308, 0.208344, -0.0996125, -0.982027, 0.160307, -2.68558, 3.66991, 4.60661)
 
 [node name="Right Hand" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="80"]
-transform = Transform3D(0.282905, 0.115894, 0.95212, -0.945337, 0.201537, 0.256358, -0.162177, -0.9726, 0.166575, -2.80439, 3.6633, 4.86679)
+transform = Transform3D(0.224068, 0.135943, 0.965045, -0.969821, 0.128767, 0.207038, -0.0961207, -0.982312, 0.160694, -2.79217, 4.00679, 4.79968)
 
 [node name="Right Wrist Guard" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="81"]
-transform = Transform3D(0.282905, 0.115894, 0.95212, -0.945337, 0.201537, 0.256358, -0.162177, -0.9726, 0.166575, -2.57936, 3.58081, 3.9123)
+transform = Transform3D(0.224068, 0.135943, 0.965045, -0.969821, 0.128767, 0.207038, -0.0961207, -0.982312, 0.160694, -2.56534, 3.84711, 3.85547)
 
 [node name="Right Arm_011" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="82"]
-transform = Transform3D(-0.220785, -0.211472, 0.95212, 0.953453, 0.158767, 0.256358, -0.205378, 0.964402, 0.166575, -2.432, 3.3888, 3.04549)
+transform = Transform3D(-0.158694, -0.208575, 0.965046, 0.949578, 0.235448, 0.207038, -0.270401, 0.949242, 0.160694, -2.42361, 3.58904, 3.00503)
 
 [node name="Right Arm_010" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="83"]
-transform = Transform3D(-0.220786, -0.211472, 0.95212, 0.953453, 0.158767, 0.256358, -0.205378, 0.964402, 0.166575, -2.39096, 3.35799, 2.85835)
+transform = Transform3D(-0.158694, -0.208575, 0.965045, 0.949578, 0.235448, 0.207038, -0.270401, 0.949242, 0.160694, -2.38313, 3.54335, 2.82083)
 
 [node name="Right Arm_009" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="84"]
-transform = Transform3D(-0.220636, -0.211781, 0.952086, 0.95334, 0.159403, 0.256385, -0.206063, 0.96423, 0.166729, -2.3499, 3.32712, 2.67123)
+transform = Transform3D(-0.158547, -0.208841, 0.965012, 0.94941, 0.236089, 0.207077, -0.271075, 0.949024, 0.160845, -2.34264, 3.49761, 2.63666)
 
 [node name="Right Arm_007" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="85"]
-transform = Transform3D(-0.162623, -0.199599, 0.966288, 0.972392, 0.133681, 0.191264, -0.167351, 0.970716, 0.172349, -2.26808, 3.26511, 2.29683)
+transform = Transform3D(-0.0997536, -0.198355, 0.975041, 0.967344, 0.210147, 0.141717, -0.233012, 0.957336, 0.170915, -2.26197, 3.40585, 2.26816)
 
 [node name="Right Arm_008" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="86"]
-transform = Transform3D(-0.162623, -0.199599, 0.966288, 0.972392, 0.133681, 0.191264, -0.167351, 0.970716, 0.172349, -2.30681, 3.29105, 2.4852)
+transform = Transform3D(-0.0997536, -0.198355, 0.975041, 0.967344, 0.210147, 0.141717, -0.233012, 0.957336, 0.170915, -2.30046, 3.44662, 2.45394)
 
 [node name="Right Arm_006" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="87"]
-transform = Transform3D(-0.203026, -0.222849, 0.953477, 0.952297, 0.181639, 0.245228, -0.227838, 0.957781, 0.17534, -2.22908, 3.23629, 2.12035)
+transform = Transform3D(-0.140869, -0.218436, 0.96563, 0.945826, 0.258493, 0.196453, -0.292522, 0.940992, 0.170189, -2.22348, 3.36297, 2.09444)
 
 [node name="Right Arm_005" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="88"]
-transform = Transform3D(-0.22292, -0.206931, 0.952621, 0.955058, 0.149487, 0.255962, -0.195371, 0.966867, 0.164308, -2.18428, 3.20157, 1.92072)
+transform = Transform3D(-0.160801, -0.204646, 0.965538, 0.951975, 0.226088, 0.206462, -0.260548, 0.952367, 0.158463, -2.1794, 3.31232, 1.89808)
 
 [node name="Right Arm_004" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="89"]
-transform = Transform3D(-0.220407, -0.212357, 0.952011, 0.953185, 0.160258, 0.256426, -0.207021, 0.963961, 0.167093, -2.14361, 3.17153, 1.7334)
+transform = Transform3D(-0.158321, -0.20936, 0.964937, 0.949179, 0.236958, 0.207148, -0.272018, 0.948693, 0.161205, -2.13924, 3.26742, 1.71366)
 
 [node name="Right Arm_003" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="90"]
-transform = Transform3D(-0.220325, -0.212462, 0.952007, 0.953122, 0.160626, 0.256431, -0.207399, 0.963877, 0.167112, -2.10239, 3.1404, 1.54635)
+transform = Transform3D(-0.15824, -0.209441, 0.964933, 0.949086, 0.237326, 0.207153, -0.27239, 0.948583, 0.161223, -2.09861, 3.2214, 1.52957)
 
 [node name="Right Arm_002" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="91"]
-transform = Transform3D(-0.220243, -0.212061, 0.952115, 0.953055, 0.161149, 0.256353, -0.207795, 0.963878, 0.166614, -2.06121, 3.10918, 1.35931)
+transform = Transform3D(-0.158159, -0.209008, 0.96504, 0.948987, 0.237822, 0.207036, -0.27278, 0.948555, 0.160732, -2.05801, 3.1753, 1.3455)
 
 [node name="Right Arm_001" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="92"]
-transform = Transform3D(-0.21997, -0.211855, 0.952224, 0.952841, 0.162534, 0.256273, -0.209061, 0.963691, 0.166111, -2.02007, 3.07778, 1.17229)
+transform = Transform3D(-0.15789, -0.208714, 0.965147, 0.948673, 0.239175, 0.206917, -0.274026, 0.948279, 0.160238, -2.01748, 3.12902, 1.16146)
 
 [node name="Right Arm" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="93"]
-transform = Transform3D(-0.22225, -0.212417, 0.951569, 0.954503, 0.151614, 0.256779, -0.198815, 0.965345, 0.169057, -1.97892, 3.0473, 0.985175)
+transform = Transform3D(-0.160141, -0.209976, 0.964503, 0.951152, 0.228446, 0.207658, -0.26394, 0.950643, 0.163135, -1.97687, 3.08366, 0.977268)
 
 [node name="Right Shoulder" parent="Player/MeshRoot/Robot/Armature/Skeleton3D" index="94"]
 transform = Transform3D(1, 1.36624e-05, 0.00038753, 8.61282e-05, 0.966579, -0.25637, -0.000378081, 0.25637, 0.966579, 0.00471437, 2.51341, 0.448688)
