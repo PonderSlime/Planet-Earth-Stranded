@@ -32,9 +32,12 @@ func _process(delta: float) -> void:
 		#main_song.play()
 		
 	if is_gliding:
-		sound_effects.stream = Wind
-		sound_effects.play()
-		print(sound_effects.)
+		if !sound_effects.is_playing():
+			sound_effects.stream = Wind
+			sound_effects.volume_db = 2
+			sound_effects.play()
+	elif player.is_on_floor():
+		sound_effects.stop()
 	
 func _hurt():
 	fall_damage_player.play()

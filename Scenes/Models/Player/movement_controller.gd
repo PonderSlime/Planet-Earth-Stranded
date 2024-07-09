@@ -4,6 +4,7 @@ signal is_hurt
 @export var player : CharacterBody3D
 @export var mesh_root : Node3D
 @export var hurt_overlay : TextureRect
+@export var speed_overlay : ColorRect
 @export var rotation_speed : float = 8
 @export var fall_gravity = 10
 var direction : Vector3
@@ -35,6 +36,7 @@ func _physics_process(delta):
 		if velocity.y >= 0 and !is_gliding:
 			velocity.y -= jump_gravity * delta
 			gravity_vec += Vector3.DOWN * fall_gravity * delta
+			speed = 0
 		#elif velocity.y <= 0 and is_gliding:
 			##print("gliding bool initial velocity")
 			#velocity.y -= glide_gravity * delta
@@ -47,12 +49,14 @@ func _physics_process(delta):
 			velocity.x = 8 * direction.normalized().x
 			velocity.z = 8 * direction.normalized().z
 			gravity_vec = Vector3.ZERO
+			speed = 0
 				
 			#print("glide gravity =", velocity.y)
 		else:
 			velocity.y -= fall_gravity * delta
 			#print("fall gravity =", velocity.y)
 			gravity_vec += Vector3.DOWN * fall_gravity * delta
+			speed = 0
 	elif player.is_on_floor():
 		if gravity_vec.length() >= 20:
 			health -= gravity_vec.length()
@@ -63,7 +67,7 @@ func _physics_process(delta):
 			velocity.y = 0
 		elif gravity_vec.length() < 20:
 			gravity_vec = Vector3.ZERO
-	print(velocity.y)
+	#print(velocity.y)
 			
 	if Input.is_action_just_pressed("glide") and !is_gliding and !player.is_on_floor():
 		is_gliding = true
@@ -82,6 +86,12 @@ func _physics_process(delta):
 	
 	var target_rotation = atan2(direction.x, direction.z) - player.rotation.y
 	mesh_root.rotation.y = lerp_angle(mesh_root.rotation.y, target_rotation, rotation_speed * delta)
+	
+	if speed > 3:
+		speed_overlay.modulate = Color.WHITE
+		print("FAST!")
+	elif speed <3:
+		speed_overlay.modulate = Color.TRANSPARENT
 
 func _on_set_movement_state(_movement_state : MovementState):
 	speed = _movement_state.movement_speed
@@ -89,7 +99,6 @@ func _on_set_movement_state(_movement_state : MovementState):
 	
 func _on_set_movement_direction(_movement_direction : Vector3):
 	direction = _movement_direction.rotated(Vector3.UP, cam_rotation)
-	
 func _on_set_cam_rotation(_cam_rotation: float):
 	cam_rotation = _cam_rotation
 	
