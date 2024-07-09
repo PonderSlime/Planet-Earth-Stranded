@@ -31,4 +31,3 @@ func init_health(_health):
 
 func _on_timer_timeout():
 	damage_bar.value = health
-	print("damagereset")
