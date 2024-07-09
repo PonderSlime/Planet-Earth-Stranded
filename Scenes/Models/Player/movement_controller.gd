@@ -40,8 +40,8 @@ func _physics_process(delta):
 	
 	var adj_velocity = _calculate_player_movement(delta, velocity)
 	
-	velocity.x = adj_velocity.z * direction.normalized().x
-	velocity.z = adj_velocity.z * direction.normalized().z
+	velocity.x = speed * direction.normalized().x
+	velocity.z = speed * direction.normalized().z
 	
 	#glide_gravity * 10
 	# Falling function
@@ -138,13 +138,26 @@ func _calculate_player_movement(t: float, velocity : Vector3):
 	
 	# The vertical dimension is Y, roughly -4.989 when flat on ground
 	
-	print("right heel: ", skeleton.get_bone_global_pose(37).origin)
-	print("right toe: ", skeleton.get_bone_global_pose(36).origin)
-	print("left heel: ", skeleton.get_bone_global_pose(48).origin)
-	print("left toe: ", skeleton.get_bone_global_pose(47).origin)
+	var point_array = [
+		skeleton.get_bone_global_pose(37).origin, # R Heel
+		skeleton.get_bone_global_pose(36).origin, # R Toe
+		skeleton.get_bone_global_pose(48).origin, # L Heel
+		skeleton.get_bone_global_pose(47).origin # L Toe
+		]
+	var value = _find_lowest_value(point_array)
+	var position = value.lowest_vect
+	print("position" + position)
 	
-	var position = skeleton.get_bone_global_pose(37).origin
-	print("position", position)
+	match value.idx:
+		0:
+			print("Current point: Right Heel")
+		1:
+			print("Current point: Right Toe")
+		2:
+			print("Current point: Left Heel")
+		3:
+			print("Current point: Left Toe")
+	
 	velocity = (position - prev_position) / t
 	print("velocity calculated", velocity)
 	prev_position = position
@@ -152,6 +165,17 @@ func _calculate_player_movement(t: float, velocity : Vector3):
 	return velocity * arbitrary_scaling_value
 	
 # Takes an array of vectors, and compares the y values to find the lowest and returns that	
-func _find_lowest_value():
+func _find_lowest_value(array: Array[Vector3]):
+	var current_lowest = 0
+	var idx = 0
+	var lowest_idx = 0
+	for i in array:
+		if current_lowest == 0:
+			current_lowest = i
+		if i.y < current_lowest.y :
+			current_lowest = i
+			lowest_idx = idx
+		idx += 1
 	
+	return {"lowest_vect": current_lowest, "idx": lowest_idx}
 	
