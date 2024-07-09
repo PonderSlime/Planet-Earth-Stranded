@@ -53,7 +53,6 @@ func _physics_process(delta):
 			velocity.y -= fall_gravity * delta
 			#print("fall gravity =", velocity.y)
 			gravity_vec += Vector3.DOWN * fall_gravity * delta
-			
 	elif player.is_on_floor():
 		if gravity_vec.length() >= 20:
 			health -= gravity_vec.length()
@@ -61,8 +60,10 @@ func _physics_process(delta):
 			hurt()
 			is_hurt.emit()
 			gravity_vec = Vector3.ZERO
+			velocity.y = 0
 		elif gravity_vec.length() < 20:
 			gravity_vec = Vector3.ZERO
+	print(velocity.y)
 			
 	if Input.is_action_just_pressed("glide") and !is_gliding and !player.is_on_floor():
 		is_gliding = true
