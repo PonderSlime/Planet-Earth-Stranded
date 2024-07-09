@@ -5,6 +5,7 @@ signal is_hurt
 @export var mesh_root : Node3D
 @export var hurt_overlay : TextureRect
 @export var speed_overlay : ColorRect
+@export var health_bar : ProgressBar 
 @export var rotation_speed : float = 8
 @export var fall_gravity = 10
 var direction : Vector3
@@ -26,6 +27,9 @@ var health : int = 100
 
 var hurt_tween : Tween
 
+func _ready():
+	health = 100
+	health_bar.init_health(health)
 func _physics_process(delta):
 	velocity.x = speed * direction.normalized().x
 	velocity.z = speed * direction.normalized().z
@@ -36,7 +40,7 @@ func _physics_process(delta):
 		if velocity.y >= 0 and !is_gliding:
 			velocity.y -= jump_gravity * delta
 			gravity_vec += Vector3.DOWN * fall_gravity * delta
-			speed = 0
+			#speed = 0
 		#elif velocity.y <= 0 and is_gliding:
 			##print("gliding bool initial velocity")
 			#velocity.y -= glide_gravity * delta
@@ -56,12 +60,12 @@ func _physics_process(delta):
 			velocity.y -= fall_gravity * delta
 			#print("fall gravity =", velocity.y)
 			gravity_vec += Vector3.DOWN * fall_gravity * delta
-			speed = 0
+			#speed = 0
 	elif player.is_on_floor():
 		if gravity_vec.length() >= 20:
 			health -= gravity_vec.length()
 			print(health)
-			hurt()
+			hurt(-health + 100)
 			is_hurt.emit()
 			gravity_vec = Vector3.ZERO
 			velocity.y = 0
@@ -89,7 +93,6 @@ func _physics_process(delta):
 	
 	if speed > 3:
 		speed_overlay.modulate = Color.WHITE
-		print("FAST!")
 	elif speed <3:
 		speed_overlay.modulate = Color.TRANSPARENT
 
@@ -118,7 +121,9 @@ func _glide(glide_state : GlideState):
 	#velocity.y = 2 * glide_state.glide_height / glide_state.glide_duration #movement_state
 	#glide_gravity = velocity.y / glide_state.glide_duration
 	pass
-func hurt():
+func hurt(damage : float):
+	health_bar.health = health
+	#health_bar.value -= damage
 	hurt_overlay.modulate = Color.WHITE
 	if hurt_tween:
 		hurt_tween.kill()
