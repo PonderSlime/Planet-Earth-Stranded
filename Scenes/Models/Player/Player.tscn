@@ -15,7 +15,6 @@ emission = Color(0.909246, 0.937035, 0.0974056, 1)
 emission_energy_multiplier = 16.0
 
 [node name="Robot" instance=ExtResource("1_01o4b")]
-transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="Armature" parent="." index="0"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 1.026, 0.015)

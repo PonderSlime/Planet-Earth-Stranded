@@ -2,6 +2,7 @@ extends Node
 
 @export var fall_damage_player : AudioStreamPlayer
 @export var main_song : AudioStreamPlayer
+
 @export var sound_effects : AudioStreamPlayer
 var CorrectSound = preload("res://Assets/Sound/Music/Song 1.wav")
 var Wind = preload("res://Assets/Sound/Effects/wind.mp3")
@@ -38,7 +39,7 @@ func _process(delta: float) -> void:
 			sound_effects.play()
 	elif player.is_on_floor():
 		sound_effects.stop()
-	
+
 func _hurt():
 	fall_damage_player.play()
 

@@ -1,4 +1,5 @@
 extends Node
+#class_name Skeleton3D
 
 signal is_hurt
 @export var player : CharacterBody3D
@@ -21,6 +22,20 @@ var jump_gravity : float = fall_gravity
 var is_gliding : bool = false
 var glide_gravity = glide_speed #glide_speed/50
 
+# Should have a signal coming in that specifiecs the player skeleton
+@export var skeleton : Skeleton3D
+
+#for calculating velocity from position frames of the foot
+var prev_position: Vector3
+var prev_idx: int # For point tracking handoff
+var prev_velocity: Vector3
+#The original game designer for some reason scaled the robot or the animation, so it messes up my code.
+# This appears to be the animation scaling value they used
+var arbitrary_scaling_value = 0.2
+
+# The current movement state
+var state_id
+
 signal glide_mode(glide_state : GlideState)
 @export var glide_states : Dictionary
 
@@ -36,7 +51,14 @@ var is_grappling : bool = false
 func _ready():
 	health = 100
 	health_bar.init_health(health)
+
 func _physics_process(delta):
+	
+	# 1 is walking, so apply the velocity based on animation
+	if state_id == 1:
+		# z velocity is the forward/backward movement
+		speed = -_calculate_player_movement(delta).z
+	#Otherwise apply the speed from whatever other movement type
 	velocity.x = speed * direction.normalized().x
 	velocity.z = speed * direction.normalized().z
 	
@@ -68,38 +90,6 @@ func _physics_process(delta):
 		else:
 			if gravity_vec.length() < 20 and player.is_on_floor():
 				gravity_vec = Vector3.ZERO
-	
-	
-	grapple_raycast_hit = camera_cast.get_collider()
-	if grapple_raycast_hit:
-		$ColorRect.color = "DDDDDD99"
-	else:
-		$ColorRect.color = "22222255"
-	if Input.is_action_just_pressed("grapple"):
-		if grapple_raycast_hit:
-			grapple_hook_position = camera_cast.get_collision_point()
-			is_grappling = true
-			grapple_mesh.visible = true
-			rope_generator.SetPlayerPosition(position)
-			rope_generator.SetGrappleHookPosition(grapple_hook_position)
-			rope_generator.StartDrawing()
-			rope_generator.visible = true
-		else:
-			is_grappling = false
-	elif Input.is_action_just_released("grapple"):
-		grapple_mesh.visible = false
-		rope_generator.StopDrawing()
-		rope_generator.visible = false
-	
-	if is_grappling && Input.is_action_pressed("grapple"):
-		rope_generator.SetPlayerPosition(position)
-		$ColorRect.color = "FF555599"
-		grapple_pivot.look_at(grapple_hook_position)
-		
-		var grapple_direction = (grapple_hook_position - position).normalized()
-		var grapple_target_speed = grapple_direction * GRAPPLE_FORCE_MAX
-		
-		var grapple_dif = (grapple_target_speed - velocity)
 	 
 	if Input.is_action_just_pressed("glide") and !is_gliding and !player.is_on_floor():
 		is_gliding = true
@@ -111,9 +101,10 @@ func _physics_process(delta):
 	elif player.is_on_floor(): 
 		is_gliding = false
 		#print("landed")
-
 	
-	player.velocity = player.velocity.lerp(velocity, acceleration * delta)
+	# Not sure if the acceleration will affect the walk animation
+	#player.velocity = player.velocity.lerp(velocity, acceleration * delta)
+	player.velocity = velocity
 	player.move_and_slide()
 	
 	var target_rotation = atan2(direction.x, direction.z) - player.rotation.y
@@ -127,6 +118,7 @@ func _physics_process(delta):
 func _on_set_movement_state(_movement_state : MovementState):
 	speed = _movement_state.movement_speed
 	acceleration = _movement_state.acceleration
+	state_id = _movement_state.id
 	
 func _on_set_movement_direction(_movement_direction : Vector3):
 	direction = _movement_direction.rotated(Vector3.UP, cam_rotation)
@@ -157,3 +149,62 @@ func hurt(damage : float):
 		hurt_tween.kill()
 	hurt_tween = create_tween()
 	hurt_tween.tween_property(hurt_overlay, "modulate", Color.TRANSPARENT, 0.75)
+
+# Calculates player movement based on bone translation for realistic walking
+func _calculate_player_movement(dt: float):
+	var velocity : Vector3
+	
+	# Relavant bone idx numbers:
+	# Right foot Heel: 37, Toe: 36
+	# Left Foot Heel: 48, Toe: 47
+	
+	# The vertical dimension is Y, roughly -4.989 when flat on ground
+	
+	# All the points that are being used to track motion
+	var point_array: Array[Vector3] = [
+		skeleton.get_bone_global_pose(37).origin, # R heel
+		skeleton.get_bone_global_pose(36).origin, # R Toe
+		skeleton.get_bone_global_pose(48).origin, # L Heel
+		skeleton.get_bone_global_pose(47).origin # L Toe
+	]
+	# Find the bone point that currently is closest to the floor
+	var value = _find_lowest_value(point_array, "y")
+	var position = value.lowest_vect
+	
+	# Handoff of points. If the point changed set the velocity to the same it was, reset prev_position, and skip normal velocity code
+	if prev_idx != value.idx:
+		velocity = prev_velocity
+		#print("switched points")
+	# If the lowest position is out of bounds of the floor(calculated on foot distance from player center), basically leaping,
+	# and the controller speed says its still walking or running, set the velocity to last value
+	elif position.y < -5.2 or position.y > -4.8:
+		velocity.z = -speed
+		#print("Off the fLoor, speed = ", speed*5)
+	else:
+		# Calculate velocity from the change in position and time
+		velocity = (position - prev_position) / dt
+		#if velocity.z == 0:
+		#	velocity = prev_velocity
+		#print("velocity: ", velocity.z)
+		
+	prev_position = position
+	prev_velocity = velocity # redundant when switching tracker points, but for most of the code it makes sense for it to be here
+	prev_idx = value.idx
+	
+	return velocity * arbitrary_scaling_value
+	
+# Takes an array of vectors, compares the specified dimension values to find the lowest, and returns the vector with its index	
+func _find_lowest_value(array: Array[Vector3], dimension: String):
+	var current_lowest
+	var idx = 0
+	var lowest_idx = 0
+	for i in array:
+		if current_lowest == null:
+			current_lowest = i
+		if i[dimension] < current_lowest[dimension] :
+			current_lowest = i
+			lowest_idx = idx
+		idx += 1
+	
+	return {"lowest_vect": current_lowest, "idx": lowest_idx}
+	
