@@ -152,25 +152,32 @@ func _calculate_player_movement(dt: float):
 	# Find the bone point that currently is closest to the floor
 	var value = _find_lowest_value(point_array, "y")
 	var position = value.lowest_vect
-	print("position", position)
 	
-	match value.idx:
-		0:
-			print("Current point: Right Heel")
-		1:
-			print("Current point: Right Toe")
-		2:
-			print("Current point: Left Heel")
-		3:
-			print("Current point: Left Toe")
+	#match value.idx:
+		#0:
+			#print("Current point: Right Heel")
+		#1:
+			#print("Current point: Right Toe")
+		#2:
+			#print("Current point: Left Heel")
+		#3:
+			#print("Current point: Left Toe")
+		#_:
+			#print("Unknown")
 	
 	# Handoff of points. If the point changed set the velocity to the same it was, reset prev_position, and skip normal velocity code
 	if prev_idx != value.idx:
 		velocity = prev_velocity
+		print("switched points")
+	# If the lowest position is out of bounds of the floor, basically leaping,
+	# and the controller speed says its still walking or running, set the velocity to last value
+	elif position.y < -5.2 or position.y > -4.8:
+		velocity.z = -speed
+		print("Off the fLoor, speed = ", speed)
 	else:
 		# Calculate velocity from the change in position and time
 		velocity = (position - prev_position) / dt
-		print("velocity calculated", velocity.z)
+		print("velocity calculated: ", velocity.z)
 		
 	prev_position = position
 	prev_velocity = velocity # redundant when switching tracker points, but for most of the code it makes sense for it to be here
