@@ -138,15 +138,15 @@ func _calculate_player_movement(t: float, velocity : Vector3):
 	
 	# The vertical dimension is Y, roughly -4.989 when flat on ground
 	
-	var point_array = [
-		skeleton.get_bone_global_pose(37).origin, # R Heel
+	var point_array: Array[Vector3] = [
+		skeleton.get_bone_global_pose(37).origin, # R heel
 		skeleton.get_bone_global_pose(36).origin, # R Toe
 		skeleton.get_bone_global_pose(48).origin, # L Heel
 		skeleton.get_bone_global_pose(47).origin # L Toe
-		]
+	]
 	var value = _find_lowest_value(point_array)
 	var position = value.lowest_vect
-	print("position" + position)
+	print("position", position)
 	
 	match value.idx:
 		0:
@@ -166,11 +166,11 @@ func _calculate_player_movement(t: float, velocity : Vector3):
 	
 # Takes an array of vectors, and compares the y values to find the lowest and returns that	
 func _find_lowest_value(array: Array[Vector3]):
-	var current_lowest = 0
+	var current_lowest
 	var idx = 0
 	var lowest_idx = 0
 	for i in array:
-		if current_lowest == 0:
+		if current_lowest == null:
 			current_lowest = i
 		if i.y < current_lowest.y :
 			current_lowest = i
