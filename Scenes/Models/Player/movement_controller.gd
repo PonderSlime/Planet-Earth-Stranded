@@ -23,7 +23,9 @@ var glide_gravity = glide_speed #glide_speed/50
 
 #for calculating velocity from position frames of the foot
 var prev_position: Vector3
-#The modeler for some reason scaled the robot or the animation, so it messes up my code.
+var prev_idx: int # For point tracking handoff
+var prev_velocity: Vector3
+#The original game designer for some reason scaled the robot or the animation, so it messes up my code.
 # This appears to be the animation scaling value they used
 var arbitrary_scaling_value = 0.2
 
@@ -38,7 +40,7 @@ var hurt_tween : Tween
 # I think this is the same as _process, except for all the physics. This is where I am going to add my code
 func _physics_process(delta):
 	
-	var adj_velocity = _calculate_player_movement(delta, velocity)
+	var adj_velocity = _calculate_player_movement(delta)
 	
 	velocity.x = speed * direction.normalized().x
 	velocity.z = speed * direction.normalized().z
@@ -131,20 +133,24 @@ func hurt():
 	hurt_tween.tween_property(hurt_overlay, "modulate", Color.TRANSPARENT, 0.75)
 
 # Calculates player movement based on bone translation for realistic walking
-func _calculate_player_movement(t: float, velocity : Vector3):
+func _calculate_player_movement(dt: float):
+	var velocity : Vector3
+	
 	# Relavant bone idx numbers:
 	# Right foot Heel: 37, Toe: 36
 	# Left Foot Heel: 48, Toe: 47
 	
 	# The vertical dimension is Y, roughly -4.989 when flat on ground
 	
+	# All the points that are being used to track motion
 	var point_array: Array[Vector3] = [
 		skeleton.get_bone_global_pose(37).origin, # R heel
 		skeleton.get_bone_global_pose(36).origin, # R Toe
 		skeleton.get_bone_global_pose(48).origin, # L Heel
 		skeleton.get_bone_global_pose(47).origin # L Toe
 	]
-	var value = _find_lowest_value(point_array)
+	# Find the bone point that currently is closest to the floor
+	var value = _find_lowest_value(point_array, "y")
 	var position = value.lowest_vect
 	print("position", position)
 	
@@ -158,21 +164,29 @@ func _calculate_player_movement(t: float, velocity : Vector3):
 		3:
 			print("Current point: Left Toe")
 	
-	velocity = (position - prev_position) / t
-	print("velocity calculated", velocity)
+	# Handoff of points. If the point changed set the velocity to the same it was, reset prev_position, and skip normal velocity code
+	if prev_idx != value.idx:
+		velocity = prev_velocity
+	else:
+		# Calculate velocity from the change in position and time
+		velocity = (position - prev_position) / dt
+		print("velocity calculated", velocity)
+		
 	prev_position = position
+	prev_velocity = velocity # redundant when switching tracker points, but for most of the code it makes sense for it to be here
+	prev_idx = value.idx
 	
 	return velocity * arbitrary_scaling_value
 	
-# Takes an array of vectors, and compares the y values to find the lowest and returns that	
-func _find_lowest_value(array: Array[Vector3]):
+# Takes an array of vectors, compares the specified dimension values to find the lowest, and returns the vector with its index	
+func _find_lowest_value(array: Array[Vector3], dimension: String):
 	var current_lowest
 	var idx = 0
 	var lowest_idx = 0
 	for i in array:
 		if current_lowest == null:
 			current_lowest = i
-		if i.y < current_lowest.y :
+		if i[dimension] < current_lowest[dimension] :
 			current_lowest = i
 			lowest_idx = idx
 		idx += 1
