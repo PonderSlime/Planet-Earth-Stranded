@@ -28,9 +28,9 @@ func _process(delta: float) -> void:
 		if player.is_on_floor():
 			is_gliding = false
 	
-	#if !main_song.is_playing():
-		#main_song.stream = CorrectSound
-		#main_song.play()
+	if !main_song.is_playing():
+		main_song.stream = CorrectSound
+		main_song.play()
 		
 	if is_gliding:
 		if !sound_effects.is_playing():
