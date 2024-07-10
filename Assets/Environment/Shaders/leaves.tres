@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ccjx11o4jxi5y"]
+
+[ext_resource type="Texture2D" uid="uid://dfh4b1s8lhds" path="res://Assets/Environment/Textures/Trees/Leaves/leaves1.png" id="1_nvc43"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_color = Color(0.447559, 0.567887, 0.203387, 1)
+albedo_texture = ExtResource("1_nvc43")
+backlight_enabled = true
+backlight = Color(0.344076, 0.344076, 0.344076, 1)

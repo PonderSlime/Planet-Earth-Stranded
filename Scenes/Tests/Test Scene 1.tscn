@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b51sxefeu6042"]
+[gd_scene load_steps=22 format=3 uid="uid://b51sxefeu6042"]
 
 [ext_resource type="Shader" path="res://BasicSkyShader.gdshader" id="1_1wex7"]
 [ext_resource type="Material" uid="uid://bdhj6so3chp0e" path="res://Assets/Environment/Shaders/test_surface.tres" id="2_5hdbo"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dxxlswkgbkwak" path="res://Assets/Environment/Textures/Grid.png" id="5_5gfk3"]
 [ext_resource type="PackedScene" uid="uid://bd2s4wf2tu7sm" path="res://Scenes/Models/Player/PlayerController.tscn" id="6_kvsvt"]
 [ext_resource type="PackedScene" uid="uid://d37h2x7ngrtt3" path="res://Scenes/Models/grass.tscn" id="8_1ssi0"]
+[ext_resource type="PackedScene" uid="uid://dlsgrrqjct8or" path="res://Scenes/Models/stylized_fluffy_tree.tscn" id="9_10m83"]
 [ext_resource type="PackedScene" uid="uid://bd2g0lvgf2pr4" path="res://Scenes/Models/ghibli tree.tscn" id="16_dmme4"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_4vf81"]
@@ -175,15 +176,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.46196, 116.525, 0)
 
 [node name="Ghibli Tree Leaves" parent="." instance=ExtResource("16_dmme4")]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 38.8485, -2.04964, 9.06288)
+visible = false
 
 [node name="Ghibli Tree Leaves2" parent="." instance=ExtResource("16_dmme4")]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -0.961476, -2.04963, -32.4749)
+visible = false
 
 [node name="Ghibli Tree Leaves3" parent="." instance=ExtResource("16_dmme4")]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 25.3631, -2.04963, 110.174)
+visible = false
 
 [node name="Ghibli Tree Leaves4" parent="." instance=ExtResource("16_dmme4")]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -69.0113, -2.04963, 79.031)
+visible = false
 
 [node name="GrassBaseTest" parent="." instance=ExtResource("8_1ssi0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9684, -2, 20)
+
+[node name="Stylized Fluffy Tree" parent="." instance=ExtResource("9_10m83")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, -2, 11)

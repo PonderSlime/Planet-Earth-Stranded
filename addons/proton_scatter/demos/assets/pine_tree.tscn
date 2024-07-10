@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://caqxfqurbp3ku"]
+[gd_scene load_steps=6 format=3 uid="uid://dpq60knrl8bdj"]
 
 [ext_resource type="PackedScene" uid="uid://bhums0j31gm5n" path="res://addons/proton_scatter/demos/assets/models/pine_tree.glb" id="1_hw1e5"]
-[ext_resource type="Material" uid="uid://d01d0h08lqqn6" path="res://addons/proton_scatter/demos/assets/materials/m_trunk.tres" id="2_cgtpc"]
+[ext_resource type="Material" path="res://addons/proton_scatter/demos/assets/materials/m_trunk.tres" id="2_cgtpc"]
 [ext_resource type="Material" uid="uid://d28lq2qtgdyie" path="res://addons/proton_scatter/demos/assets/materials/m_pine_leaves.tres" id="2_xnytt"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2xqpo"]

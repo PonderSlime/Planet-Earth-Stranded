@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ds4lbf01wp2gv"
-path="res://.godot/imported/leaves_collage.png-59b7a65a7a1d1f9159db196f89df48c9.ctex"
+uid="uid://t7wlwnu0p0sh"
+path="res://.godot/imported/leaves1.svg-bb59d224a6562d4dea1525baba0471ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Environment/textures/leaves_collage.png"
-dest_files=["res://.godot/imported/leaves_collage.png-59b7a65a7a1d1f9159db196f89df48c9.ctex"]
+source_file="res://Assets/Environment/Textures/Trees/Leaves/leaves1.svg"
+dest_files=["res://.godot/imported/leaves1.svg-bb59d224a6562d4dea1525baba0471ae.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false
