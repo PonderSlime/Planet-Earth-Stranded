@@ -184,6 +184,8 @@ func _calculate_player_movement(dt: float):
 		#if velocity.z == 0:
 		#	velocity = prev_velocity
 		#print("velocity: ", velocity.z)
+	if velocity.z > 0:
+		velocity.z = 0
 		
 	prev_position = position
 	prev_velocity = velocity # redundant when switching tracker points, but for most of the code it makes sense for it to be here

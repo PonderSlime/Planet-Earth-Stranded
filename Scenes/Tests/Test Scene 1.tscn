@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b51sxefeu6042"]
+[gd_scene load_steps=38 format=3 uid="uid://b51sxefeu6042"]
 
 [ext_resource type="Shader" path="res://BasicSkyShader.gdshader" id="1_1wex7"]
 [ext_resource type="Material" uid="uid://bdhj6so3chp0e" path="res://Assets/Environment/Shaders/test_surface.tres" id="2_5hdbo"]
@@ -8,7 +8,17 @@
 [ext_resource type="PackedScene" uid="uid://bd2s4wf2tu7sm" path="res://Scenes/Models/Player/PlayerController.tscn" id="6_kvsvt"]
 [ext_resource type="PackedScene" uid="uid://d37h2x7ngrtt3" path="res://Scenes/Models/grass.tscn" id="8_1ssi0"]
 [ext_resource type="PackedScene" uid="uid://dlsgrrqjct8or" path="res://Scenes/Models/stylized_fluffy_tree.tscn" id="9_10m83"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter.gd" id="10_oh8tl"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="11_u0akr"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/create_inside_random.gd" id="12_flqgj"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/randomize_transforms.gd" id="13_ckn8r"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/relax.gd" id="14_he88v"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/project_on_geometry.gd" id="15_abnj5"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_item.gd" id="16_7xk3v"]
 [ext_resource type="PackedScene" uid="uid://bd2g0lvgf2pr4" path="res://Scenes/Models/ghibli tree.tscn" id="16_dmme4"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_shape.gd" id="17_ddqtp"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/box_shape.gd" id="18_6cpsg"]
+[ext_resource type="ArrayMesh" uid="uid://cp5lm8hltc2u8" path="res://Assets/Environment/grass.res" id="19_b4qhu"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_4vf81"]
 
@@ -138,6 +148,62 @@ shader_parameter/color_gradient = ExtResource("3_laa5c")
 shader_parameter/fresnel_gradient = ExtResource("4_jf54o")
 shader_parameter/grid_texture = ExtResource("5_5gfk3")
 
+[sub_resource type="Resource" id="Resource_htt24"]
+script = ExtResource("12_flqgj")
+amount = 256
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = true
+reference_frame = 1
+
+[sub_resource type="Resource" id="Resource_mq778"]
+script = ExtResource("13_ckn8r")
+position = Vector3(0.15, 0.15, 0.15)
+rotation = Vector3(20, 360, 20)
+scale = Vector3(0.1, 0.1, 0.1)
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 2
+
+[sub_resource type="Resource" id="Resource_7hbie"]
+script = ExtResource("14_he88v")
+iterations = 3
+offset_step = 0.2
+consecutive_step_multiplier = 0.75
+use_computeshader = true
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = true
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_02qh5"]
+script = ExtResource("15_abnj5")
+ray_direction = Vector3(0, -1, 0)
+ray_length = 5.0
+ray_offset = 5.0
+remove_points_on_miss = false
+align_with_collision_normal = false
+max_slope = 90.0
+collision_mask = 1
+exclude_mask = 0
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_ydxkw"]
+script = ExtResource("11_u0akr")
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_htt24"), SubResource("Resource_mq778"), SubResource("Resource_7hbie"), SubResource("Resource_02qh5")])
+
+[sub_resource type="Resource" id="Resource_4b7sa"]
+script = ExtResource("18_6cpsg")
+size = Vector3(10, 1, 10)
+
 [node name="Node3D" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -146,30 +212,31 @@ environment = SubResource("Environment_pde42")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 0, 0)
 shadow_enabled = true
+directional_shadow_max_distance = 250.0
 
-[node name="Water" type="CSGMesh3D" parent="."]
+[node name="Floor" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.85645, -2.04963, 49.5589)
 material_override = ExtResource("2_5hdbo")
 use_collision = true
 mesh = SubResource("PlaneMesh_ljphg")
 
-[node name="Wall" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.22449, 15.1587, 1)
+[node name="Tower" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.22449, 56.5587, 1)
 material_override = SubResource("ShaderMaterial_k1spc")
 use_collision = true
-size = Vector3(8, 200, 12)
+size = Vector3(8, 117.2, 12)
 
-[node name="Wall3" type="CSGBox3D" parent="."]
-transform = Transform3D(-0.887815, 0, -0.4602, 0, 1, 0, 0.4602, 0, -0.887815, 23.4912, 0.308877, 47.5064)
+[node name="Box" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.887815, 0, -0.4602, 0, 1, 0, 0.4602, 0, -0.887815, 23.4912, -0.332632, 47.5064)
 material_override = SubResource("ShaderMaterial_jm846")
 use_collision = true
-size = Vector3(8, 2.8783, 12)
+size = Vector3(8, 4.16132, 12)
 
-[node name="Wall2" type="CSGBox3D" parent="."]
-transform = Transform3D(-0.846721, -0.26658, -0.460432, -0.300306, 0.953843, 0, 0.43918, 0.138271, -0.887695, 54.5711, -5.0513, 68.232)
+[node name="Ramp" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.846721, -0.26658, -0.460432, -0.300306, 0.953843, 0, 0.43918, 0.138271, -0.887695, 53.878, -2.57131, 68.5915)
 material_override = SubResource("ShaderMaterial_k1spc")
 use_collision = true
-size = Vector3(98, 35, 12)
+size = Vector3(98, 29.8, 12)
 
 [node name="Player" parent="." instance=ExtResource("6_kvsvt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.46196, 116.525, 0)
@@ -192,6 +259,30 @@ visible = false
 
 [node name="GrassBaseTest" parent="." instance=ExtResource("8_1ssi0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9684, -2, 20)
+visible = false
 
 [node name="Stylized Fluffy Tree" parent="." instance=ExtResource("9_10m83")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, -2, 11)
+
+[node name="ProtonScatter" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.85391, 0, 15.3374)
+script = ExtResource("10_oh8tl")
+modifier_stack = SubResource("Resource_ydxkw")
+Performance/use_chunks = true
+Performance/chunk_dimensions = Vector3(15, 15, 15)
+
+[node name="ScatterItem" type="Node3D" parent="ProtonScatter"]
+script = ExtResource("16_7xk3v")
+source = 0
+source_scale_multiplier = 0.5
+path = "../../Grass"
+
+[node name="ScatterShape" type="Node3D" parent="ProtonScatter"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+script = ExtResource("17_ddqtp")
+shape = SubResource("Resource_4b7sa")
+
+[node name="Grass" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 11.372, -2.04963, 25.5837)
+visible = false
+mesh = ExtResource("19_b4qhu")
