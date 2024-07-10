@@ -113,9 +113,9 @@ func _physics_process(delta):
 	var target_rotation = atan2(direction.x, direction.z) - player.rotation.y
 	mesh_root.rotation.y = lerp_angle(mesh_root.rotation.y, target_rotation, rotation_speed * delta)
 	
-	if speed > 3:
+	if state_id == 2:
 		speed_overlay.modulate = Color.WHITE
-	elif speed <3:
+	elif state_id != 2:
 		speed_overlay.modulate = Color.TRANSPARENT
 	if player.is_on_floor():
 		jump = "no_jump"

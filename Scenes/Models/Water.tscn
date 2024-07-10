@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://dpsr3gfrutlx"]
+
+[ext_resource type="Shader" uid="uid://bg2y7y10155o5" path="res://Assets/Environment/Shaders/Water.tres" id="1_rv6sr"]
+[ext_resource type="PackedScene" uid="uid://dgk5es64hi4li" path="res://Scenes/Models/Rocks/rock_1.tscn" id="2_y3xgf"]
+[ext_resource type="PackedScene" uid="uid://ckw32uud4ksyw" path="res://Scenes/Models/Rocks/rock_2.tscn" id="3_i7fd8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fwbh7"]
+render_priority = 0
+shader = ExtResource("1_rv6sr")
+shader_parameter/ColorParameter = Color(0.196936, 0.460773, 0.526427, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_kjmyo"]
+material = SubResource("ShaderMaterial_fwbh7")
+size = Vector2(10, 10)
+subdivide_width = 20
+subdivide_depth = 20
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_kjmyo")
+
+[node name="Rock1" parent="." instance=ExtResource("2_y3xgf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8, -0.247816, 1.64071)
+
+[node name="Rock2" parent="." instance=ExtResource("3_i7fd8")]
+transform = Transform3D(1, 0, 0, 0, 0.639103, 0.769121, 0, -0.769121, 0.639103, 0, -0.508763, -3)
