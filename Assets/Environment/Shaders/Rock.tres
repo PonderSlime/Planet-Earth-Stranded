@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://dbk3f416y88si"]
+
+[ext_resource type="Texture2D" uid="uid://pmxrseyj48gd" path="res://Assets/Environment/Textures/Rock/Small Rocks/Rocks_Diffuse.png" id="1_yt3lf"]
+[ext_resource type="Texture2D" uid="uid://cbqguo0j8jlly" path="res://Assets/Environment/Textures/Rock/Small Rocks/Rock_Roughness.png" id="2_xqway"]
+
+[resource]
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("1_yt3lf")
+roughness_texture = ExtResource("2_xqway")

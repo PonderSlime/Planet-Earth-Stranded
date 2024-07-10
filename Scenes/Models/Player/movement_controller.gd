@@ -35,6 +35,8 @@ var arbitrary_scaling_value = 0.2
 
 # The current movement state
 var state_id
+var jump
+var movement_speed
 
 signal glide_mode(glide_state : GlideState)
 @export var glide_states : Dictionary
@@ -53,10 +55,13 @@ func _ready():
 
 func _physics_process(delta):
 	# 1 is walking, so apply the velocity based on animation
-	if state_id == 1:
+	if state_id == 1  and jump != "jump":
 		# z velocity is the forward/backward movement
 		speed = -_calculate_player_movement(delta).z
 	#Otherwise apply the speed from whatever other movement type
+	else:
+		speed = movement_speed
+
 	velocity.x = speed * direction.normalized().x
 	velocity.z = speed * direction.normalized().z
 	
@@ -73,7 +78,7 @@ func _physics_process(delta):
 			velocity.x = 8 * direction.normalized().x
 			velocity.z = 8 * direction.normalized().z
 			gravity_vec = Vector3.ZERO
-			speed = 0
+			speed = movement_speed
 		else:
 			velocity.y -= fall_gravity * delta
 			gravity_vec += Vector3.DOWN * fall_gravity * delta
@@ -112,9 +117,14 @@ func _physics_process(delta):
 		speed_overlay.modulate = Color.WHITE
 	elif speed <3:
 		speed_overlay.modulate = Color.TRANSPARENT
+	if player.is_on_floor():
+		jump = "no_jump"
+	elif !player.is_on_floor():
+		jump = "jump"
 
 func _on_set_movement_state(_movement_state : MovementState):
-	speed = _movement_state.movement_speed
+	movement_speed = _movement_state.movement_speed
+	#speed = movement_speed
 	acceleration = _movement_state.acceleration
 	state_id = _movement_state.id
 	
@@ -124,12 +134,14 @@ func _on_set_cam_rotation(_cam_rotation: float):
 	cam_rotation = _cam_rotation
 	
 func _jump(jump_state : JumpState):
+	jump = jump_state.animation_name
 	velocity.y = 2 * jump_state.jump_height / jump_state.apex_duration
 	#print("jump_state.apex_duration=",jump_state.apex_duration)
 	#print("velocity.y=",velocity.y)
 	jump_gravity = velocity.y / jump_state.apex_duration
 	#print("jump_state.apex_duration2=",jump_state.apex_duration)
 	#print("velocity.y2=",velocity.y)
+
 	
 	#velocity.y = 2 * jump_state.jump_height 
 	#jump_gravity = velocity.y 
@@ -184,6 +196,7 @@ func _calculate_player_movement(dt: float):
 		#if velocity.z == 0:
 		#	velocity = prev_velocity
 		#print("velocity: ", velocity.z)
+	# removes some of the jitter in movement, it can't go backwards now
 	if velocity.z > 0:
 		velocity.z = 0
 		

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c703ff0m0nvbs"]
+
+[ext_resource type="PackedScene" uid="uid://cl22ksatm68pi" path="res://Assets/Environment/Rocks.blend" id="1_tbjei"]
+[ext_resource type="Material" uid="uid://dbk3f416y88si" path="res://Assets/Environment/Shaders/Rock.tres" id="2_jeqm0"]
+
+[node name="Rocks" instance=ExtResource("1_tbjei")]
+
+[node name="Rock1" parent="." index="0"]
+material_override = ExtResource("2_jeqm0")
+
+[node name="Rock2" parent="." index="1"]
+material_override = ExtResource("2_jeqm0")
+
+[node name="Rock3" parent="." index="2"]
+material_override = ExtResource("2_jeqm0")
