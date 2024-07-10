@@ -158,10 +158,10 @@ use_collision = true
 size = Vector3(8, 200, 12)
 
 [node name="Wall3" type="CSGBox3D" parent="."]
-transform = Transform3D(-0.887815, 0, -0.4602, 0, 1, 0, 0.4602, 0, -0.887815, 23.4912, 1.39954, 47.5064)
+transform = Transform3D(-0.887815, 0, -0.4602, 0, 1, 0, 0.4602, 0, -0.887815, 23.4912, 0.308877, 47.5064)
 material_override = SubResource("ShaderMaterial_jm846")
 use_collision = true
-size = Vector3(8, 5.05963, 12)
+size = Vector3(8, 2.8783, 12)
 
 [node name="Wall2" type="CSGBox3D" parent="."]
 transform = Transform3D(-0.846721, -0.26658, -0.460432, -0.300306, 0.953843, 0, 0.43918, 0.138271, -0.887695, 54.5711, -5.0513, 68.232)

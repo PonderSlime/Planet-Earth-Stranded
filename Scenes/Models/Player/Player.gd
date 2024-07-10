@@ -4,12 +4,10 @@ signal pressed_jump(jump_state : JumpState)
 signal pressed_glide(glide_state : GlideState)
 signal set_movement_state(_movement_state: MovementState,)
 signal set_movement_direction(_movement_direction: Vector3)
-
 @export var movement_states: Dictionary
 @export var jump_states: Dictionary
 @export var glide_states: Dictionary
 var movement_direction : Vector3
-
 func _input(event):
 	if event.is_action("movement"):
 		movement_direction.x = Input.get_action_strength("left") - Input.get_action_strength("right")
@@ -45,6 +43,8 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("quit"):
 		get_tree().quit()
+		
+
 func is_movement_ongoing() -> bool:
 	return abs(movement_direction.x) > 0 or abs(movement_direction.z) > 0
 

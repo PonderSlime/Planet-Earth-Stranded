@@ -5,7 +5,6 @@ signal is_hurt
 @export var player : CharacterBody3D
 @export var mesh_root : Node3D
 @export var camera_cast : RayCast3D
-@export var grapple_mesh : MeshInstance3D
 @export var hurt_overlay : TextureRect
 @export var speed_overlay : ColorRect
 @export var health_bar : ProgressBar 
@@ -16,6 +15,7 @@ var velocity : Vector3
 var acceleration : float
 var speed : float
 var cam_rotation : float = 0
+var position
 
 var jump_gravity : float = fall_gravity
 @export var glide_speed = 100
@@ -43,17 +43,15 @@ var gravity_vec : Vector3
 var health : int = 100
 
 var hurt_tween : Tween
-
-var grapple_raycast_hit
-var grapple_hook_position : Vector3
-var is_grappling : bool = false
+@onready var ray_01 = $"../MeshRoot/Ray01"
+@onready var ray_02 = $"../MeshRoot/Ray02"
+var onledge : bool = false
 
 func _ready():
 	health = 100
 	health_bar.init_health(health)
 
 func _physics_process(delta):
-	
 	# 1 is walking, so apply the velocity based on animation
 	if state_id == 1:
 		# z velocity is the forward/backward movement
