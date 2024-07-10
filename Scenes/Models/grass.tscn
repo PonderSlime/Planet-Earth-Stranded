@@ -6,7 +6,7 @@
 size = Vector2(10, 10)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yl5o0"]
-albedo_color = Color(0.197152, 0.403564, 0.190482, 1)
+albedo_color = Color(0.202761, 0.305648, 0.111371, 1)
 
 [sub_resource type="MultiMesh" id="MultiMesh_6vy4f"]
 transform_format = 1

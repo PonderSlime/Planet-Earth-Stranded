@@ -43,7 +43,6 @@ vec2 rotate_uv(vec2 uv, vec2 pivot, float rotation) {
 
 
 
-
 void fragment(){
 	vec2 polar_uv = polar_coordinates(rotate_uv(UV, vec2(0.5), floor(fract(TIME) * animation_speed) ) , vec2(0.5), 0.01, line_count);
 	vec3 lines = texture(noise, polar_uv).rgb;

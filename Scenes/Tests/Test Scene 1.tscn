@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b51sxefeu6042"]
+[gd_scene load_steps=21 format=3 uid="uid://b51sxefeu6042"]
 
 [ext_resource type="Shader" path="res://BasicSkyShader.gdshader" id="1_1wex7"]
 [ext_resource type="Material" uid="uid://bdhj6so3chp0e" path="res://Assets/Environment/Shaders/test_surface.tres" id="2_5hdbo"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://did3p25l52we" path="res://Assets/Environment/Shaders/fresnel_gradient.tres" id="4_jf54o"]
 [ext_resource type="Texture2D" uid="uid://dxxlswkgbkwak" path="res://Assets/Environment/Textures/Grid.png" id="5_5gfk3"]
 [ext_resource type="PackedScene" uid="uid://bd2s4wf2tu7sm" path="res://Scenes/Models/Player/PlayerController.tscn" id="6_kvsvt"]
+[ext_resource type="PackedScene" uid="uid://d37h2x7ngrtt3" path="res://Scenes/Models/grass.tscn" id="8_1ssi0"]
 [ext_resource type="PackedScene" uid="uid://bd2g0lvgf2pr4" path="res://Scenes/Models/ghibli tree.tscn" id="16_dmme4"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_4vf81"]
@@ -183,3 +184,6 @@ transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 25.3631, -2.04963, 1
 
 [node name="Ghibli Tree Leaves4" parent="." instance=ExtResource("16_dmme4")]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -69.0113, -2.04963, 79.031)
+
+[node name="GrassBaseTest" parent="." instance=ExtResource("8_1ssi0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9684, -2, 20)
