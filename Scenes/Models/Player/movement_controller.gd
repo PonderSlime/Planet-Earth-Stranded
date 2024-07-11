@@ -84,8 +84,8 @@ func _physics_process(delta):
 			gravity_vec += Vector3.DOWN * fall_gravity * delta
 	elif player.is_on_floor():
 		if gravity_vec.length() >= 20:
-			health -= gravity_vec.length()
-			hurt(1 * gravity_vec.length())
+			health -= (5 * gravity_vec.length())
+			hurt(5 * gravity_vec.length())
 			print(health)
 			is_hurt.emit()
 			gravity_vec = Vector3.ZERO
