@@ -3,24 +3,24 @@
 [ext_resource type="PackedScene" uid="uid://c0gvxq75xj1n6" path="res://Assets/Environment/Stylized Fluffy Aspen.blend" id="1_5qqtv"]
 [ext_resource type="ArrayMesh" uid="uid://cfpjid0kpardj" path="res://Assets/Environment/aspen_leaves.res" id="2_soe61"]
 
-[sub_resource type="Gradient" id="Gradient_i343v"]
+[sub_resource type="Gradient" id="Gradient_2ay4g"]
 interpolation_mode = 1
 offsets = PackedFloat32Array(0, 0.411765)
+colors = PackedColorArray(0.585062, 0.585062, 0.585062, 1, 1, 1, 1, 1)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_576m8"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mcq1n"]
 domain_warp_enabled = true
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7vyl5"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0qqqu"]
 width = 1024
-color_ramp = SubResource("Gradient_i343v")
-noise = SubResource("FastNoiseLite_576m8")
+color_ramp = SubResource("Gradient_2ay4g")
+noise = SubResource("FastNoiseLite_mcq1n")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jswp1"]
 diffuse_mode = 3
 albedo_color = Color(0.889032, 0.878755, 0.88465, 1)
+albedo_texture = SubResource("NoiseTexture2D_0qqqu")
 roughness = 0.0
-normal_enabled = true
-normal_texture = SubResource("NoiseTexture2D_7vyl5")
 
 [sub_resource type="MultiMesh" id="MultiMesh_ebmls"]
 transform_format = 1
