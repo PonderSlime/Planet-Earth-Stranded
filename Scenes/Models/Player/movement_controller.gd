@@ -4,7 +4,6 @@ extends Node
 signal is_hurt
 @export var player : CharacterBody3D
 @export var mesh_root : Node3D
-@export var camera_cast : RayCast3D
 @export var hurt_overlay : TextureRect
 @export var speed_overlay : ColorRect
 @export var health_bar : ProgressBar 
@@ -16,6 +15,7 @@ var acceleration : float
 var speed : float
 var cam_rotation : float = 0
 var position
+@export var death_screen : CanvasLayer
 
 var jump_gravity : float = fall_gravity
 @export var glide_speed = 100
@@ -156,6 +156,12 @@ func hurt(damage : float):
 		hurt_tween.kill()
 	hurt_tween = create_tween()
 	hurt_tween.tween_property(hurt_overlay, "modulate", Color.TRANSPARENT, 0.75)
+	if health < 0:
+		death_screen.visible = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		get_tree().paused = true
+	else:
+		death_screen.visible = false
 
 # Calculates player movement based on bone translation for realistic walking
 func _calculate_player_movement(dt: float):

@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdngkrkcavhrj"]
+
+[ext_resource type="Texture2D" uid="uid://dt0nnojl3rji0" path="res://Assets/Character/Textures/Damage Overlay.png" id="1_8ug81"]
+[ext_resource type="Script" path="res://Scenes/Screens/death_screen.gd" id="1_anjaf"]
+
+[sub_resource type="SystemFont" id="SystemFont_ynfvt"]
+
+[sub_resource type="FontVariation" id="FontVariation_34vxe"]
+base_font = SubResource("SystemFont_ynfvt")
+variation_embolden = 0.04
+
+[node name="GameOverScreen" type="CanvasLayer"]
+script = ExtResource("1_anjaf")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_8ug81")
+expand_mode = 1
+
+[node name="Rows" type="VBoxContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 91
+
+[node name="YouDied" type="Label" parent="TextureRect/Rows"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.210324, 0.0249903, 0.039032, 1)
+theme_override_fonts/font = SubResource("FontVariation_34vxe")
+theme_override_font_sizes/font_size = 126
+text = "Game Over
+"
+horizontal_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="TextureRect/Rows"]
+layout_mode = 2
+
+[node name="Rows2" type="VBoxContainer" parent="TextureRect/Rows/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="ButtonRestart" type="Button" parent="TextureRect/Rows/CenterContainer/Rows2"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_34vxe")
+theme_override_font_sizes/font_size = 50
+text = "      RESTART      "
+
+[node name="ButtonQuit" type="Button" parent="TextureRect/Rows/CenterContainer/Rows2"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_34vxe")
+theme_override_font_sizes/font_size = 50
+text = "QUIT"
+
+[connection signal="pressed" from="TextureRect/Rows/CenterContainer/Rows2/ButtonRestart" to="." method="_on_button_restart_pressed"]
+[connection signal="pressed" from="TextureRect/Rows/CenterContainer/Rows2/ButtonQuit" to="." method="_on_button_quit_pressed"]

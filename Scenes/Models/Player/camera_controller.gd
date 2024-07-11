@@ -26,6 +26,7 @@ var is_gliding : bool = false
 var camera_fov : float
 
 var sensitivity = 0.005
+var is_dead = false
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
