@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://b51sxefeu6042"]
+[gd_scene load_steps=42 format=3 uid="uid://b51sxefeu6042"]
 
 [ext_resource type="Shader" path="res://BasicSkyShader.gdshader" id="1_1wex7"]
 [ext_resource type="Material" uid="uid://bdhj6so3chp0e" path="res://Assets/Environment/Shaders/test_surface.tres" id="2_5hdbo"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://dgk5es64hi4li" path="res://Scenes/Models/Rocks/rock_1.tscn" id="20_33u6f"]
 [ext_resource type="PackedScene" uid="uid://ckw32uud4ksyw" path="res://Scenes/Models/Rocks/rock_2.tscn" id="21_hlw8i"]
 [ext_resource type="PackedScene" uid="uid://b0o66yx1tqbe4" path="res://Scenes/Models/Rocks/rock_3.tscn" id="22_ydbjb"]
+[ext_resource type="PackedScene" uid="uid://c4y53qg3ftw8d" path="res://Scenes/Models/stylized_fluffy_aspen.tscn" id="23_p2slg"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_4vf81"]
 
@@ -151,7 +152,7 @@ shader_parameter/color_gradient = ExtResource("3_laa5c")
 shader_parameter/fresnel_gradient = ExtResource("4_jf54o")
 shader_parameter/grid_texture = ExtResource("5_5gfk3")
 
-[sub_resource type="Resource" id="Resource_cq8f8"]
+[sub_resource type="Resource" id="Resource_53226"]
 script = ExtResource("12_flqgj")
 amount = 256
 enabled = true
@@ -160,7 +161,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_bs5ya"]
+[sub_resource type="Resource" id="Resource_weutc"]
 script = ExtResource("13_ckn8r")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(20, 360, 20)
@@ -171,7 +172,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_a1q76"]
+[sub_resource type="Resource" id="Resource_yx5sf"]
 script = ExtResource("14_he88v")
 iterations = 3
 offset_step = 0.2
@@ -183,7 +184,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_ct3bk"]
+[sub_resource type="Resource" id="Resource_qr2m5"]
 script = ExtResource("15_abnj5")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -199,9 +200,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_esmbr"]
+[sub_resource type="Resource" id="Resource_j0bhl"]
 script = ExtResource("11_u0akr")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_cq8f8"), SubResource("Resource_bs5ya"), SubResource("Resource_a1q76"), SubResource("Resource_ct3bk")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_53226"), SubResource("Resource_weutc"), SubResource("Resource_yx5sf"), SubResource("Resource_qr2m5")])
 
 [sub_resource type="Resource" id="Resource_4b7sa"]
 script = ExtResource("18_6cpsg")
@@ -270,7 +271,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, -2, 11)
 [node name="ProtonScatter" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.85391, 0, 15.3374)
 script = ExtResource("10_oh8tl")
-modifier_stack = SubResource("Resource_esmbr")
+modifier_stack = SubResource("Resource_j0bhl")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -298,3 +299,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, -2, 11)
 
 [node name="Rock3" parent="." instance=ExtResource("22_ydbjb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -2, 19)
+
+[node name="Stylized Fluffy Aspen" parent="." instance=ExtResource("23_p2slg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.7831, -2.04963, 2.94681)

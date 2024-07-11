@@ -1,8 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://dpsr3gfrutlx"]
+[gd_scene load_steps=8 format=3 uid="uid://dpsr3gfrutlx"]
 
 [ext_resource type="Shader" path="res://addons/proton_scatter/demos/assets/materials/m_water.gdshader" id="1_fe6tn"]
-[ext_resource type="PackedScene" uid="uid://dgk5es64hi4li" path="res://Scenes/Models/Rocks/rock_1.tscn" id="2_y3xgf"]
-[ext_resource type="PackedScene" uid="uid://ckw32uud4ksyw" path="res://Scenes/Models/Rocks/rock_2.tscn" id="3_i7fd8"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_xfv8f"]
 noise_type = 2
@@ -51,9 +49,3 @@ subdivide_depth = 20
 mesh = SubResource("PlaneMesh_kjmyo")
 
 [node name="Node3D" type="Node3D" parent="."]
-
-[node name="Rock1" parent="Node3D" instance=ExtResource("2_y3xgf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8, -0.247816, 1.64071)
-
-[node name="Rock2" parent="Node3D" instance=ExtResource("3_i7fd8")]
-transform = Transform3D(1, 0, 0, 0, 0.639103, 0.769121, 0, -0.769121, 0.639103, 0, -0.508763, -3)

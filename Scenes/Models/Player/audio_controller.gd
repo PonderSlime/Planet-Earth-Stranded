@@ -35,7 +35,7 @@ func _process(delta: float) -> void:
 	if is_gliding:
 		if !sound_effects.is_playing():
 			sound_effects.stream = Wind
-			sound_effects.volume_db = 2
+			sound_effects.volume_db = 4
 			sound_effects.play()
 	elif player.is_on_floor():
 		sound_effects.stop()
