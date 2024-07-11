@@ -78,7 +78,7 @@ volumetric_fog_albedo = Color(0.863766, 0.928117, 0.972493, 1)
 volumetric_fog_emission = Color(0.533333, 0.74902, 0.890196, 1)
 volumetric_fog_emission_energy = 2.6
 
-[sub_resource type="Resource" id="Resource_0lvqj"]
+[sub_resource type="Resource" id="Resource_5hk5b"]
 script = ExtResource("12_flqgj")
 amount = 256
 enabled = true
@@ -87,7 +87,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_5u1ob"]
+[sub_resource type="Resource" id="Resource_pmpdl"]
 script = ExtResource("13_ckn8r")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(20, 360, 20)
@@ -98,7 +98,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_p6nj8"]
+[sub_resource type="Resource" id="Resource_nwfsd"]
 script = ExtResource("14_he88v")
 iterations = 3
 offset_step = 0.2
@@ -110,7 +110,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_tfn3w"]
+[sub_resource type="Resource" id="Resource_5cke0"]
 script = ExtResource("15_abnj5")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -126,9 +126,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_ekgpq"]
+[sub_resource type="Resource" id="Resource_qnesy"]
 script = ExtResource("11_u0akr")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_0lvqj"), SubResource("Resource_5u1ob"), SubResource("Resource_p6nj8"), SubResource("Resource_tfn3w")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_5hk5b"), SubResource("Resource_pmpdl"), SubResource("Resource_nwfsd"), SubResource("Resource_5cke0")])
 
 [sub_resource type="Resource" id="Resource_4b7sa"]
 script = ExtResource("18_6cpsg")
@@ -253,7 +253,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, -2, 11)
 [node name="ProtonScatter" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.85391, 0, 15.3374)
 script = ExtResource("10_oh8tl")
-modifier_stack = SubResource("Resource_ekgpq")
+modifier_stack = SubResource("Resource_qnesy")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -288,8 +288,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.7831, -2.04963, 2.94681)
 [node name="Stylized Fluffly Fir Tree" parent="." instance=ExtResource("24_x5l5h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.1826, -2.04963, 6.60291)
 
-[node name="Robot Companion" parent="." instance=ExtResource("25_3kn3b")]
+[node name="Robot Companion" parent="." node_paths=PackedStringArray("target_character") instance=ExtResource("25_3kn3b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5982, 0.169642, -1.24725)
+target_character = NodePath("../Player")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_su3uc")

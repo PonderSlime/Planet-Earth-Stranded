@@ -45,9 +45,6 @@ var gravity_vec : Vector3
 var health : int = 100
 
 var hurt_tween : Tween
-@onready var ray_01 = $"../MeshRoot/Ray01"
-@onready var ray_02 = $"../MeshRoot/Ray02"
-var onledge : bool = false
 
 func _ready():
 	health = 100
@@ -85,7 +82,7 @@ func _physics_process(delta):
 	elif player.is_on_floor():
 		if gravity_vec.length() >= 20:
 			health -= (5 * gravity_vec.length())
-			hurt(5 * gravity_vec.length())
+			hurt(2 * gravity_vec.length())
 			print(health)
 			is_hurt.emit()
 			gravity_vec = Vector3.ZERO
@@ -153,7 +150,7 @@ func _glide(glide_state : GlideState):
 	pass
 func hurt(damage : float):
 	health_bar.health = health
-	#health_bar.value -= damage
+	health_bar.value -= damage
 	hurt_overlay.modulate = Color.WHITE
 	if hurt_tween:
 		hurt_tween.kill()
