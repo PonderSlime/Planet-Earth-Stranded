@@ -229,16 +229,17 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_v2k3c")
 
 [sub_resource type="Gradient" id="Gradient_ysiy8"]
-colors = PackedColorArray(1, 1, 1, 0.345098, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_r1qbc"]
 gradient = SubResource("Gradient_ysiy8")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tt08o"]
 transparency = 1
-blend_mode = 3
+blend_mode = 1
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.226853, 0.420753, 0.513734, 1)
 albedo_texture = SubResource("GradientTexture1D_r1qbc")
-emission_enabled = true
 emission = Color(0.425023, 0.886608, 1, 1)
 emission_energy_multiplier = 25.75
 

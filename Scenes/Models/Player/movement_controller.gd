@@ -39,6 +39,7 @@ var jump
 var movement_speed
 
 signal glide_mode(glide_state : GlideState)
+signal gliding()
 @export var glide_states : Dictionary
 
 var gravity_vec : Vector3
@@ -70,6 +71,7 @@ func _physics_process(delta):
 			gravity_vec += Vector3.DOWN * fall_gravity * delta
 		elif is_gliding:
 			glide_mode.emit(glide_states["glide"])
+			gliding.emit()
 			velocity.y = 0
 			velocity.y -= (glide_gravity) * delta
 			velocity.x = 8 * direction.normalized().x
@@ -81,7 +83,7 @@ func _physics_process(delta):
 			gravity_vec += Vector3.DOWN * fall_gravity * delta
 	elif player.is_on_floor():
 		if gravity_vec.length() >= 20:
-			health -= (5 * gravity_vec.length())
+			health -= (2 * gravity_vec.length())
 			hurt(2 * gravity_vec.length())
 			print(health)
 			is_hurt.emit()
@@ -156,7 +158,7 @@ func hurt(damage : float):
 		hurt_tween.kill()
 	hurt_tween = create_tween()
 	hurt_tween.tween_property(hurt_overlay, "modulate", Color.TRANSPARENT, 0.75)
-	if health < 0:
+	if health <= 0:
 		death_screen.visible = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		get_tree().paused = true

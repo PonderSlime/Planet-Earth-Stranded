@@ -20,10 +20,6 @@ config/icon="res://icon.svg"
 
 settings/stdout/print_fps=true
 
-[display]
-
-window/size/mode=2
-
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/proton_scatter/plugin.cfg", "res://addons/terrain_3d/plugin.cfg")
