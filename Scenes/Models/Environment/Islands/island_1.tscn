@@ -1,6 +1,7 @@
-[gd_scene load_steps=36 format=3 uid="uid://builkmpl88hi0"]
+[gd_scene load_steps=34 format=3 uid="uid://builkmpl88hi0"]
 
 [ext_resource type="PackedScene" uid="uid://baw06m14sl7n7" path="res://Assets/Environment/Islands/island1.blend" id="1_du5e3"]
+[ext_resource type="Texture2D" uid="uid://dleboetrixj0d" path="res://Assets/Environment/Textures/Ground/Ground037_1K-PNG/Ground037_1K-PNG_Color.png" id="2_gka6n"]
 [ext_resource type="Material" uid="uid://dbk3f416y88si" path="res://Assets/Environment/Shaders/Rock.tres" id="2_m578x"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/scatter.gd" id="3_c6yhv"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="4_ulqfs"]
@@ -19,24 +20,11 @@
 [ext_resource type="PackedScene" uid="uid://ckw32uud4ksyw" path="res://Scenes/Models/Rocks/rock_2.tscn" id="17_5iltu"]
 [ext_resource type="PackedScene" uid="uid://b0o66yx1tqbe4" path="res://Scenes/Models/Rocks/rock_3.tscn" id="18_nh4b7"]
 
-[sub_resource type="Gradient" id="Gradient_1d33o"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0.0192308, 0.211538)
-colors = PackedColorArray(0.513233, 0.513233, 0.513233, 1, 1, 1, 1, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_xnrxj"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cbcn8"]
-width = 1024
-height = 1024
-color_ramp = SubResource("Gradient_1d33o")
-noise = SubResource("FastNoiseLite_xnrxj")
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1sp0r"]
-albedo_color = Color(0.205541, 0.493792, 0.184672, 1)
-albedo_texture = SubResource("NoiseTexture2D_cbcn8")
+albedo_color = Color(0.285854, 0.686665, 0.257504, 1)
+albedo_texture = ExtResource("2_gka6n")
 
-[sub_resource type="Resource" id="Resource_q1rwt"]
+[sub_resource type="Resource" id="Resource_ma4u7"]
 script = ExtResource("5_3whli")
 amount = 750
 enabled = true
@@ -45,7 +33,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_uft7e"]
+[sub_resource type="Resource" id="Resource_vx4t4"]
 script = ExtResource("6_6c6px")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(20, 360, 20)
@@ -56,7 +44,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_vp256"]
+[sub_resource type="Resource" id="Resource_spvks"]
 script = ExtResource("7_sq6du")
 iterations = 3
 offset_step = 0.2
@@ -68,7 +56,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_vmv8a"]
+[sub_resource type="Resource" id="Resource_0wqf6"]
 script = ExtResource("8_ktviy")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -84,9 +72,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_nfar3"]
+[sub_resource type="Resource" id="Resource_tnffc"]
 script = ExtResource("4_ulqfs")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_q1rwt"), SubResource("Resource_uft7e"), SubResource("Resource_vp256"), SubResource("Resource_vmv8a")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_ma4u7"), SubResource("Resource_vx4t4"), SubResource("Resource_spvks"), SubResource("Resource_0wqf6")])
 
 [sub_resource type="Resource" id="Resource_kyfkc"]
 script = ExtResource("11_wtbo5")
@@ -131,7 +119,7 @@ material_override = ExtResource("2_m578x")
 [node name="ProtonScatter" type="Node3D" parent="." index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
 script = ExtResource("3_c6yhv")
-modifier_stack = SubResource("Resource_nfar3")
+modifier_stack = SubResource("Resource_tnffc")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
