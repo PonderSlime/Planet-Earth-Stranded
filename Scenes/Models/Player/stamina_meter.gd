@@ -1,4 +1,4 @@
-extends Node2D
+extends ColorRect
 
 var stamina : float = 100.0
 var current_angle = -1.6
@@ -9,9 +9,9 @@ var min_angle = -1.6
 var max_angle = 4.7
 
 func _draw():
-	draw_stamina_meter(Vector2(500,500), 40, 37, current_angle, Color('#71e958'))
+	draw_stamina_meter(Vector2(0,0), 40, 37, current_angle, Color('#71e958'))
 	
-	draw_stamina_meter(Vector2(500,500), 70, 11, 2, Color('#ff3434'))
+	draw_stamina_meter(Vector2(0,0), 70, 11, 2, Color('#ff3434'))
 	
 func draw_stamina_meter(pos, size, width, current, color):
 	
