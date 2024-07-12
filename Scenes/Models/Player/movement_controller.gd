@@ -82,16 +82,15 @@ func _physics_process(delta):
 			gravity_vec += Vector3.DOWN * fall_gravity * delta
 	if player.is_on_floor():
 		if gravity_vec.length() >= 20:
-			#health -= (2 * gravity_vec.length())
 			hurt(2 * gravity_vec.length())
-			print(health)
 			is_hurt.emit()
 			gravity_vec = Vector3.ZERO
 			velocity.y = 0
 		
 		elif gravity_vec.length() < 20:
 			gravity_vec = Vector3.ZERO
-			velocity.y = 0
+			if jump != "jump":
+				velocity.y = 0
 	if health <= 0:
 		death_screen.visible = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

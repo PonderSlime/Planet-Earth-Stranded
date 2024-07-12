@@ -37,7 +37,6 @@ func _process(delta):
 	
 	var value = ((min_angle * -1) + max_angle) / 100
 	current_angle = max_angle - (stamina * value)
-	print(stamina)
 	if stamina < 100:
 		visible = true
 		queue_redraw()
