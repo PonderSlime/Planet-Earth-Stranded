@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<materialx version="1.38" fileprefix="./">
+  <standard_surface ypos="-1.879310" type="surfaceshader" name="Ground033_1K_PNG_StandardSurface" xpos="6.159420">
+    <input value="0" type="float" name="specular" />
+    <input value="1" type="float" name="coat" />
+    <input value="1, 1, 1" type="color3" name="coat_color" />
+    <input value="1" type="float" name="base" />
+    <input type="color3" name="base_color" nodename="Ground033_1K_PNG_Color" />
+    <input type="vector3" name="normal" nodename="normalmap" />
+    <input type="vector3" name="coat_normal" nodename="normalmap" />
+    <input type="float" name="specular_roughness" nodename="Ground033_1K_PNG_Roughness" />
+    <input type="float" name="coat_roughness" nodename="Ground033_1K_PNG_Roughness" />
+  </standard_surface>
+  <surfacematerial ypos="0.000000" type="material" name="Ground033_1K_PNG" xpos="8.695652">
+    <input type="surfaceshader" name="surfaceshader" nodename="Ground033_1K_PNG_StandardSurface" />
+    <input type="displacementshader" name="displacementshader" nodename="displacement" />
+  </surfacematerial>
+  <tiledimage ypos="-3.103448" type="color3" name="Ground033_1K_PNG_Color" xpos="3.623188">
+    <input value="Ground033_1K-PNG_Color.png" type="filename" name="file" colorspace="srgb_texture" />
+    <input value="1.0, 1.0" type="vector2" name="uvtiling" />
+  </tiledimage>
+  <tiledimage ypos="5.163793" type="float" name="Ground033_1K_PNG_Displacement" xpos="3.623188">
+    <input value="Ground033_1K-PNG_Displacement.png" type="filename" name="file" />
+    <input value="1.0, 1.0" type="vector2" name="uvtiling" />
+  </tiledimage>
+  <displacement ypos="1.879310" type="displacementshader" name="displacement" xpos="6.159420">
+    <input type="float" name="displacement" nodename="Ground033_1K_PNG_Displacement" />
+    <input value="1.0" type="float" name="scale" />
+  </displacement>
+  <tiledimage ypos="0.879310" type="vector3" name="Ground033_1K_PNG_NormalGL" xpos="1.086957">
+    <input value="Ground033_1K-PNG_NormalGL.png" type="filename" name="file" />
+    <input value="1.0, 1.0" type="vector2" name="uvtiling" />
+  </tiledimage>
+  <normalmap ypos="3.586207" type="vector3" name="normalmap" xpos="3.623188">
+    <input type="vector3" name="in" nodename="Ground033_1K_PNG_NormalGL" />
+    <input value="1.0" type="float" name="scale" />
+  </normalmap>
+  <tiledimage ypos="-0.413793" type="float" name="Ground033_1K_PNG_Roughness" xpos="3.623188">
+    <input value="Ground033_1K-PNG_Roughness.png" type="filename" name="file" />
+    <input value="1.0, 1.0" type="vector2" name="uvtiling" />
+  </tiledimage>
+</materialx>
