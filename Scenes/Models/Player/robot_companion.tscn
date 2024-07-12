@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cilo33fwa6e64" path="res://Assets/Character/Companion/CompanionEmission.png" id="4_u28rv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0ry5b"]
-radius = 0.252954
-height = 0.791464
+radius = 0.107188
+height = 0.333718
 
 [sub_resource type="Gradient" id="Gradient_qm2rt"]
 interpolation_mode = 1
@@ -256,7 +256,7 @@ transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 
 shape = SubResource("CapsuleShape3D_0ry5b")
 
 [node name="Head" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.25, 0, 2.18557e-08, 0, 0.25, 0, -2.18557e-08, 0, -0.25, 0, 0, 0)
+transform = Transform3D(-0.105, 0, 1.58546e-08, 0, 0.105, 0, -1.58546e-08, 0, -0.105, 0, 0, 0)
 material_override = SubResource("ShaderMaterial_sugp4")
 mesh = SubResource("ArrayMesh_wskkt")
 skeleton = NodePath("")

@@ -1,8 +1,8 @@
 extends ProgressBar
 
 
-@onready var timer = $Timer
-@export var damage_bar = ProgressBar
+@export var timer : Timer
+@export var damage_bar : ProgressBar
 
 
 var health = 0 : set = _set_health

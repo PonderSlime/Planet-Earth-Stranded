@@ -63,7 +63,6 @@ func _physics_process(delta):
 	velocity.x = speed * direction.normalized().x
 	velocity.z = speed * direction.normalized().z
 	
-	#glide_gravity * 10
 	# Falling function
 	if not player.is_on_floor():
 		if velocity.y >= 0 and !is_gliding:
@@ -81,34 +80,38 @@ func _physics_process(delta):
 		else:
 			velocity.y -= fall_gravity * delta
 			gravity_vec += Vector3.DOWN * fall_gravity * delta
-	elif player.is_on_floor():
+	if player.is_on_floor():
 		if gravity_vec.length() >= 20:
-			health -= (2 * gravity_vec.length())
+			#health -= (2 * gravity_vec.length())
 			hurt(2 * gravity_vec.length())
 			print(health)
 			is_hurt.emit()
 			gravity_vec = Vector3.ZERO
 			velocity.y = 0
-		else:
-			if gravity_vec.length() < 20 and player.is_on_floor():
-				gravity_vec = Vector3.ZERO
-	 
+		
+		elif gravity_vec.length() < 20:
+			gravity_vec = Vector3.ZERO
+			velocity.y = 0
+	if health <= 0:
+		death_screen.visible = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		get_tree().paused = true
+	else:
+		death_screen.visible = false
+
 	if Input.is_action_just_pressed("glide") and !is_gliding and !player.is_on_floor():
 		is_gliding = true
-		#print("gliding")
 	elif Input.is_action_just_pressed("glide") and is_gliding and !player.is_on_floor():
 		is_gliding = false
 		velocity.y = 0
-		#print("stopped gliding")
 	elif player.is_on_floor(): 
 		is_gliding = false
-		#print("landed")
 	
 	# Not sure if the acceleration will affect the walk animation
 	#player.velocity = player.velocity.lerp(velocity, acceleration * delta)
 	player.velocity = velocity
 	player.move_and_slide()
-	
+
 	var target_rotation = atan2(direction.x, direction.z) - player.rotation.y
 	mesh_root.rotation.y = lerp_angle(mesh_root.rotation.y, target_rotation, rotation_speed * delta)
 	
@@ -120,10 +123,9 @@ func _physics_process(delta):
 		jump = "no_jump"
 	elif !player.is_on_floor():
 		jump = "jump"
-
+	
 func _on_set_movement_state(_movement_state : MovementState):
 	movement_speed = _movement_state.movement_speed
-	#speed = movement_speed
 	acceleration = _movement_state.acceleration
 	state_id = _movement_state.id
 	
@@ -151,20 +153,15 @@ func _glide(glide_state : GlideState):
 	#glide_gravity = velocity.y / glide_state.glide_duration
 	pass
 func hurt(damage : float):
-	health_bar.health = health
-	health_bar.value -= damage
+	health_bar.health -= damage
+	health -= damage
+	#health_bar.value -= damage
 	hurt_overlay.modulate = Color.WHITE
 	if hurt_tween:
 		hurt_tween.kill()
 	hurt_tween = create_tween()
 	hurt_tween.tween_property(hurt_overlay, "modulate", Color.TRANSPARENT, 0.75)
-	if health <= 0:
-		death_screen.visible = true
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		get_tree().paused = true
-	else:
-		death_screen.visible = false
-
+	
 # Calculates player movement based on bone translation for realistic walking
 func _calculate_player_movement(dt: float):
 	var velocity : Vector3
