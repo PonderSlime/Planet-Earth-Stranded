@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://b51sxefeu6042"]
+[gd_scene load_steps=28 format=3 uid="uid://b51sxefeu6042"]
 
 [ext_resource type="Shader" path="res://BasicSkyShader.gdshader" id="1_1wex7"]
 [ext_resource type="Texture2D" uid="uid://bcedkkbrsj431" path="res://Assets/Environment/Shaders/color_gradient.tres" id="3_laa5c"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bd2s4wf2tu7sm" path="res://Scenes/Models/Player/PlayerController.tscn" id="6_kvsvt"]
 [ext_resource type="PackedScene" uid="uid://d37h2x7ngrtt3" path="res://Scenes/Models/grass.tscn" id="8_1ssi0"]
 [ext_resource type="PackedScene" uid="uid://dlsgrrqjct8or" path="res://Scenes/Models/stylized_fluffy_tree.tscn" id="9_10m83"]
+[ext_resource type="PackedScene" uid="uid://builkmpl88hi0" path="res://Scenes/Models/Environment/Islands/island_1.tscn" id="15_qg204"]
 [ext_resource type="ArrayMesh" uid="uid://cp5lm8hltc2u8" path="res://Assets/Environment/grass.res" id="19_b4qhu"]
 [ext_resource type="PackedScene" uid="uid://dgk5es64hi4li" path="res://Scenes/Models/Rocks/rock_1.tscn" id="20_33u6f"]
 [ext_resource type="PackedScene" uid="uid://ckw32uud4ksyw" path="res://Scenes/Models/Rocks/rock_2.tscn" id="21_hlw8i"]
@@ -203,3 +204,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.783585, 0)
 material_override = SubResource("ShaderMaterial_k1spc")
 use_collision = true
 mesh = SubResource("PlaneMesh_ljphg")
+
+[node name="island1" parent="NavigationRegion3D" instance=ExtResource("15_qg204")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 100, -38)
