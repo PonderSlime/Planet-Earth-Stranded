@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://b51sxefeu6042"]
+[gd_scene load_steps=27 format=3 uid="uid://b51sxefeu6042"]
 
 [ext_resource type="Shader" path="res://BasicSkyShader.gdshader" id="1_1wex7"]
 [ext_resource type="Texture2D" uid="uid://bcedkkbrsj431" path="res://Assets/Environment/Shaders/color_gradient.tres" id="3_laa5c"]
@@ -7,24 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://bd2s4wf2tu7sm" path="res://Scenes/Models/Player/PlayerController.tscn" id="6_kvsvt"]
 [ext_resource type="PackedScene" uid="uid://d37h2x7ngrtt3" path="res://Scenes/Models/grass.tscn" id="8_1ssi0"]
 [ext_resource type="PackedScene" uid="uid://dlsgrrqjct8or" path="res://Scenes/Models/stylized_fluffy_tree.tscn" id="9_10m83"]
-[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter.gd" id="10_oh8tl"]
-[ext_resource type="Script" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="11_u0akr"]
-[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/create_inside_random.gd" id="12_flqgj"]
-[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/randomize_transforms.gd" id="13_ckn8r"]
-[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/relax.gd" id="14_he88v"]
-[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/project_on_geometry.gd" id="15_abnj5"]
-[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_item.gd" id="16_7xk3v"]
-[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_shape.gd" id="17_ddqtp"]
-[ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/box_shape.gd" id="18_6cpsg"]
 [ext_resource type="ArrayMesh" uid="uid://cp5lm8hltc2u8" path="res://Assets/Environment/grass.res" id="19_b4qhu"]
 [ext_resource type="PackedScene" uid="uid://dgk5es64hi4li" path="res://Scenes/Models/Rocks/rock_1.tscn" id="20_33u6f"]
-[ext_resource type="Shader" path="res://addons/proton_scatter/demos/assets/materials/m_water.gdshader" id="21_2ag6p"]
 [ext_resource type="PackedScene" uid="uid://ckw32uud4ksyw" path="res://Scenes/Models/Rocks/rock_2.tscn" id="21_hlw8i"]
 [ext_resource type="PackedScene" uid="uid://b0o66yx1tqbe4" path="res://Scenes/Models/Rocks/rock_3.tscn" id="22_ydbjb"]
 [ext_resource type="PackedScene" uid="uid://c4y53qg3ftw8d" path="res://Scenes/Models/stylized_fluffy_aspen.tscn" id="23_p2slg"]
 [ext_resource type="PackedScene" uid="uid://cepkx3f03s0x" path="res://Scenes/Models/stylized_fluffly_fir_tree.tscn" id="24_x5l5h"]
 [ext_resource type="PackedScene" uid="uid://chtxdia2icot2" path="res://Scenes/Models/Player/robot_companion.tscn" id="25_3kn3b"]
-[ext_resource type="PackedScene" uid="uid://r5ti535nkhpo" path="res://Scenes/Environment/Terrain/TestTerrain.tscn" id="26_1h3oi"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_4vf81"]
 
@@ -78,105 +67,10 @@ volumetric_fog_albedo = Color(0.863766, 0.928117, 0.972493, 1)
 volumetric_fog_emission = Color(0.533333, 0.74902, 0.890196, 1)
 volumetric_fog_emission_energy = 2.6
 
-[sub_resource type="Resource" id="Resource_kilwh"]
-script = ExtResource("12_flqgj")
-amount = 256
-enabled = true
-override_global_seed = false
-custom_seed = 0
-restrict_height = true
-reference_frame = 1
-
-[sub_resource type="Resource" id="Resource_0toyv"]
-script = ExtResource("13_ckn8r")
-position = Vector3(0.15, 0.15, 0.15)
-rotation = Vector3(20, 360, 20)
-scale = Vector3(0.1, 0.1, 0.1)
-enabled = true
-override_global_seed = false
-custom_seed = 0
-restrict_height = false
-reference_frame = 2
-
-[sub_resource type="Resource" id="Resource_2gap6"]
-script = ExtResource("14_he88v")
-iterations = 3
-offset_step = 0.2
-consecutive_step_multiplier = 0.75
-use_computeshader = true
-enabled = true
-override_global_seed = false
-custom_seed = 0
-restrict_height = true
-reference_frame = 0
-
-[sub_resource type="Resource" id="Resource_tmm5l"]
-script = ExtResource("15_abnj5")
-ray_direction = Vector3(0, -1, 0)
-ray_length = 5.0
-ray_offset = 5.0
-remove_points_on_miss = false
-align_with_collision_normal = false
-max_slope = 90.0
-collision_mask = 1
-exclude_mask = 0
-enabled = true
-override_global_seed = false
-custom_seed = 0
-restrict_height = false
-reference_frame = 0
-
-[sub_resource type="Resource" id="Resource_yquy4"]
-script = ExtResource("11_u0akr")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_kilwh"), SubResource("Resource_0toyv"), SubResource("Resource_2gap6"), SubResource("Resource_tmm5l")])
-
-[sub_resource type="Resource" id="Resource_4b7sa"]
-script = ExtResource("18_6cpsg")
-size = Vector3(10, 1, 10)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_preki"]
-noise_type = 2
-fractal_type = 3
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_35ioo"]
-seamless = true
-noise = SubResource("FastNoiseLite_preki")
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_mcsq2"]
-noise_type = 2
-domain_warp_enabled = true
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_evwtn"]
-seamless = true
-noise = SubResource("FastNoiseLite_mcsq2")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_am3f6"]
-render_priority = 0
-shader = ExtResource("21_2ag6p")
-shader_parameter/beer_factor = 4.0
-shader_parameter/foam_distance = 0.01
-shader_parameter/foam_max_distance = 0.345
-shader_parameter/foam_min_distance = 0.05
-shader_parameter/foam_color = Color(1, 1, 1, 0.784314)
-shader_parameter/surface_noise_tiling = Vector2(1, 4)
-shader_parameter/surface_noise_scroll = Vector3(0.03, 0.03, 0)
-shader_parameter/surface_noise_cutoff = 0.875
-shader_parameter/surface_distortion_amount = 0.65
-shader_parameter/_DepthGradientShallow = Color(0.435294, 0.647059, 0.972549, 0.72549)
-shader_parameter/_DepthGradientDeep = Color(0.0823529, 0.392157, 0.701961, 0.862745)
-shader_parameter/_DepthMaxDistance = 1.0
-shader_parameter/_DepthFactor = 1.0
-shader_parameter/roughness = 0.001
-shader_parameter/specular = 0.5
-shader_parameter/surfaceNoise = SubResource("NoiseTexture2D_evwtn")
-shader_parameter/distortNoise = SubResource("NoiseTexture2D_35ioo")
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_ljphg"]
-size = Vector2(500, 500)
-
 [sub_resource type="NavigationMesh" id="NavigationMesh_s8ssp"]
 vertices = PackedVector3Array(-9.72449, 115.501, -4.5, -9.72449, 115.501, 6.5, -2.72449, 115.501, 6.5, -2.72449, 115.501, -4.5, 93.2755, 26.7514, 53.25, 88.2755, 26.7514, 44.25, 88.0255, 26.5014, 44.75, 93.5255, 26.7514, 54.5, 93.2755, 26.7514, 53.25, 88.0255, 26.5014, 44.75, 6.27551, -2.49856, 87, 11.5255, -2.49856, 97)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(6, 5, 4), PackedInt32Array(8, 7, 9), PackedInt32Array(9, 7, 11), PackedInt32Array(9, 11, 10)]
+geometry_parsed_geometry_type = 1
 
 [sub_resource type="Shader" id="Shader_wh0a7"]
 code = "shader_type spatial;
@@ -242,6 +136,9 @@ shader_parameter/color_gradient = ExtResource("3_laa5c")
 shader_parameter/fresnel_gradient = ExtResource("4_jf54o")
 shader_parameter/grid_texture = ExtResource("5_5gfk3")
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_ljphg"]
+size = Vector2(500, 500)
+
 [node name="Node3D" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -261,24 +158,6 @@ visible = false
 
 [node name="Stylized Fluffy Tree" parent="." instance=ExtResource("9_10m83")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.994, 3, 11)
-
-[node name="ProtonScatter" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110.848, 0, 15.3374)
-script = ExtResource("10_oh8tl")
-modifier_stack = SubResource("Resource_yquy4")
-Performance/use_chunks = true
-Performance/chunk_dimensions = Vector3(15, 15, 15)
-
-[node name="ScatterItem" type="Node3D" parent="ProtonScatter"]
-script = ExtResource("16_7xk3v")
-source = 0
-source_scale_multiplier = 0.5
-path = "../../Grass"
-
-[node name="ScatterShape" type="Node3D" parent="ProtonScatter"]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
-script = ExtResource("17_ddqtp")
-shape = SubResource("Resource_4b7sa")
 
 [node name="Grass" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 11.372, -2.04963, 25.5837)
@@ -304,11 +183,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 134.176, 0.95037, 6.60291)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5982, 0.169642, -1.24725)
 target_character = NodePath("../Player")
 
-[node name="Floor" type="CSGMesh3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.783585, 0)
-material_override = SubResource("ShaderMaterial_am3f6")
-mesh = SubResource("PlaneMesh_ljphg")
-
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_s8ssp")
 
@@ -324,4 +198,8 @@ material_override = SubResource("ShaderMaterial_k1spc")
 use_collision = true
 size = Vector3(98, 29.8, 12)
 
-[node name="Node3D" parent="NavigationRegion3D" instance=ExtResource("26_1h3oi")]
+[node name="Floor" type="CSGMesh3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.783585, 0)
+material_override = SubResource("ShaderMaterial_k1spc")
+use_collision = true
+mesh = SubResource("PlaneMesh_ljphg")
