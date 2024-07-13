@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cr3dsyg8cadhc"]
+
+[ext_resource type="Script" path="res://Scenes/Models/Environment/respawn_plane.gd" id="1_5b1b0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2gbwy"]
+size = Vector3(1000, 10, 1000)
+
+[node name="RespawnPlane" type="Node3D"]
+script = ExtResource("1_5b1b0")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_2gbwy")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

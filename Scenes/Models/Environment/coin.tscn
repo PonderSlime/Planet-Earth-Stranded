@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cm2ohpmp8060l"]
+
+[ext_resource type="Script" path="res://Scenes/Models/Environment/coin.gd" id="1_hrip1"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_p43xd"]
+
+[sub_resource type="TorusMesh" id="TorusMesh_mgm4k"]
+inner_radius = 0.25
+outer_radius = 0.5
+
+[node name="Coin" type="Node3D"]
+script = ExtResource("1_hrip1")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_p43xd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("TorusMesh_mgm4k")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

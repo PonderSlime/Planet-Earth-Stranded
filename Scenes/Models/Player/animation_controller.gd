@@ -21,11 +21,9 @@ func _physics_process(delta):
 	if !player.is_on_floor() and Input.is_action_just_pressed("glide"):
 		if is_gliding:
 			is_gliding = false
-			#print("glide off")
 		else:
 			if !is_gliding:
 				is_gliding = true
-				#print("glide on")
 	else:
 		if player.is_on_floor():
 			is_gliding = false

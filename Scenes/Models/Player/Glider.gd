@@ -28,11 +28,7 @@ func _glide(glide_state : GlideState):
 		if is_gliding:
 			is_gliding = false
 			await get_tree().create_timer(0.085).timeout
-			#print("glide on")
 		else:
 			if !is_gliding:
 				await get_tree().create_timer(0.1).timeout
 				is_gliding = true
-				#print("glide off")
-
-			#print("landed")

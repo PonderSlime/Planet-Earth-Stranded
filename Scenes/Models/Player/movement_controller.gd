@@ -214,8 +214,13 @@ func _find_lowest_value(array: Array[Vector3], dimension: String):
 	return {"lowest_vect": current_lowest, "idx": lowest_idx}
 	
 func _on_player_jumping_pad():
-	if velocity.y < 0:
+	if velocity.y < 0 and is_gliding == false:
 		gravity_vec = Vector3.ZERO
 		velocity.y += 70
-		print(velocity.y)
-		print("jump_pad!")
+	elif is_gliding == true:
+		velocity.y += 0
+
+
+func _on_player_reset_fall():
+	gravity_vec = Vector3.ZERO
+	velocity.y = 0
