@@ -6,6 +6,3 @@ func _on_button_restart_pressed():
 
 func _on_button_quit_pressed():
 	get_tree().quit()
-
-func set_score(value):
-	$Rows/Score.text = "Score: " + str(value)

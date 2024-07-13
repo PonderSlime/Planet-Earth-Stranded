@@ -6,11 +6,13 @@ signal set_movement_direction(_movement_direction: Vector3)
 signal jumping_pad
 signal coin_collected
 signal reset_fall
+@export var win_screen : CanvasLayer
 @export var movement_states: Dictionary
 @export var jump_states: Dictionary
 @export var glide_states: Dictionary
 var movement_direction : Vector3
 var jump_pad : bool = false
+var coins : int
 var spawn_position
 func _input(event):
 	if event.is_action("movement"):
@@ -45,7 +47,8 @@ func _physics_process(delta):
 
 	
 	if Input.is_action_pressed("pause"):
-		$PauseMenu.pause()
+		#$PauseMenu.pause()
+		_on_win_game()
 	if jump_pad == true:
 		jumping_pad.emit()
 		
@@ -62,8 +65,15 @@ func _on_set_movement_state(_movement_state):
 func coin():
 	print("coin_collected")
 	coin_collected.emit()
+	coins += 1
 
 
 func _on_respawn_plane_respawn():
 	global_position = spawn_position
 	reset_fall.emit()
+	
+func _on_win_game():
+	pass
+	win_screen.set_score(coins)
+	win_screen.visible = true
+	

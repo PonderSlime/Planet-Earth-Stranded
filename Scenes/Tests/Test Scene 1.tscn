@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b51sxefeu6042"]
+[gd_scene load_steps=26 format=3 uid="uid://b51sxefeu6042"]
 
 [ext_resource type="Shader" path="res://BasicSkyShader.gdshader" id="1_1wex7"]
 [ext_resource type="Texture2D" uid="uid://bcedkkbrsj431" path="res://Assets/Environment/Shaders/color_gradient.tres" id="3_laa5c"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bd2s4wf2tu7sm" path="res://Scenes/Models/Player/PlayerController.tscn" id="6_kvsvt"]
 [ext_resource type="PackedScene" uid="uid://d37h2x7ngrtt3" path="res://Scenes/Models/grass.tscn" id="8_1ssi0"]
 [ext_resource type="PackedScene" uid="uid://cr3dsyg8cadhc" path="res://Scenes/Models/Environment/respawn_plane.tscn" id="13_qvvhl"]
+[ext_resource type="PackedScene" uid="uid://30o4xrbiy0mk" path="res://Scenes/Models/Environment/win_goal.tscn" id="14_pe6qq"]
 [ext_resource type="PackedScene" uid="uid://builkmpl88hi0" path="res://Scenes/Models/Environment/Islands/island_1.tscn" id="15_qg204"]
 [ext_resource type="PackedScene" uid="uid://d132d48m670ed" path="res://Scenes/Models/Environment/Islands/island_2.tscn" id="16_dfnkw"]
 [ext_resource type="PackedScene" uid="uid://deo67i0utuck0" path="res://Scenes/Models/Environment/jump_pad.tscn" id="17_mafjx"]
@@ -198,6 +199,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.1004, 105.983, -40.8034)
 
 [node name="RespawnPlane" parent="." instance=ExtResource("13_qvvhl")]
 
+[node name="Node3D" parent="." instance=ExtResource("14_pe6qq")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 58, 83, 13)
+
 [connection signal="respawn" from="RespawnPlane" to="Player" method="_on_respawn_plane_respawn"]
+[connection signal="goal_reached" from="Node3D" to="Player" method="_on_win_game"]
 
 [editable path="RespawnPlane"]

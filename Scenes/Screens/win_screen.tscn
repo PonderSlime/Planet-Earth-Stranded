@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://ck0fxax3tcprq"]
+
+[ext_resource type="Script" path="res://Scenes/Screens/death_screen.gd" id="1_1pbdk"]
+
+[sub_resource type="SystemFont" id="SystemFont_ynfvt"]
+
+[sub_resource type="FontVariation" id="FontVariation_34vxe"]
+base_font = SubResource("SystemFont_ynfvt")
+variation_embolden = 0.04
+
+[node name="WinScreen" type="CanvasLayer"]
+script = ExtResource("1_1pbdk")
+
+[node name="Rows" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 91
+
+[node name="YouWin" type="Label" parent="Rows"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("FontVariation_34vxe")
+theme_override_font_sizes/font_size = 126
+text = "You Win!"
+horizontal_alignment = 1
+
+[node name="Score" type="Label" parent="Rows"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("FontVariation_34vxe")
+theme_override_font_sizes/font_size = 75
+text = "Your Score: "
+horizontal_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="Rows"]
+layout_mode = 2
+
+[node name="Rows2" type="VBoxContainer" parent="Rows/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="ButtonRestart" type="Button" parent="Rows/CenterContainer/Rows2"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_34vxe")
+theme_override_font_sizes/font_size = 50
+text = "      REPLAY      "
+
+[node name="ButtonQuit" type="Button" parent="Rows/CenterContainer/Rows2"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_34vxe")
+theme_override_font_sizes/font_size = 50
+text = "QUIT"
+
+[connection signal="pressed" from="Rows/CenterContainer/Rows2/ButtonRestart" to="." method="_on_button_restart_pressed"]
+[connection signal="pressed" from="Rows/CenterContainer/Rows2/ButtonQuit" to="." method="_on_button_quit_pressed"]

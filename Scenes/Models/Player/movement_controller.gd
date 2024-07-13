@@ -93,7 +93,7 @@ func _physics_process(delta):
 			if jump != "jump" and jump_pad == false:
 				velocity.y = 0
 	if jump_pad == true:
-		velocity.y += 100
+		velocity.y = 40
 	if health <= 0:
 		death_screen.visible = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -214,11 +214,12 @@ func _find_lowest_value(array: Array[Vector3], dimension: String):
 	return {"lowest_vect": current_lowest, "idx": lowest_idx}
 	
 func _on_player_jumping_pad():
-	if velocity.y < 0 and is_gliding == false:
-		gravity_vec = Vector3.ZERO
-		velocity.y += 70
-	elif is_gliding == true:
-		velocity.y += 0
+	jump_pad = true
+	#gravity_vec = Vector3.ZERO
+	#velocity.y += 70
+	await get_tree().create_timer(0.01).timeout
+	jump_pad = false
+	#velocity.y = 0
 
 
 func _on_player_reset_fall():
