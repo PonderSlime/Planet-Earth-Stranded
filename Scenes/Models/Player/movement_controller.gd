@@ -83,7 +83,7 @@ func _physics_process(delta):
 			gravity_vec += Vector3.DOWN * fall_gravity * delta
 	if player.is_on_floor():
 		if gravity_vec.length() >= 20:
-			hurt(2 * gravity_vec.length())
+			hurt(3 * gravity_vec.length())
 			is_hurt.emit()
 			gravity_vec = Vector3.ZERO
 			velocity.y = 0
@@ -110,7 +110,6 @@ func _physics_process(delta):
 		is_gliding = false
 	
 	# Not sure if the acceleration will affect the walk animation
-	#player.velocity = player.velocity.lerp(velocity, acceleration * delta)
 	player.velocity = velocity
 	player.move_and_slide()
 
@@ -139,20 +138,9 @@ func _on_set_cam_rotation(_cam_rotation: float):
 func _jump(jump_state : JumpState):
 	jump = jump_state.animation_name
 	velocity.y = 2 * jump_state.jump_height / jump_state.apex_duration
-	#print("jump_state.apex_duration=",jump_state.apex_duration)
-	#print("velocity.y=",velocity.y)
 	jump_gravity = velocity.y / jump_state.apex_duration
-	#print("jump_state.apex_duration2=",jump_state.apex_duration)
-	#print("velocity.y2=",velocity.y)
-
-	
-	#velocity.y = 2 * jump_state.jump_height 
-	#jump_gravity = velocity.y 
 	
 func _glide(glide_state : GlideState):
-	#print("gliding math")	
-	#velocity.y = 2 * glide_state.glide_height / glide_state.glide_duration #movement_state
-	#glide_gravity = velocity.y / glide_state.glide_duration
 	pass
 func hurt(damage : float):
 	health_bar.health -= damage
@@ -225,9 +213,9 @@ func _find_lowest_value(array: Array[Vector3], dimension: String):
 	
 	return {"lowest_vect": current_lowest, "idx": lowest_idx}
 	
-
-
 func _on_player_jumping_pad():
-	velocity.y += 100
-	print(velocity.y)
-	print("jump_pad!")
+	if velocity.y < 0:
+		gravity_vec = Vector3.ZERO
+		velocity.y += 70
+		print(velocity.y)
+		print("jump_pad!")

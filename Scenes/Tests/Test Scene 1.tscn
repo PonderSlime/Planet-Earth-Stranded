@@ -213,5 +213,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 100, -38)
 [node name="island2" parent="NavigationRegion3D" instance=ExtResource("16_dfnkw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59, 83, 3)
 
-[node name="JumpPad" parent="." instance=ExtResource("17_mafjx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 116, 2)
+[node name="JumpPad" parent="." node_paths=PackedStringArray("player") instance=ExtResource("17_mafjx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 82.5, -3)
+player = NodePath("../Player")
+
+[node name="JumpPad2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("17_mafjx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.4, 105.3, -37.5)
+player = NodePath("../Player")

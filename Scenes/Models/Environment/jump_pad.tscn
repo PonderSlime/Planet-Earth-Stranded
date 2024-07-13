@@ -1,11 +1,80 @@
-[gd_scene load_steps=4 format=3 uid="uid://deo67i0utuck0"]
+[gd_scene load_steps=19 format=3 uid="uid://deo67i0utuck0"]
 
 [ext_resource type="Script" path="res://Scenes/Models/Environment/jump_pad.gd" id="1_wbwqo"]
+[ext_resource type="Shader" path="res://Assets/Environment/waterfall.gdshader" id="2_c0jdt"]
+[ext_resource type="Texture2D" uid="uid://di6qcg6diywbm" path="res://Assets/Environment/Textures/Water_N_A2.png" id="3_2m3vx"]
+[ext_resource type="Texture2D" uid="uid://xuytw630igwu" path="res://Assets/Environment/Textures/waterfall_tex.png" id="4_2oor5"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_8rm2c"]
-radius = 1.0
+height = 12.0
+radius = 2.0
+
+[sub_resource type="Gradient" id="Gradient_w2gtq"]
+colors = PackedColorArray(0.641934, 0.641934, 0.641934, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_qqvnm"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_h2xud"]
+color_ramp = SubResource("Gradient_w2gtq")
+noise = SubResource("FastNoiseLite_qqvnm")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3vspj"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.293954, 0, 0.0923802, 1)
+albedo_texture = SubResource("NoiseTexture2D_h2xud")
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_wsqmg"]
+top_radius = 1.5
+bottom_radius = 2.0
+height = 0.2
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3i03m"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_kbspj"]
+noise = SubResource("FastNoiseLite_3i03m")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q5rux"]
+render_priority = 0
+shader = ExtResource("2_c0jdt")
+shader_parameter/light_color = Color(0.1384, 0.47796, 0.495431, 1)
+shader_parameter/dark_color = Color(0, 0.398232, 0.387038, 1)
+shader_parameter/displ_ammount = 0.02
+shader_parameter/speed = 1.0
+shader_parameter/strength = Vector2(0.25, 0.25)
+shader_parameter/frequency = Vector2(3, 2.5)
+shader_parameter/time_factor = Vector2(5, 4)
+shader_parameter/water_tex = ExtResource("4_2oor5")
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_kbspj")
+shader_parameter/normal_tex = ExtResource("3_2m3vx")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_y1r60"]
+top_radius = 1.5
+bottom_radius = 1.5
+height = 3.0
+cap_top = false
+
+[sub_resource type="Gradient" id="Gradient_rwu2l"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_trk8q"]
+gradient = SubResource("Gradient_rwu2l")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0l0fm"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.889078, 0.547435, 0.268073, 0.0784314)
+albedo_texture = SubResource("GradientTexture1D_trk8q")
+emission_enabled = true
+emission = Color(8.66354e-06, 0.808578, 0.948835, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_u3wyh"]
+top_radius = 1.0
+bottom_radius = 1.25
+height = 20.0
+cap_top = false
+cap_bottom = false
 
 [node name="JumpPad" type="Node3D"]
 script = ExtResource("1_wbwqo")
@@ -13,9 +82,21 @@ script = ExtResource("1_wbwqo")
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.9, 0)
 shape = SubResource("CylinderShape3D_8rm2c")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_3vspj")
 mesh = SubResource("CylinderMesh_wsqmg")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, -1.74846e-07, 0, 1.74846e-07, 1, 0, 0, 0, 1, 0, 0.6, 0)
+material_override = SubResource("ShaderMaterial_q5rux")
+mesh = SubResource("CylinderMesh_y1r60")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, -1.74846e-07, 0, 1.74846e-07, 1, 0, 0, 0, 1, 0, 9.9, 0)
+material_override = SubResource("StandardMaterial3D_0l0fm")
+mesh = SubResource("CylinderMesh_u3wyh")
 
 [connection signal="body_entered" from="Area3D" to="." method="_area_3d_area_entered"]
