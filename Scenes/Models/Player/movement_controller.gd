@@ -46,6 +46,7 @@ var gravity_vec : Vector3
 var health : int = 100
 
 var hurt_tween : Tween
+var jump_pad : bool = false
 
 func _ready():
 	health = 100
@@ -89,8 +90,10 @@ func _physics_process(delta):
 		
 		elif gravity_vec.length() < 20:
 			gravity_vec = Vector3.ZERO
-			if jump != "jump":
+			if jump != "jump" and jump_pad == false:
 				velocity.y = 0
+	if jump_pad == true:
+		velocity.y += 100
 	if health <= 0:
 		death_screen.visible = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -222,3 +225,9 @@ func _find_lowest_value(array: Array[Vector3], dimension: String):
 	
 	return {"lowest_vect": current_lowest, "idx": lowest_idx}
 	
+
+
+func _on_player_jumping_pad():
+	velocity.y += 100
+	print(velocity.y)
+	print("jump_pad!")
