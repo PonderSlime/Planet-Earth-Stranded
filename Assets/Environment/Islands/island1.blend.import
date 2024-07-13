@@ -35,7 +35,8 @@ _subresources={
 "generate/physics": true
 },
 "PATH:Rock": {
-"generate/physics": true
+"generate/physics": true,
+"physics/shape_type": 2
 }
 }
 }

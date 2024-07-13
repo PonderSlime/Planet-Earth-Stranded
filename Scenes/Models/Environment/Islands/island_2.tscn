@@ -1,0 +1,60 @@
+[gd_scene load_steps=11 format=3 uid="uid://d132d48m670ed"]
+
+[ext_resource type="PackedScene" uid="uid://cp7xal3vfhxbs" path="res://Assets/Environment/Islands/island2.blend" id="1_lc65p"]
+[ext_resource type="Texture2D" uid="uid://dleboetrixj0d" path="res://Assets/Environment/Textures/Ground/Ground037_1K-PNG/Ground037_1K-PNG_Color.png" id="2_kf8mk"]
+[ext_resource type="Material" uid="uid://dbk3f416y88si" path="res://Assets/Environment/Shaders/Rock.tres" id="3_ymhjo"]
+[ext_resource type="Material" uid="uid://c7mw5tryqfggw" path="res://addons/proton_scatter/demos/assets/materials/m_water.tres" id="4_63530"]
+[ext_resource type="PackedScene" uid="uid://d2upil2c310i" path="res://Scenes/Models/Environment/waterfall.tscn" id="5_esxjv"]
+[ext_resource type="PackedScene" uid="uid://cepkx3f03s0x" path="res://Scenes/Models/stylized_fluffly_fir_tree.tscn" id="6_sblbb"]
+[ext_resource type="PackedScene" uid="uid://c4y53qg3ftw8d" path="res://Scenes/Models/stylized_fluffy_aspen.tscn" id="7_metbe"]
+[ext_resource type="PackedScene" uid="uid://dlsgrrqjct8or" path="res://Scenes/Models/stylized_fluffy_tree.tscn" id="8_g60ow"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k214j"]
+albedo_color = Color(0.285854, 0.686665, 0.257504, 1)
+albedo_texture = ExtResource("2_kf8mk")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bjsc7"]
+size = Vector2(17.25, 15)
+
+[node name="island2" instance=ExtResource("1_lc65p")]
+
+[node name="Cube" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_k214j")
+
+[node name="CollisionShape3D" parent="Cube/StaticBody3D" index="0"]
+visible = false
+
+[node name="Rock2_061" parent="." index="1"]
+material_override = ExtResource("3_ymhjo")
+
+[node name="CollisionShape3D" parent="Rock2_061/StaticBody3D" index="0"]
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="4"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.4, -1.4, 1.5)
+material_override = ExtResource("4_63530")
+mesh = SubResource("PlaneMesh_bjsc7")
+
+[node name="Waterfall" parent="." index="5" instance=ExtResource("5_esxjv")]
+transform = Transform3D(-0.707107, 0, -0.353553, 0, 1, 0, 0.707107, 0, -0.353553, -4.6, -5.5, 9.3)
+
+[node name="Waterfall2" parent="." index="6" instance=ExtResource("5_esxjv")]
+transform = Transform3D(1, 0, 0.433013, 0, 1, 0, -1.73205, 0, 0.25, 7.6, -5.5, -7.6)
+
+[node name="Waterfall3" parent="." index="7" instance=ExtResource("5_esxjv")]
+transform = Transform3D(1.6383, 0, -0.286788, 0, 1, 0, 1.14715, 0, 0.409576, 9.4, -5.5, 10.2)
+
+[node name="Stylized Fluffly Fir Tree" parent="." index="8" instance=ExtResource("6_sblbb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1.3, 8)
+
+[node name="Stylized Fluffly Fir Tree2" parent="." index="9" instance=ExtResource("6_sblbb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -1.3, -2)
+
+[node name="Stylized Fluffy Aspen" parent="." index="10" instance=ExtResource("7_metbe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -1.3, 9)
+
+[node name="Stylized Fluffy Aspen2" parent="." index="11" instance=ExtResource("7_metbe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -1.4, 3)
+
+[node name="Stylized Fluffy Tree" parent="." index="12" instance=ExtResource("8_g60ow")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -1, -3)

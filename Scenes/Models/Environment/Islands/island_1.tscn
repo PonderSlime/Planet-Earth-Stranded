@@ -24,7 +24,7 @@
 albedo_color = Color(0.285854, 0.686665, 0.257504, 1)
 albedo_texture = ExtResource("2_gka6n")
 
-[sub_resource type="Resource" id="Resource_ma4u7"]
+[sub_resource type="Resource" id="Resource_shvng"]
 script = ExtResource("5_3whli")
 amount = 750
 enabled = true
@@ -33,7 +33,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_vx4t4"]
+[sub_resource type="Resource" id="Resource_txo55"]
 script = ExtResource("6_6c6px")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(20, 360, 20)
@@ -44,7 +44,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_spvks"]
+[sub_resource type="Resource" id="Resource_wv7r7"]
 script = ExtResource("7_sq6du")
 iterations = 3
 offset_step = 0.2
@@ -56,7 +56,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_0wqf6"]
+[sub_resource type="Resource" id="Resource_fhw2f"]
 script = ExtResource("8_ktviy")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -72,11 +72,11 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_tnffc"]
+[sub_resource type="Resource" id="Resource_h083k"]
 script = ExtResource("4_ulqfs")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_ma4u7"), SubResource("Resource_vx4t4"), SubResource("Resource_spvks"), SubResource("Resource_0wqf6")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_shvng"), SubResource("Resource_txo55"), SubResource("Resource_wv7r7"), SubResource("Resource_fhw2f")])
 
-[sub_resource type="Resource" id="Resource_kyfkc"]
+[sub_resource type="Resource" id="Resource_k6ya2"]
 script = ExtResource("11_wtbo5")
 size = Vector3(19.6749, 1, 15.8247)
 
@@ -119,7 +119,7 @@ material_override = ExtResource("2_m578x")
 [node name="ProtonScatter" type="Node3D" parent="." index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
 script = ExtResource("3_c6yhv")
-modifier_stack = SubResource("Resource_tnffc")
+modifier_stack = SubResource("Resource_h083k")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -132,7 +132,7 @@ path = "../../Grass"
 [node name="ScatterShape" type="Node3D" parent="ProtonScatter" index="1"]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 2, -2, -4)
 script = ExtResource("10_pv3hw")
-shape = SubResource("Resource_kyfkc")
+shape = SubResource("Resource_k6ya2")
 
 [node name="ScatterShape4" type="Node3D" parent="ProtonScatter" index="2"]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -4, -2, -13)
