@@ -11,7 +11,7 @@ How to play:
 
 3: Locate the .appimage or the .exe file and double-click to play
 
-The controls are in the release details
+The controls are as follows: WASD for movement, Ctrl to run, Space to jump, Q to toggle the glider, and Esc to quit
 
 ![Screenshot from 2024-07-13 17-04-40](https://github.com/user-attachments/assets/bb634d01-0d11-4d7e-b142-743cfa8f066c)
 ![Screenshot from 2024-07-13 17-04-11](https://github.com/user-attachments/assets/554ec1e8-88e3-4666-9f49-1965a841b8e8)
